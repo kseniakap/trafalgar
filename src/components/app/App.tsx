@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '~/assets/main.scss';
+import '~/assets/style/main.scss';
 import { ApiProvider } from '~/components/api';
 import { AppRouter } from '~/components/app';
 import { ServicesProvider } from '~/components/services';
