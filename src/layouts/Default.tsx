@@ -9,13 +9,13 @@ const DefaultLayout: React.FC = ({ children }) => {
     <FullHeight>
       <div>
         <div>
-          <MainLink to={Routes.HOME}>HOME</MainLink>
+          <MainLink to={Routes.HOME}>Главная</MainLink>
         </div>
         <div>
-          <MainLink to={Routes.TEST}>TEST</MainLink>
+          <MainLink to={Routes.LOGIN}>Вход</MainLink>
         </div>
         <div>
-          <MainLink to={Routes.PETS}>PETS</MainLink>
+          <MainLink to={Routes.REGISTER}>Регистрация</MainLink>
         </div>
       </div>
       {children}

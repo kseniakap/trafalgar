@@ -1,13 +1,13 @@
 import React from 'react';
 import { PageContainer } from '~/components/page';
 
-const HomePage: React.FC = () => {
+const RegisterPage: React.FC = () => {
   return (
     <PageContainer>
-      <div>Главная страница</div>
+      <div>Страница регистрации</div>
     </PageContainer>
   );
 };
 
 
-export default HomePage;
+export default RegisterPage;
