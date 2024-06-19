@@ -16,13 +16,13 @@ const AppRoutes: AppRoute[] = [
     exact: true,
   },
   {
-    path: Routes.TEST,
-    page: AppPages.TestPage,
+    path: Routes.LOGIN,
+    page: AppPages.LoginPage,
     exact: true,
   },
   {
-    path: Routes.PETS,
-    page: AppPages.PetsPage,
+    path: Routes.REGISTER,
+    page: AppPages.RegisterPage,
     exact: true,
   },
 ];
