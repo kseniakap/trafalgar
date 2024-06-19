@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { PageContainer } from '~/components/page';
 
-const LoginPage: React.FC = () => {
+const LoginPage: FC = () => {
   return (
     <PageContainer>
-      <div>Страница входа</div>
+      <h2>Страница входа</h2>
     </PageContainer>
   );
 };

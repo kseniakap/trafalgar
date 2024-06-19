@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { PageContainer } from '~/components/page';
 
-const HomePage: React.FC = () => {
+const HomePage: FC = () => {
   return (
     <PageContainer>
-      <div>Главная страница</div>
+      <h2>Главная страница</h2>
     </PageContainer>
   );
 };
