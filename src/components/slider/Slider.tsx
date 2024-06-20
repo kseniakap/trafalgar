@@ -31,8 +31,10 @@ const Slider: FC<SliderProps> = (props) => {
     <>
       <Div>
         <Swiper {...defaultSettings} {...props} onSwiper={setSwiperRef}>
-          {slides.map((Slide, idx) => {
-            return <SwiperSlide key={idx}>{Slide}</SwiperSlide>;
+          {slides.map((slide) => {
+            if (slide.key !== null) {
+              return <SwiperSlide key={slide.key}>{slide}</SwiperSlide>;
+            }
           })}
         </Swiper>
         <PrevBtn orientation="left" onClick={() => (swiperRef.current ? swiperRef.current.slidePrev() : null)} />
