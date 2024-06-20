@@ -1,1 +1,47 @@
-@import "./font.scss";
+@import './font.scss';
+
+body {
+  font-family: 'Roboto';
+}
+
+.heading-5 {
+  @include h5;
+}
+
+.btn-text-L {
+  @include btn-L;
+}
+
+.btn-text-M {
+  @include btn-M;
+}
+
+.btn-text-S {
+  @include btn-S;
+}
+
+.heading-1 {
+  @include h1;
+}
+
+.heading-3 {
+  @include h3;
+}
+
+.heading-4 {
+  @include h4;
+}
+
+.heading-5 {
+  @include h5;
+}
+
+.body-M {
+  @include body-M;
+}
+.body-L {
+  @include body;
+}
+.body-S {
+  @include body-S;
+}
