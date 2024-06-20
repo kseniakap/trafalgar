@@ -14,7 +14,7 @@ const App = ({ basePath }: AppProps) => {
   return (
     <ApiProvider petsApiBaseUrl={config.PETS_API_BASE_URL}>
       <ServicesProvider>
-        <AppRouter basePath={basePath} />;
+        <AppRouter basePath={basePath} />
       </ServicesProvider>
     </ApiProvider>
   );
