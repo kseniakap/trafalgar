@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { PageContainer } from '~/components/page';
 
-const HomePage: FC = () => {
+const LoginPage: FC = () => {
   return (
     <PageContainer>
-      <h2>Главная страница</h2>
+      <h2>Страница входа</h2>
     </PageContainer>
   );
 };
 
-export default HomePage;
+export default LoginPage;

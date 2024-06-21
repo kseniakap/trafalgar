@@ -1,21 +1,21 @@
-import React from 'react';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { MainLink } from '~/components/navigation';
 import { Routes } from '~/lib/routes';
 
-const DefaultLayout: React.FC = ({ children }) => {
+const DefaultLayout: FC = ({ children }) => {
   return (
     <FullHeight>
       <div>
         <div>
-          <MainLink to={Routes.HOME}>HOME</MainLink>
+          <Link to={Routes.HOME}>Главная</Link>
         </div>
         <div>
-          <MainLink to={Routes.TEST}>TEST</MainLink>
+          <Link to={Routes.LOGIN}>Вход</Link>
         </div>
         <div>
-          <MainLink to={Routes.PETS}>PETS</MainLink>
+          <Link to={Routes.REGISTER}>Регистрация</Link>
         </div>
       </div>
       {children}
