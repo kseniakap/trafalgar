@@ -15,8 +15,12 @@ export const CountCard: FC<CountCardProps> = (props: CountCardProps) => {
     <NumberCard>
       {icon}
       <Content>
-        <span className="heading-4">{count}</span>
-        <span className="body-m">{description}</span>
+        <div>
+          <span className="heading-4">{count}</span>
+        </div>
+        <div>
+          <span className="body-m">{description}</span>
+        </div>
       </Content>
     </NumberCard>
   );
