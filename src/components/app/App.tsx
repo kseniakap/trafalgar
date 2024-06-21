@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@mui/material';
-import React from 'react';
 
 import '~/assets/style/main.scss';
 import { ApiProvider } from '~/components/api';

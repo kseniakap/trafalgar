@@ -1,1 +1,55 @@
-@import "./font.scss";
+@import './font.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.heading-5 {
+  @include h5;
+}
+
+.btn-text-l {
+  @include btn-L;
+}
+
+.btn-text-m {
+  @include btn-M;
+}
+
+.btn-text-s {
+  @include btn-S;
+}
+
+.heading-1 {
+  @include h1;
+}
+
+.heading-3 {
+  @include h3;
+}
+
+.heading-4 {
+  @include h4;
+}
+
+.heading-5 {
+  @include h5;
+}
+
+.body-m {
+  @include body-M;
+}
+
+.body-l {
+  @include body;
+}
+
+.body-s {
+  @include body-S;
+}
