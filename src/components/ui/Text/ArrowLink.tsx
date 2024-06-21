@@ -1,5 +1,5 @@
-import Box from '@mui/material/Box/Box';
-import React from 'react';
+import Box from '@mui/material/Box';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import ArrowRight from '~/assets/icons/arrow-right.svg';
@@ -9,13 +9,11 @@ interface ArrowLinkProps {
   onClick?: () => void;
 }
 
-export const ArrowLink = (props: ArrowLinkProps) => {
+export const ArrowLink: FC<ArrowLinkProps> = (props: ArrowLinkProps) => {
   const { text, onClick } = props;
   return (
     <TextContainer onClick={onClick}>
-      <Text component={'span'} className="btn-text-M">
-        {text}
-      </Text>
+      <span className="btn-text-m">{text}</span>
       <img src={ArrowRight} alt="arrow-icon" />
     </TextContainer>
   );
@@ -26,9 +24,9 @@ const TextContainer = styled(Box)`
   flex-direction: row;
   gap: 8px;
   align-items: center;
-  cursor: pointer;
   width: fit-content;
   color: #458ff6;
+  cursor: pointer;
   :hover {
     filter: brightness(85%);
   }
@@ -36,5 +34,3 @@ const TextContainer = styled(Box)`
     filter: brightness(95%);
   }
 `;
-
-const Text = styled(Box)``;

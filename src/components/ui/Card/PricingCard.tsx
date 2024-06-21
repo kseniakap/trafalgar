@@ -1,6 +1,6 @@
-import Box from '@mui/material/Box/Box';
-import Card from '@mui/material/Card/Card';
-import React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
@@ -15,7 +15,7 @@ interface PricingCardProps {
   services: string[];
 }
 
-export const PricingCard = (props: PricingCardProps) => {
+export const PricingCard: FC<PricingCardProps> = (props: PricingCardProps) => {
   const { title, description, price, discount, monthPrice, services } = props;
 
   const servicesList = services.map((service, index) => (
@@ -28,32 +28,32 @@ export const PricingCard = (props: PricingCardProps) => {
   return (
     <PriceCard>
       <SectionBox>
-        <Title className="heading-3">{title}</Title>
-        <Description className="body-L">{description}</Description>
+        <span className="heading-3">{title}</span>
+        <span className="body-l">{description}</span>
       </SectionBox>
       <SectionBox>
         <CrossOutPrice className="heading-1">{price}</CrossOutPrice>
-        <Discount className="heading-1">{discount}</Discount>
-        <MonthPrice className="body-S">{`${monthPrice} каждый месяц`}</MonthPrice>
+        <span className="heading-1">{discount}</span>
+        <span className="body-s">{`${monthPrice} каждый месяц`}</span>
       </SectionBox>
       <SectionBox>
         <Button text={'Начать'} style={ButtonStyle.Contained} size={ButtonSize.Large} textSize={ButtonTextSize.Large} />
       </SectionBox>
-      <ServicesSection className="body-L">{servicesList}</ServicesSection>
+      <ServicesSection className="body-l">{servicesList}</ServicesSection>
     </PriceCard>
   );
 };
 
 const PriceCard = styled(Card)`
-  border: 1px solid #dde1e6;
-  box-shadow: none !important;
-  border-radius: 8px !important;
-  padding: 16px 24px;
   display: flex;
   align-content: center;
   flex-direction: column;
   align-items: center;
   height: 858px;
+  padding: 16px 24px;
+  border: 1px solid #dde1e6;
+  border-radius: 8px !important;
+  box-shadow: none !important;
 `;
 
 const SectionBox = styled(Box)`
@@ -79,8 +79,3 @@ const Service = styled(Box)`
   gap: 8px;
   align-items: center;
 `;
-
-const Title = styled(Box)``;
-const Description = styled(Box)``;
-const Discount = styled(Box)``;
-const MonthPrice = styled(Box)``;

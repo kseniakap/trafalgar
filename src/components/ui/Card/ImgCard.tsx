@@ -1,9 +1,8 @@
-import Box from '@mui/material/Box/Box';
-import Card from '@mui/material/Card/Card';
-import CardActions from '@mui/material/CardActions/CardActions';
-import CardContent from '@mui/material/CardContent/CardContent';
-import CardMedia from '@mui/material/CardMedia/CardMedia';
-import React, { ReactElement } from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { ArrowLink } from '../Text/ArrowLink';
@@ -16,14 +15,14 @@ interface ImageCardProps {
   withIcon?: boolean;
 }
 
-export const ImageCard = (props: ImageCardProps) => {
+export const ImageCard: FC<ImageCardProps> = (props: ImageCardProps) => {
   const { title, description, image, linkText, withIcon } = props;
   return (
     <MediaCard $withIcon={withIcon}>
       <Media $withIcon={withIcon}>{image}</Media>
       <Content>
-        <Title className="heading-5">{title}</Title>
-        <Description className="body-M">{description}</Description>
+        <span className="heading-5">{title}</span>
+        <span className="body-m">{description}</span>
       </Content>
       {linkText && (
         <Link $withIcon={withIcon}>
@@ -36,15 +35,15 @@ export const ImageCard = (props: ImageCardProps) => {
 
 const MediaCard = styled(Card)<{ $withIcon?: boolean }>`
   border: ${(props) => (props.$withIcon ? 'none' : '1px solid #dde1e6;')};
-  box-shadow: none !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 `;
 
 const Content = styled(CardContent)`
-  padding: 24px 16px 16px 16px !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 24px 16px 16px 16px !important;
 `;
 
 const Link = styled(CardActions)<{ $withIcon?: boolean }>`
@@ -54,6 +53,3 @@ const Link = styled(CardActions)<{ $withIcon?: boolean }>`
 const Media = styled(CardMedia)<{ $withIcon?: boolean }>`
   padding-left: ${(props) => (props.$withIcon ? '16px' : '0')};
 `;
-
-const Title = styled(Box)``;
-const Description = styled(Box)``;

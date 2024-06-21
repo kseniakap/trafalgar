@@ -1,22 +1,28 @@
 @import './font.scss';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
 }
 
 .heading-5 {
   @include h5;
 }
 
-.btn-text-L {
+.btn-text-l {
   @include btn-L;
 }
 
-.btn-text-M {
+.btn-text-m {
   @include btn-M;
 }
 
-.btn-text-S {
+.btn-text-s {
   @include btn-S;
 }
 
@@ -36,12 +42,14 @@ body {
   @include h5;
 }
 
-.body-M {
+.body-m {
   @include body-M;
 }
-.body-L {
+
+.body-l {
   @include body;
 }
-.body-S {
+
+.body-s {
   @include body-S;
 }

@@ -1,7 +1,7 @@
-import Box from '@mui/material/Box/Box';
-import Card from '@mui/material/Card/Card';
-import CardContent from '@mui/material/CardContent/CardContent';
-import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 
 import Minus from '~/assets/icons/minus.svg';
@@ -12,25 +12,24 @@ interface DropDownCardProps {
   description: string;
 }
 
-export const DropDownCard = (props: DropDownCardProps) => {
+export const DropDownCard: FC<DropDownCardProps> = (props: DropDownCardProps) => {
   const { title, description } = props;
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <DropCard>
       <Content>
         <Title className="heading-5">
           {title}
-          {isOpen ? (
-            <Icon>
-              <img src={Minus} onClick={() => setIsOpen(false)} />
-            </Icon>
-          ) : (
-            <Icon>
-              <img src={Plus} onClick={() => setIsOpen(true)} />
-            </Icon>
-          )}
+          <Icon>
+            <img src={isOpen ? Minus : Plus} onClick={handleClick} alt={isOpen ? 'minus icon' : 'plus icon'} />
+          </Icon>
         </Title>
-        {isOpen && <Description className="body-M">{description}</Description>}
+        {isOpen && <Description className="body-m">{description}</Description>}
       </Content>
     </DropCard>
   );
@@ -38,8 +37,8 @@ export const DropDownCard = (props: DropDownCardProps) => {
 
 const DropCard = styled(Card)`
   border: 1px solid #dde1e6;
-  box-shadow: none !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 `;
 
 const Content = styled(CardContent)`

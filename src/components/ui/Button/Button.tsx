@@ -1,5 +1,5 @@
-import { default as Btn } from '@mui/material/Button/Button';
-import React, { ReactElement } from 'react';
+import { default as Btn } from '@mui/material/Button';
+import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 export enum ButtonStyle {
@@ -14,9 +14,9 @@ export enum ButtonSize {
 }
 
 export enum ButtonTextSize {
-  Small = 'btn-text-S',
-  Medium = 'btn-text-M',
-  Large = 'btn-text-L',
+  Small = 'btn-text-s',
+  Medium = 'btn-text-m',
+  Large = 'btn-text-l',
 }
 
 interface ButtonProps {
@@ -27,18 +27,31 @@ interface ButtonProps {
   fullWidth?: boolean;
   leftIcon?: ReactElement;
   onClick?: () => void;
+  className?: string;
 }
 
-export const Button = (props: ButtonProps) => {
-  const { text, style, size, textSize, fullWidth, onClick, leftIcon } = props;
+const getPadding = (size?: ButtonSize) => {
+  switch (size) {
+    case ButtonSize.Small:
+      return '12px 16px !important';
+    case ButtonSize.Large:
+      return '18px 32px !important';
+    default:
+      return '16px 28px !important';
+  }
+};
+
+export const Button: FC<ButtonProps> = (props: ButtonProps) => {
+  const { text, style, size, textSize, fullWidth, onClick, leftIcon, className } = props;
   return (
-    <ButtonContainer>
+    <div>
       <StyledButton
         variant={style}
         onClick={onClick}
         $btnSize={size}
         $btnStyle={style}
         fullWidth={fullWidth}
+        className={className}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             onClick;
@@ -46,29 +59,21 @@ export const Button = (props: ButtonProps) => {
         }}
       >
         {leftIcon}
-        <BtnText className={textSize || 'btn-text-M'}>{text}</BtnText>
+        <span className={textSize || 'btn-text-m'}>{text}</span>
       </StyledButton>
-    </ButtonContainer>
+    </div>
   );
 };
 
 const StyledButton = styled(Btn)<{ $btnSize?: ButtonSize; $btnStyle: ButtonStyle }>`
   display: flex;
   gap: 8px;
-  border-radius: 0px !important;
+  padding: ${(props) => getPadding(props.$btnSize)};
+  background-color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? 'none' : '#458FF6 !important')};
+  color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? '#458FF6 !important' : 'white')};
   text-transform: none !important;
   outline: 2px solid #458ff6 !important;
   border: none !important;
+  border-radius: 0px !important;
   box-shadow: none !important;
-  background-color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? 'none' : '#458FF6 !important')};
-  color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? '#458FF6 !important' : 'white')};
-  padding: ${(props) =>
-    props.$btnSize === ButtonSize.Small
-      ? '12px 16px !important'
-      : props.$btnSize === ButtonSize.Large
-      ? '18px 32px !important'
-      : '16px 28px !important'};
 `;
-const ButtonContainer = styled.div``;
-
-const BtnText = styled.div``;

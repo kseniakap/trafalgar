@@ -1,7 +1,7 @@
-import InputAdornment from '@mui/material/InputAdornment/InputAdornment';
-import Stack from '@mui/material/Stack/Stack';
-import TextField from '@mui/material/TextField/TextField';
-import React, { ReactElement } from 'react';
+import InputAdornment from '@mui/material/InputAdornment';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 export enum InputType {
@@ -20,9 +20,10 @@ interface InputProps {
   type?: InputType;
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
+  className?: string;
 }
 
-export const Input = (props: InputProps) => {
+export const Input: FC<InputProps> = (props: InputProps) => {
   const {
     value,
     onChange,
@@ -33,14 +34,14 @@ export const Input = (props: InputProps) => {
     type = InputType.Text,
     leftIcon,
     rightIcon,
+    className,
   } = props;
 
   return (
     <>
-      <InputContainer direction="column" alignItems="flex-start" spacing={1}>
-        <Label className="body-S">{label}</Label>
+      <InputContainer direction="column" alignItems="flex-start" spacing={1} className={className}>
+        <span className="body-s">{label}</span>
         <StyledTextField
-          id="filled-basic"
           variant="filled"
           size="small"
           type={type}
@@ -51,16 +52,8 @@ export const Input = (props: InputProps) => {
           multiline={multiline}
           minRows={3}
           InputProps={{
-            startAdornment: (
-              <StartIcon position="start" $leftIcon={!!leftIcon}>
-                {leftIcon}
-              </StartIcon>
-            ),
-            endAdornment: (
-              <EndIcon position="end" $rightIcon={!!rightIcon}>
-                {rightIcon}
-              </EndIcon>
-            ),
+            startAdornment: leftIcon && <StartIcon position="start">{leftIcon}</StartIcon>,
+            endAdornment: rightIcon && <EndIcon position="end">{rightIcon}</EndIcon>,
           }}
         />
       </InputContainer>
@@ -99,26 +92,22 @@ const StyledTextField = styled(TextField)`
   textarea {
     padding: 12px 0px 12px 16px;
     ::placeholder {
+      text-align: left;
       font-size: 16px;
       font-weight: 400;
       line-height: 22.4px;
-      text-align: left;
       color: #697077;
       opacity: unset;
     }
   }
 `;
 
-const StartIcon = styled(InputAdornment)<{ $leftIcon?: boolean }>`
+const StartIcon = styled(InputAdornment)`
   padding-left: 16px;
-  display: ${(props) => (props.$leftIcon ? '' : 'none !important')};
   margin-top: 0px !important;
   margin-right: -4px !important;
 `;
 
-const EndIcon = styled(InputAdornment)<{ $rightIcon?: boolean }>`
+const EndIcon = styled(InputAdornment)`
   padding: 0px 16px;
-  display: ${(props) => (props.$rightIcon ? '' : 'none !important')};
 `;
-
-const Label = styled.div``;

@@ -1,7 +1,6 @@
-import Box from '@mui/material/Box/Box';
-import Card from '@mui/material/Card/Card';
-import CardContent from '@mui/material/CardContent/CardContent';
-import React, { ReactElement } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 interface CountCardProps {
@@ -10,33 +9,29 @@ interface CountCardProps {
   icon: ReactElement;
 }
 
-export const CountCard = (props: CountCardProps) => {
+export const CountCard: FC<CountCardProps> = (props: CountCardProps) => {
   const { count, description, icon } = props;
   return (
     <NumberCard>
       {icon}
       <Content>
-        <Title className="heading-4">{count}</Title>
-        <Description className="body-M">{description}</Description>
+        <span className="heading-4">{count}</span>
+        <span className="body-m">{description}</span>
       </Content>
     </NumberCard>
   );
 };
 
 const NumberCard = styled(Card)`
-  border: 1px solid #dde1e6;
-  box-shadow: none !important;
-  border-radius: 8px !important;
   display: flex;
   flex-direction: row;
-  padding: 16px !important;
   gap: 8px;
+  padding: 16px !important;
+  border: 1px solid #dde1e6;
+  border-radius: 8px !important;
+  box-shadow: none !important;
 `;
 
 const Content = styled(CardContent)`
   padding: 0 !important;
 `;
-
-const Title = styled(Box)``;
-
-const Description = styled(Box)``;
