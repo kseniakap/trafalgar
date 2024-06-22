@@ -1,11 +1,12 @@
 import { FC } from 'react';
 
 import { PageContainer } from '~/components/page';
+import { Auth } from '~/components/ui/auth/Auth';
 
 const RegisterPage: FC = () => {
   return (
     <PageContainer>
-      <h2>Страница регистрации</h2>
+      <Auth isLogin={false} />
     </PageContainer>
   );
 };

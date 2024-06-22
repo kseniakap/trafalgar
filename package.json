@@ -29,6 +29,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@moxy/next-layout": "^2.2.3",
+    "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
     "@simplesmiler/taxios": "^0.2.7",
     "axios": "^0.21.1",
