@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
+import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { Input, InputType } from '../Input/Input';
 import { Routes } from '~/lib/routes';
-import { Checkbox, FormControlLabel, IconButton} from '@mui/material';
+import { Checkbox, FormControlLabel, IconButton } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -13,7 +13,7 @@ interface AuthProps {
   isLogin: boolean;
 }
 
-export const Auth: FC<AuthProps> = ({isLogin }) => {
+export const Auth: FC<AuthProps> = ({ isLogin }) => {
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -24,8 +24,8 @@ export const Auth: FC<AuthProps> = ({isLogin }) => {
 
   const { name, surname, email, password, showPassword } = formData;
 
-  const linkRoute = isLogin ? Routes.REGISTER : Routes.LOGIN,
-      linkText = isLogin ? 'Нет аккаунта? Зарегистрироваться': 'Уже есть аккаунт?';
+  const linkRoute = isLogin ? Routes.REGISTER : Routes.LOGIN;
+  const linkText = isLogin ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт?';
 
   const handleChange = (e: string | React.ChangeEvent<HTMLInputElement>, fieldName: string) => {
     const value = typeof e === 'string' ? e : e.target.value;
@@ -42,50 +42,35 @@ export const Auth: FC<AuthProps> = ({isLogin }) => {
     }));
   };
 
-  return(
+  return (
     <Div>
       <Title>{isLogin ? 'Вход' : 'Регистрация'}</Title>
-      <Form onSubmit={(e) => {e.preventDefault(); alert('submit!'); }}>
-         {
-          !isLogin && (
-            <>
-              <Input
-                value={name}
-                label="Имя"
-                type={InputType.Text}
-                onChange={(e) => handleChange(e, 'name')}
-              />
-              <Input
-                value={surname}
-                label="Фамилия"
-                type={InputType.Text}
-                onChange={(e) => handleChange(e, 'surname')}
-                />
-            </>
-          )
-         }
-        <Input
-          value={email}
-          label="Email"
-          type={InputType.Email}
-          onChange={(e) => handleChange(e, 'email')}
-        />
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          alert('submit!');
+        }}
+      >
+        {!isLogin && (
+          <>
+            <Input value={name} label="Имя" type={InputType.Text} onChange={(e) => handleChange(e, 'name')} />
+            <Input value={surname} label="Фамилия" type={InputType.Text} onChange={(e) => handleChange(e, 'surname')} />
+          </>
+        )}
+        <Input value={email} label="Email" type={InputType.Email} onChange={(e) => handleChange(e, 'email')} />
         <Input
           value={password}
           label="Пароль"
-          type={showPassword ? InputType.Text: InputType.Password}
+          type={showPassword ? InputType.Text : InputType.Password}
           onChange={(e) => handleChange(e, 'password')}
           rightIcon={
-            <IconButton
-              onClick={handleTogglePassword}
-              edge="end"
-            >
+            <IconButton onClick={handleTogglePassword} edge="end">
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           }
         />
         <StyledFormControlLabel
-          control={<Checkbox/>}
+          control={<Checkbox />}
           label={isLogin ? 'Запомнить меня' : 'Согласен с политикой обработки персональных данных'}
         />
         <Button
@@ -93,7 +78,7 @@ export const Auth: FC<AuthProps> = ({isLogin }) => {
           style={ButtonStyle.Contained}
           size={ButtonSize.Large}
           fullWidth
-          />
+        />
       </Form>
       <Btns>
         <Button
@@ -102,27 +87,19 @@ export const Auth: FC<AuthProps> = ({isLogin }) => {
           size={ButtonSize.Small}
           textSize={ButtonTextSize.Medium}
           fullWidth
-          leftIcon={
-            <IconButton sx={{ color: '#458FF6', padding: '0 15px 0 0'}}>
-              <GoogleIcon/>
-            </IconButton>}
-          />
+          leftIcon={<GoogleIcon />}
+        />
         <Button
           text="Вход с помощью Apple"
           style={ButtonStyle.Outlined}
           size={ButtonSize.Small}
           textSize={ButtonTextSize.Medium}
           fullWidth
-          leftIcon={
-            <IconButton sx={{ color: '#458FF6', padding: '0 15px 0 0'}}>
-              <AppleIcon/>
-            </IconButton>}
-          />
+          leftIcon={<AppleIcon />}
+        />
       </Btns>
-      <Line/>
-      <LinkBlue to={linkRoute}>
-        {linkText}
-      </LinkBlue>
+      <Line />
+      <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
     </Div>
   );
 };
@@ -153,13 +130,13 @@ const Btns = styled.div`
 `;
 
 const Line = styled.div`
-  background-color:#DDE1E6;
+  background-color: #dde1e6;
   width: 100%;
   height: 1px;
 `;
 
 const LinkBlue = styled(Link)`
-  color: #001D6C;
+  color: #001d6c;
   font-weight: 400;
   font-size: 14px;
   line-height: 19.6px;
@@ -173,4 +150,3 @@ const StyledFormControlLabel = styled(FormControlLabel)`
     line-height: 19.6px;
   }
 `;
-

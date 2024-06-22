@@ -6,7 +6,7 @@ import { Auth } from '~/components/ui/auth/Auth';
 const RegisterPage: FC = () => {
   return (
     <PageContainer>
-      <Auth  isLogin={false}/>
+      <Auth isLogin={false} />
     </PageContainer>
   );
 };
