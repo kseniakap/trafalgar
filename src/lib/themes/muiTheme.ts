@@ -1,5 +1,24 @@
 import { createTheme } from '@mui/material';
 
+import {
+  COOL_GRAY_10,
+  COOL_GRAY_100,
+  COOL_GRAY_20,
+  COOL_GRAY_30,
+  COOL_GRAY_40,
+  COOL_GRAY_50,
+  COOL_GRAY_60,
+  COOL_GRAY_70,
+  COOL_GRAY_80,
+  COOL_GRAY_90,
+  ERROR,
+  OVERLAY,
+  PRIMARY_30,
+  PRIMARY_60,
+  PRIMARY_90,
+  WARNING,
+  WHITE,
+} from '~/assets/style/colors';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 declare module '@mui/material/styles' {
@@ -22,33 +41,33 @@ const muiTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#0F62FE',
-      dark: '#003D87',
-      light: '#A6C8FF',
+      main: PRIMARY_60,
+      dark: PRIMARY_90,
+      light: PRIMARY_30,
     },
     common: {
-      white: '#FFFFFF',
+      white: WHITE,
     },
     error: {
-      main: '#DA1E28',
+      main: ERROR,
     },
     warning: {
-      main: '#DA1E28',
+      main: WARNING,
     },
     overlay: {
-      main: 'rgba(18, 22, 25, 0.5)',
+      main: OVERLAY,
     },
     coolGray: {
-      'coolGray-100': '#121619',
-      'coolGray-90': '#21272a',
-      'coolGray-80': '#343a3f',
-      'coolGray-70': '#4d5358',
-      'coolGray-60': '#697077',
-      'coolGray-50': '#878d96',
-      'coolGray-40': '#a2a9b0',
-      'coolGray-30': '#c1c7cd',
-      'coolGray-20': '#dde1e6',
-      'coolGray-10': '#f2f4f8',
+      'coolGray-100': COOL_GRAY_100,
+      'coolGray-90': COOL_GRAY_90,
+      'coolGray-80': COOL_GRAY_80,
+      'coolGray-70': COOL_GRAY_70,
+      'coolGray-60': COOL_GRAY_60,
+      'coolGray-50': COOL_GRAY_50,
+      'coolGray-40': COOL_GRAY_40,
+      'coolGray-30': COOL_GRAY_30,
+      'coolGray-20': COOL_GRAY_20,
+      'coolGray-10': COOL_GRAY_10,
     },
   },
   spacing: (factor: number) => `${factor * miniUnit}px`,
