@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useRef } from 'react';
+import { FC, ReactElement, useRef } from 'react';
 import styled from 'styled-components';
 import 'swiper/css';
 import { Swiper, SwiperClass, SwiperSlide, SwiperProps } from 'swiper/react';

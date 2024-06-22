@@ -1,4 +1,5 @@
-import React, {FC} from 'react';
+import { FC } from 'react';
+
 import { PageContainer } from '~/components/page';
 
 const HomePage: FC = () => {
@@ -8,6 +9,5 @@ const HomePage: FC = () => {
     </PageContainer>
   );
 };
-
 
 export default HomePage;

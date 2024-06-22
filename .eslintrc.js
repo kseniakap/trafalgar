@@ -27,6 +27,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-key': ['error', {
       checkFragmentShorthand: true,
     }],

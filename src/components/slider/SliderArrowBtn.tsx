@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 import styled from 'styled-components';
 
 type OrientationType = 'left' | 'right';
