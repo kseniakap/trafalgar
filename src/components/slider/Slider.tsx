@@ -45,8 +45,10 @@ const Slider: FC<SliderProps> = (props) => {
 };
 
 const Div = styled.div`
+  box-sizing: border-box;
+  width: 100%;
   position: relative;
-  padding: 24px;
+  padding: 0 24px;
 `;
 
 const NextBtn = styled(SliderArrowBtn)`
