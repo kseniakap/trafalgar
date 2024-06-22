@@ -1,9 +1,9 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Button, ButtonSize, ButtonStyle } from '../Button/Button';
+import {Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { Input, InputType } from '../Input/Input';
 import { Routes } from '~/lib/routes';
-import { Checkbox, FormControlLabel, IconButton, InputAdornment } from '@mui/material';
+import { Checkbox, FormControlLabel, IconButton} from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -14,11 +14,33 @@ interface AuthProps {
 }
 
 export const Auth: FC<AuthProps> = ({isLogin }) => {
-  const [name, setName] = useState<string>('');
-  const [surname, setSurname] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    showPassword: false,
+  });
+
+  const { name, surname, email, password, showPassword } = formData;
+
+  const linkRoute = isLogin ? Routes.REGISTER : Routes.LOGIN,
+      linkText = isLogin ? 'Нет аккаунта? Зарегистрироваться': 'Уже есть аккаунт?';
+
+  const handleChange = (e: string | React.ChangeEvent<HTMLInputElement>, fieldName: string) => {
+    const value = typeof e === 'string' ? e : e.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleTogglePassword = () => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      showPassword: !prevFormData.showPassword,
+    }));
+  };
 
   return(
     <Div>
@@ -31,76 +53,76 @@ export const Auth: FC<AuthProps> = ({isLogin }) => {
                 value={name}
                 label="Имя"
                 type={InputType.Text}
-                onChange={setName}/>
+                onChange={(e) => handleChange(e, 'name')}
+              />
               <Input
                 value={surname}
                 label="Фамилия"
                 type={InputType.Text}
-                onChange={setSurname}/>
+                onChange={(e) => handleChange(e, 'surname')}
+                />
             </>
           )
          }
-        <Input value={email} label="Email" type={InputType.Email} onChange={setEmail}/>
+        <Input
+          value={email}
+          label="Email"
+          type={InputType.Email}
+          onChange={(e) => handleChange(e, 'email')}
+        />
         <Input
           value={password}
           label="Пароль"
           type={showPassword ? InputType.Text: InputType.Password}
-          onChange={setPassword}
+          onChange={(e) => handleChange(e, 'password')}
           rightIcon={
-            <InputAdornment position="end">
-              <IconButton
-                onClick={() => setShowPassword((prev) => !prev)}
-                edge="end"
-              >
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
+            <IconButton
+              onClick={handleTogglePassword}
+              edge="end"
+            >
+              {showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
           }
         />
-        {
-          isLogin ? (
-            <StyledFormControlLabel control={<Checkbox/>} label="Запомнить меня" />) : (
-            <StyledFormControlLabel control={<Checkbox/>} label="Согласен с политикой обработки персональных данных" />
-          )
-        }
+        <StyledFormControlLabel
+          control={<Checkbox/>}
+          label={isLogin ? 'Запомнить меня' : 'Согласен с политикой обработки персональных данных'}
+        />
         <Button
           text={isLogin ? 'Вход' : 'Зарегистрироваться'}
           style={ButtonStyle.Contained}
           size={ButtonSize.Large}
-          fullWidth={true} />
+          fullWidth
+          />
       </Form>
       <Btns>
         <Button
           text="Вход с помощью Google"
           style={ButtonStyle.Outlined}
           size={ButtonSize.Small}
+          textSize={ButtonTextSize.Medium}
+          fullWidth
           leftIcon={
-            <IconButton>
-              <GoogleIcon color="primary"/>
+            <IconButton sx={{ color: '#458FF6', padding: '0 15px 0 0'}}>
+              <GoogleIcon/>
             </IconButton>}
           />
         <Button
           text="Вход с помощью Apple"
           style={ButtonStyle.Outlined}
           size={ButtonSize.Small}
+          textSize={ButtonTextSize.Medium}
+          fullWidth
           leftIcon={
-            <IconButton>
-              <AppleIcon color="primary"/>
+            <IconButton sx={{ color: '#458FF6', padding: '0 15px 0 0'}}>
+              <AppleIcon/>
             </IconButton>}
           />
       </Btns>
       <Line/>
-      {
-        isLogin ? (
-          <LinkBlue to={Routes.REGISTER}>
-            Нет аккаунта? Зарегистрироваться
-          </LinkBlue>
-        ): (
-          <LinkBlue to={Routes.LOGIN}>
-            Уже есть аккаунт?
-          </LinkBlue>
-        )
-      }
+      <LinkBlue to={linkRoute}>
+        {linkText}
+      </LinkBlue>
     </Div>
   );
 };
@@ -151,3 +173,4 @@ const StyledFormControlLabel = styled(FormControlLabel)`
     line-height: 19.6px;
   }
 `;
+
