@@ -16,8 +16,8 @@ const categories = [
 const SearchSelect: FC = () => {
   const [currentCategory, setCurrentCategory] = useState<string>('');
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setCurrentCategory(event.target.value);
+  const handleChange = (event: SelectChangeEvent<unknown>) => {
+    setCurrentCategory(event.target.value as string);
   };
 
   return (
