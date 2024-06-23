@@ -1,9 +1,9 @@
-import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { FC } from 'react';
 
 import Logo from '../../common/Logo';
 import SearchBar from '../../common/SearchBar';
+import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
 
 const MiddleMenu: FC = () => {
   return (
@@ -14,13 +14,12 @@ const MiddleMenu: FC = () => {
   );
 };
 
-const MiddleMenuContainer = styled(Box)(() => ({
+const MiddleMenuContainer = styled(BaseMenuContainer)(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   height: '96px',
-  boxSizing: 'border-box',
-  padding: '0 80px',
+
   gap: '24px',
 }));
 

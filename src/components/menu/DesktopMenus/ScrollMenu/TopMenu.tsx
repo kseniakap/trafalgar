@@ -1,29 +1,37 @@
-import { Box } from '@mui/material';
+import { styled } from '@mui/material';
 import { FC } from 'react';
 
 import Location from '../../common/Location';
 import SearchBar from '../../common/SearchBar';
 import UserAndCartMenus from '../../common/UserAndCartMenus';
+import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
 
 const TopMenu: FC = () => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '72px',
-        alignItems: 'center',
-        boxSizing: 'border-box',
-        borderBottom: '1px solid #C1C7CD',
-        height: '64px',
-        padding: '8px 80px 8px 80px',
-      }}
-    >
+    <TopMenuContainer>
       <Location location="Москва" />
       <SearchBar height="32px" />
       <UserAndCartMenus />
-    </Box>
+    </TopMenuContainer>
   );
 };
 
 export default TopMenu;
+
+const TopMenuContainer = styled(BaseMenuContainer)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  [theme.breakpoints.down('desktopXL')]: {
+    gap: theme.spacing(9),
+  },
+  [theme.breakpoints.down('desktop')]: {
+    gap: theme.spacing(2),
+  },
+  [theme.breakpoints.down('iPad')]: {
+    gap: theme.spacing(1),
+  },
+  alignItems: 'center',
+
+  borderBottom: '1px solid #C1C7CD',
+  height: '64px',
+}));

@@ -17,7 +17,6 @@ const UserAndCartMenus: FC = () => {
 const UserAndCartMenusContainer = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'space-between',
-  minWidth: '312px',
 }));
 
 export default UserAndCartMenus;

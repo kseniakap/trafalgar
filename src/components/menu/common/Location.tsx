@@ -20,7 +20,6 @@ const Location: FC<ILocationProps> = ({ location }) => {
 const StyledLocationContainer = styled(Box)(() => ({
   display: 'flex',
   gap: '8px',
-  boxSizing: 'border-box',
   padding: '16px 8px 16px 13px',
 }));
 

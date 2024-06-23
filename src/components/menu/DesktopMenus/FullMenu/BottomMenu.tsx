@@ -1,8 +1,9 @@
-import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { FC } from 'react';
 
 import NavBar from '../../common/NavBar';
+import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
+import { COOL_GRAY_10 } from '~/assets/style/colors';
 
 const BottomMenu: FC = () => {
   return (
@@ -12,13 +13,11 @@ const BottomMenu: FC = () => {
   );
 };
 
-const BottomMenuContainer = styled(Box)(() => ({
+const BottomMenuContainer = styled(BaseMenuContainer)(() => ({
   display: 'flex',
   gap: '8px',
-  boxSizing: 'border-box',
-  backgroundColor: '#F2F4F8',
+  backgroundColor: COOL_GRAY_10,
   height: '48px',
-  padding: '0px 80px 0px 80px',
 }));
 
 export default BottomMenu;

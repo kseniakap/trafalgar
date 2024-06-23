@@ -25,8 +25,8 @@ const NavButtonMenu = styled(Button)(({ theme }) => ({
   textTransform: 'none',
   padding: '4px 16px 4px 16px',
   backgroundColor: WHITE,
-  boxSizing: 'border-box',
 
+  minWidth: '108px',
   [theme.breakpoints.up('desktop')]: {
     border: `1px solid ${COOL_GRAY_30}`,
   },

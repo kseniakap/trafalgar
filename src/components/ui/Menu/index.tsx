@@ -33,9 +33,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
         onClick={handleClick}
         endIcon={<CustomIcon />}
       >
-        <Typography fontWeight={'500'} fontSize={'16px'}>
-          {title}
-        </Typography>
+        <StyledTypography>{title}</StyledTypography>
       </StyledButton>
       <StyledMenu
         id="menu-custom"
@@ -60,6 +58,13 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
 
 export default CustomMenu;
 
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontWeight: 500,
+  fontSize: '16px',
+  [theme.breakpoints.down('iPad')]: {
+    fontSize: '0px',
+  },
+}));
 const CustomIcon = styled(KeyboardArrowDownIcon)(() => ({
   fontSize: '30px !important',
 }));

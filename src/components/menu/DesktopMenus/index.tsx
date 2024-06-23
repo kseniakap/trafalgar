@@ -17,7 +17,7 @@ const DesktopMenus: FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  return <>{isScrolled ? <ScrollMenu /> : <FullMenu />};</>;
+  return <>{isScrolled ? <ScrollMenu /> : <FullMenu />}</>;
 };
 
 export default DesktopMenus;

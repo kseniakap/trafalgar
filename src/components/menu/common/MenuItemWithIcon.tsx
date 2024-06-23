@@ -21,7 +21,7 @@ const MenuItemWithIcon: FC<IMenuItemWithIconProps> = ({ icon, items, title }) =>
 const MenuItemWithIconContainer = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'center',
-  width: '150px',
+  minWidth: '100px',
 }));
 
 export default MenuItemWithIcon;

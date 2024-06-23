@@ -1,8 +1,9 @@
-import { Box, styled } from '@mui/material';
+import { styled } from '@mui/material';
 import { FC } from 'react';
 
 import Location from '../../common/Location';
 import UserAndCartMenus from '../../common/UserAndCartMenus';
+import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 
 const TopMenu: FC = () => {
@@ -14,19 +15,16 @@ const TopMenu: FC = () => {
   );
 };
 
-const TopMenuContainer = styled(Box)(() => ({
+const TopMenuContainer = styled(BaseMenuContainer)(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
 
-  boxSizing: 'border-box',
   borderBottom: `1px solid ${COOL_GRAY_30}`,
 
   backgroundColor: WHITE,
 
   height: '64px',
-
-  padding: '8px 80px 8px 80px',
 }));
 
 export default TopMenu;

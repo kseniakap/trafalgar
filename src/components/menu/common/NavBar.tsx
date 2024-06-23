@@ -8,31 +8,56 @@ const NavBar: FC = () => {
   return (
     <NavBarContainer>
       <MenuButton />
-      {navigationLinks.map((nav) => (
-        <NavButton key={nav}>
-          <Typography fontWeight={'500'} fontSize={'16px'}>
-            {nav}
-          </Typography>
-        </NavButton>
-      ))}
+      <NavButtonsContainer>
+        {navigationLinks.map((nav) => (
+          <NavButton key={nav}>
+            <Typography fontWeight={'500'} fontSize={'16px'}>
+              {nav}
+            </Typography>
+          </NavButton>
+        ))}
+      </NavButtonsContainer>
     </NavBarContainer>
   );
 };
 
-const NavButton = styled(Button)(() => ({
+const NavButton = styled(Button)(({ theme }) => ({
   color: 'black',
   textTransform: 'none',
-  padding: '4px 16px 4px 16px',
+  whiteSpace: 'nowrap',
+  [theme.breakpoints.down('desktopXL')]: {
+    padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+  },
+  [theme.breakpoints.down('desktop')]: {
+    padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+  },
+  [theme.breakpoints.down('iPad')]: {
+    padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+  },
 }));
 
-const NavBarContainer = styled(Box)(() => ({
+const NavBarContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'start',
-  gap: '8px',
+  alignItems: 'center',
   width: '100%',
   height: '48px',
   padding: '8px 0px 8px 0px',
-  boxSizing: 'border-box',
+
+  overflowInline: 'auto',
+  [theme.breakpoints.down('desktop')]: {
+    overflowX: 'auto',
+  },
+}));
+
+const NavButtonsContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  [theme.breakpoints.down('desktopXL')]: {
+    gap: '8px',
+  },
+  [theme.breakpoints.down('desktop')]: {
+    gap: '8px',
+  },
 }));
 
 export default NavBar;
