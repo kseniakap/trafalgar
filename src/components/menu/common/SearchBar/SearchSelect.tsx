@@ -2,16 +2,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { MenuItem, Select, SelectChangeEvent, styled, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 
-const categories = [
-  'Тонометры',
-  'Дерматология',
-  'Инфекционные болезни',
-  'Кардиология',
-  'Неврология',
-  'Общая медицина',
-  'Терапия',
-  'Хирургия',
-];
+import { Categories } from '../../lib/Categories';
 
 const SearchSelect: FC = () => {
   const [currentCategory, setCurrentCategory] = useState<string>('');
@@ -29,7 +20,7 @@ const SearchSelect: FC = () => {
       IconComponent={KeyboardArrowDownIcon}
     >
       <MenuItem value="">Все категории</MenuItem>
-      {categories.map((category) => (
+      {Categories.map((category) => (
         <MenuItem key={category} value={category}>
           <Typography fontWeight={'500'} fontSize={'16px'}>
             {category}
