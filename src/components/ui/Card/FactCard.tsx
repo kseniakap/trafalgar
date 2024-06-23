@@ -16,8 +16,7 @@ interface FactCardProps {
   };
 }
 
-const FactCard: FC<FactCardProps> = (props) => {
-  const { data } = props;
+const FactCard: FC<FactCardProps> = ({ data }) => {
 
   return (
     <>
@@ -40,7 +39,6 @@ const FactCard: FC<FactCardProps> = (props) => {
 
 const CardContainer = styled(Card)<{ $breakpoint: number }>`
   height: 350px;
-  box-sizing: border-box;
   border: 1px solid rgb(221, 225, 230);
   border-radius: 8px !important;
 
@@ -50,7 +48,6 @@ const CardContainer = styled(Card)<{ $breakpoint: number }>`
 `;
 
 const Content = styled(CardContent)`
-  box-sizing: border-box;
   height: 100% !important;
   padding: 24px !important;
   display: flex;

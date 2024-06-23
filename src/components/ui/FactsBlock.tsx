@@ -11,10 +11,8 @@ interface FactsBlockProps {
   factsData: ComponentProps<typeof FactCard>['data'][];
 }
 
-const FactsBlock: FC<FactsBlockProps> = (props) => {
-  const slideId = useRef(0);
-
-  const { factsData } = props;
+const FactsBlock: FC<FactsBlockProps> = ({ factsData }) => {
+  const slideId = useRef(1);
 
   const sliderBreakpoints: SwiperProps['breakpoints'] = {
     [Breakpoints.iPad]: {
@@ -44,7 +42,6 @@ const Block = styled(Box)`
 `;
 
 const SliderContainer = styled(Container)<{ $breakpoint: number }>`
-  box-sizing: border-box;
   padding: 80px 80px !important;
   @media screen and (max-width: ${(props) => props.$breakpoint + 'px'}) {
     padding: 80px 24px !important;
