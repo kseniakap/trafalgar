@@ -12,7 +12,6 @@ const PageContainer: React.FC<React.BaseHTMLAttributes<HTMLDivElement>> = ({ chi
 
 const Div = styled.div`
   &.page-container {
-    padding: 20px 32px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;

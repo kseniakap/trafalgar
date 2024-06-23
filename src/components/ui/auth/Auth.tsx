@@ -7,7 +7,9 @@ import { Checkbox, FormControlLabel, IconButton } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { AuthWrapperImg } from './AuthWrapperImg';
 import styled from 'styled-components';
+import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 interface AuthProps {
   isLogin: boolean;
@@ -43,79 +45,100 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
   };
 
   return (
-    <Div>
-      <Title>{isLogin ? 'Вход' : 'Регистрация'}</Title>
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert('submit!');
-        }}
-      >
-        {!isLogin && (
-          <>
-            <Input value={name} label="Имя" type={InputType.Text} onChange={(e) => handleChange(e, 'name')} />
-            <Input value={surname} label="Фамилия" type={InputType.Text} onChange={(e) => handleChange(e, 'surname')} />
-          </>
-        )}
-        <Input value={email} label="Email" type={InputType.Email} onChange={(e) => handleChange(e, 'email')} />
-        <Input
-          value={password}
-          label="Пароль"
-          type={showPassword ? InputType.Text : InputType.Password}
-          onChange={(e) => handleChange(e, 'password')}
-          rightIcon={
-            <IconButton onClick={handleTogglePassword} edge="end">
-              {showPassword ? <Visibility /> : <VisibilityOff />}
-            </IconButton>
-          }
-        />
-        <StyledFormControlLabel
-          control={<Checkbox />}
-          label={isLogin ? 'Запомнить меня' : 'Согласен с политикой обработки персональных данных'}
-        />
-        <Button
-          text={isLogin ? 'Вход' : 'Зарегистрироваться'}
-          style={ButtonStyle.Contained}
-          size={ButtonSize.Large}
-          fullWidth
-        />
-      </Form>
-      <Btns>
-        <Button
-          text="Вход с помощью Google"
-          style={ButtonStyle.Outlined}
-          size={ButtonSize.Small}
-          textSize={ButtonTextSize.Medium}
-          fullWidth
-          leftIcon={<GoogleIcon />}
-        />
-        <Button
-          text="Вход с помощью Apple"
-          style={ButtonStyle.Outlined}
-          size={ButtonSize.Small}
-          textSize={ButtonTextSize.Medium}
-          fullWidth
-          leftIcon={<AppleIcon />}
-        />
-      </Btns>
-      <Line />
-      <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
-    </Div>
+    <AuthWrapperImg>
+      <Div $breakpoint={Breakpoints.iPad}>
+        <Title $breakpoint={Breakpoints.tablet}>{isLogin ? 'Вход' : 'Регистрация'}</Title>
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert('submit!');
+          }}
+        >
+          {!isLogin && (
+            <>
+              <Input value={name} label="Имя" type={InputType.Text} onChange={(e) => handleChange(e, 'name')} />
+              <Input
+                value={surname}
+                label="Фамилия"
+                type={InputType.Text}
+                onChange={(e) => handleChange(e, 'surname')}
+              />
+            </>
+          )}
+          <Input value={email} label="Email" type={InputType.Email} onChange={(e) => handleChange(e, 'email')} />
+          <Input
+            value={password}
+            label="Пароль"
+            type={showPassword ? InputType.Text : InputType.Password}
+            onChange={(e) => handleChange(e, 'password')}
+            rightIcon={
+              <IconButton onClick={handleTogglePassword} edge="end">
+                {showPassword ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            }
+          />
+          <StyledFormControlLabel
+            control={<Checkbox />}
+            label={isLogin ? 'Запомнить меня' : 'Согласен с политикой обработки персональных данных'}
+          />
+          <Button
+            text={isLogin ? 'Вход' : 'Зарегистрироваться'}
+            style={ButtonStyle.Contained}
+            size={ButtonSize.Large}
+            fullWidth
+          />
+        </Form>
+        <Btns $breakpoint={Breakpoints.iPad}>
+          <Button
+            text="Вход с помощью Google"
+            style={ButtonStyle.Outlined}
+            size={ButtonSize.Small}
+            textSize={ButtonTextSize.Medium}
+            fullWidth
+            leftIcon={<GoogleIcon />}
+          />
+          <Button
+            text="Вход с помощью Apple"
+            style={ButtonStyle.Outlined}
+            size={ButtonSize.Small}
+            textSize={ButtonTextSize.Medium}
+            fullWidth
+            leftIcon={<AppleIcon />}
+          />
+        </Btns>
+        <Line />
+        <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
+      </Div>
+    </AuthWrapperImg>
   );
 };
 
-const Div = styled.div`
-  padding: 60px;
-  max-width: 720px;
+const Div = styled.div<{ $breakpoint: number }>`
+  width: 560px;
+  margin: 80px 40px;
   display: flex;
   flex-direction: column;
   gap: 48px;
+  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
+    width: 100%;
+    margin: 30px;
+  }
+  @media (min-width: ${Breakpoints.desktopL}px) {
+    width: 800px;
+  }
+
+  @media (min-width: ${Breakpoints.desktopXL}px) {
+    width: 1200px;
+  }
 `;
 
-const Title = styled.h2`
+const Title = styled.h2<{ $breakpoint: number }>`
   font-size: 42px;
   font-weight: 700;
   line-height: 46.2px;
+  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
+    font-size: 35px;
+  }
 `;
 
 const Form = styled.form`
@@ -124,9 +147,16 @@ const Form = styled.form`
   gap: 16px;
 `;
 
-const Btns = styled.div`
+const Btns = styled.div<{ $breakpoint: number }>`
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
+    flex-wrap: wrap;
+    > div {
+      width: 100%;
+    }
+  }
 `;
 
 const Line = styled.div`
