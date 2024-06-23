@@ -1,10 +1,8 @@
 import { Box } from '@mui/material';
 import { FC } from 'react';
 
-import Logo from '../common/Logo';
-import NavBar from '../common/NavBar';
-
-const navs = ['Главная', 'О проекте', 'Статьи', 'Отзывы', 'Знания', 'Вопросы', 'Цены', 'Оставить заявку', 'Спонсоры'];
+import Logo from '../../common/Logo';
+import NavBar from '../../common/NavBar';
 
 const MiddleMenu: FC = () => {
   return (
@@ -19,7 +17,7 @@ const MiddleMenu: FC = () => {
       }}
     >
       <Logo />
-      <NavBar navs={navs} />
+      <NavBar />
     </Box>
   );
 };

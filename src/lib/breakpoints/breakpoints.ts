@@ -5,7 +5,7 @@ export type BreakpointsType = {
 };
 
 export const Breakpoints: BreakpointsType = {
-  mobile: 360,
+  mobile: 394,
   tablet: 768,
   iPad: 1024,
   desktop: 1440,

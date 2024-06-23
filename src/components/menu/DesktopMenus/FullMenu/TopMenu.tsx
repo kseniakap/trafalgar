@@ -1,8 +1,8 @@
 import { Box, styled } from '@mui/material';
 import { FC } from 'react';
 
-import Location from '../common/Location';
-import UserAndCartMenus from '../common/UserAndCartMenus';
+import Location from '../../common/Location';
+import UserAndCartMenus from '../../common/UserAndCartMenus';
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 
 const TopMenu: FC = () => {

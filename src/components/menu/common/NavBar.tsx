@@ -1,16 +1,14 @@
-import menuMenu from '@/assets/icons/menuMenu.svg';
 import { Box, Button, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
-interface NavBarProps {
-  navs: string[];
-}
+import { navigationLinks } from '../lib/NavigationLinks';
+import MenuButton from './MenuButton';
 
-const NavBar: FC<NavBarProps> = ({ navs }) => {
+const NavBar: FC = () => {
   return (
     <NavBarContainer>
-      <NavButtonMenu startIcon={<img src={menuMenu} alt="Menu Icon" />}>Меню</NavButtonMenu>
-      {navs.map((nav) => (
+      <MenuButton />
+      {navigationLinks.map((nav) => (
         <NavButton key={nav}>
           <Typography fontWeight={'500'} fontSize={'16px'}>
             {nav}
@@ -25,12 +23,6 @@ const NavButton = styled(Button)(() => ({
   color: 'black',
   textTransform: 'none',
   padding: '4px 16px 4px 16px',
-}));
-
-const NavButtonMenu = styled(NavButton)(() => ({
-  backgroundColor: '#FFFFFF',
-  boxSizing: 'border-box',
-  border: '1px solid #C1C7CD',
 }));
 
 const NavBarContainer = styled(Box)(() => ({

@@ -2,14 +2,12 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { FC } from 'react';
 
-import NavBar from '../common/NavBar';
-
-const navs = ['Главная', 'О проекте', 'Статьи', 'Отзывы', 'Знания', 'Вопросы', 'Цены', 'Оставить заявку', 'Спонсоры'];
+import NavBar from '../../common/NavBar';
 
 const BottomMenu: FC = () => {
   return (
     <BottomMenuContainer>
-      <NavBar navs={navs} />
+      <NavBar />
     </BottomMenuContainer>
   );
 };

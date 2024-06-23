@@ -2,8 +2,8 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { FC } from 'react';
 
-import Logo from '../common/Logo';
-import SearchBar from '../common/SearchBar';
+import Logo from '../../common/Logo';
+import SearchBar from '../../common/SearchBar';
 
 const MiddleMenu: FC = () => {
   return (

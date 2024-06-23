@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import { FC } from 'react';
 
-import Location from '../common/Location';
-import SearchBar from '../common/SearchBar';
-import UserAndCartMenus from '../common/UserAndCartMenus';
+import Location from '../../common/Location';
+import SearchBar from '../../common/SearchBar';
+import UserAndCartMenus from '../../common/UserAndCartMenus';
 
 const TopMenu: FC = () => {
   return (
