@@ -10,10 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.heading-5 {
-  @include h5;
-}
-
 .btn-text-l {
   @include btn-L;
 }
@@ -30,6 +26,10 @@ body {
   @include h1;
 }
 
+.heading-2 {
+  @include h2;
+}
+
 .heading-3 {
   @include h3;
 }
@@ -40,6 +40,10 @@ body {
 
 .heading-5 {
   @include h5;
+}
+
+.heading-6 {
+  @include h6;
 }
 
 .body-m {
