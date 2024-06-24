@@ -12,8 +12,8 @@ interface IMenuItemWithIconProps {
 const MenuItemWithIcon: FC<IMenuItemWithIconProps> = ({ icon, items, title }) => {
   return (
     <MenuItemWithIconContainer>
-      <ImageListItem>
-        <img src={icon} />
+      <ImageListItem sx = {{alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
+        <img src={icon} style = {{width: 'auto', height: 'auto'}} />
       </ImageListItem>
       <CustomizedMenu title={title} items={items} />
     </MenuItemWithIconContainer>

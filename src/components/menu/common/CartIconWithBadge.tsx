@@ -11,7 +11,7 @@ const CartIconWithBadge: FC<ICartIconWithBadge> = ({ badgeContent }) => {
     <IconButton>
       <Badge badgeContent={badgeContent} color="error">
         <ImageListItem>
-          <img src={cartIcon} alt="Cart Icon" style={{ width: '16px', height: '16px' }} />
+          <img src={cartIcon} alt="Cart Icon" style = {{width: 'auto', height: 'auto'}}/>
         </ImageListItem>
       </Badge>
     </IconButton>

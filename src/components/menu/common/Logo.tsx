@@ -8,8 +8,8 @@ interface ILogoProps {
 
 const Logo: FC<ILogoProps> = ({ width = '168px' }) => {
   return (
-    <ImageListItem>
-      <img src={logo} alt="logo" style={{ width }} />
+    <ImageListItem sx = {{width: width}}>
+      <img src={logo} alt="logo" style = {{width: 'auto', height: 'auto'}}/>
     </ImageListItem>
   );
 };
