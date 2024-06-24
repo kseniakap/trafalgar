@@ -2,7 +2,7 @@ module.exports = {
   plugins: ['stylelint-scss'],
   extends: ['stylelint-config-standard', 'stylelint-config-styled-components'],
   rules: {
-    indentation: 2,
+    'indentation': 2,
     // @NOTE: This conflicts with @use from scss
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
