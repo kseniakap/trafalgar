@@ -53,7 +53,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon }) => {
       >
         {items.map((item) => (
           <MenuItem disableRipple key={item.title} component={Link} href={item.link}>
-            <StyledTypography>{item.title}</StyledTypography>
+            <Typography sx = {{fontWeight: '500', fontSize: '16px'}}>{item.title}</Typography>
           </MenuItem>
         ))}
       </StyledMenu>
