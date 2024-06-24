@@ -3,13 +3,19 @@ import humanIcon from '@/assets/icons/menuHuman.svg';
 import { Box, styled } from '@mui/material';
 import { FC } from 'react';
 
-import MenuItemWithIcon from './MenuItemWithIcon';
+import CustomMenu from '~/components/ui/Menu';
+import { Routes } from '~/lib/routes';
+
+const ProfileMenuItems = [
+  { link: Routes.LOGIN, title: 'Вход' },
+  { link: Routes.REGISTER, title: 'Регистрация' },
+];
 
 const UserAndCartMenus: FC = () => {
   return (
     <UserAndCartMenusContainer>
-      <MenuItemWithIcon icon={humanIcon} title="Профиль" items={['профиль', 'выйти']} />
-      <MenuItemWithIcon icon={cartIcon} title="Корзина" items={['корзина']} />
+      <CustomMenu startIcon={humanIcon} title="Профиль" items={ProfileMenuItems} />
+      <CustomMenu startIcon={cartIcon} title="Корзина" items={[]} />
     </UserAndCartMenusContainer>
   );
 };

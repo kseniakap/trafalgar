@@ -1,19 +1,25 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Typography } from '@mui/material';
+import { MenuItem, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Menu, { MenuProps } from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import { FC, MouseEvent, useState } from 'react';
 
 interface ICustomMenu {
   title: string;
-  items: string[];
+  startIcon?: string;
+  items: {
+    title: string;
+    link: string;
+  }[];
 }
 
-const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
+const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const isOpened = Boolean(anchorEl);
+
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -31,6 +37,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
         variant="text"
         disableElevation
         onClick={handleClick}
+        startIcon={startIcon ? <img src={startIcon}></img> : null}
         endIcon={<CustomIcon />}
       >
         <StyledTypography>{title}</StyledTypography>
@@ -45,10 +52,8 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
         onClose={handleClose}
       >
         {items.map((item) => (
-          <MenuItem disableRipple key={item} value={item} onClick={handleClose}>
-            <Typography fontWeight={'500'} fontSize={'16px'}>
-              {item}
-            </Typography>
+          <MenuItem disableRipple key={item.title} component={Link} href={item.link}>
+            <StyledTypography>{item.title}</StyledTypography>
           </MenuItem>
         ))}
       </StyledMenu>
@@ -65,6 +70,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     fontSize: '0px',
   },
 }));
+
 const CustomIcon = styled(KeyboardArrowDownIcon)(() => ({
   fontSize: '30px !important',
 }));
@@ -79,7 +85,7 @@ const StyledButton = styled(Button)(() => ({
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
-    elevation={0}
+    elevation={3}
     anchorOrigin={{
       vertical: 'bottom',
       horizontal: 'right',
