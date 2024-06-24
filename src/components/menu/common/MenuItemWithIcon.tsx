@@ -1,5 +1,4 @@
 import { Box, styled } from '@mui/material';
-import Image from 'mui-image';
 import { FC } from 'react';
 
 import CustomizedMenu from '~/components/ui/Menu';
@@ -13,7 +12,7 @@ interface IMenuItemWithIconProps {
 const MenuItemWithIcon: FC<IMenuItemWithIconProps> = ({ icon, items, title }) => {
   return (
     <MenuItemWithIconContainer>
-      <Image src={icon} />
+      <img src={icon} />
       <CustomizedMenu title={title} items={items} />
     </MenuItemWithIconContainer>
   );
