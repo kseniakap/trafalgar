@@ -26,11 +26,11 @@ const SearchBar: FC<ISearchBarProps> = ({ height }) => {
 
 export default SearchBar;
 
-const StyledButton = styled(Button)(() => ({
-  width: '105px',
-  backgroundColor: '#458FF6',
-  textTransform: 'none',
-}));
+const StyledButton = styled(Button)`
+  width: 105px;
+  background-color: #458ff6;
+  text-transform: none;
+`;
 
 const SearchBarContainer = styled(Box)(({ height }: ISearchBarProps) => ({
   display: 'flex',
@@ -39,8 +39,8 @@ const SearchBarContainer = styled(Box)(({ height }: ISearchBarProps) => ({
   height: height,
 }));
 
-const SearchBox = styled(Box)(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  flexGrow: 1,
-}));
+const SearchBox = styled(Box)`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+`;

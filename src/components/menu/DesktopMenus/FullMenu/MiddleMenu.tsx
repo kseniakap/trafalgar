@@ -14,13 +14,13 @@ const MiddleMenu: FC = () => {
   );
 };
 
-const MiddleMenuContainer = styled(BaseMenuContainer)(() => ({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '96px',
+const MiddleMenuContainer = styled(BaseMenuContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96px;
 
-  gap: '24px',
-}));
+  gap: 24px;
+`;
 
 export default MiddleMenu;

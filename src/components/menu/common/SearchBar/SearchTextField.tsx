@@ -19,8 +19,8 @@ const SearchTextField: FC = () => {
 
 export default SearchTextField;
 
-const StyledTextField = styled(TextField)(() => ({
-  height: '100%',
-  backgroundColor: COOL_GRAY_10,
-  color: COOL_GRAY_60,
-}));
+const StyledTextField = styled(TextField)`
+  height: 100%;
+  background-color: ${COOL_GRAY_10};
+  color: ${COOL_GRAY_60};
+`;

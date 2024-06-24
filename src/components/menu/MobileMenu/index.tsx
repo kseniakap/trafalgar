@@ -19,10 +19,10 @@ const MobileMenu: FC = () => {
       <StyledAppBar>
         <StyleToolBar>
           <Logo width="100px" />
-          <Stack spacing="1" direction="row" minWidth="152px" useFlexGap gap="8px">
+          <StyledStack>
             <CartIconWithBadge badgeContent={9} />
             <MenuButton onClick={toggleDrawer(true)} />
-          </Stack>
+          </StyledStack>
         </StyleToolBar>
       </StyledAppBar>
       <CustomDrawer open={open} onClose={toggleDrawer(false)} />
@@ -30,21 +30,27 @@ const MobileMenu: FC = () => {
   );
 };
 
-const StyledAppBar = styled(AppBar)(() => ({
-  backgroundColor: WHITE,
-  boxShadow: 'none',
-  borderBottom: `1px solid ${COOL_GRAY_20}`,
-  height: '80px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
+const StyledStack = styled(Stack)(({ theme }) => ({
+  gap: theme.spacing(1),
+  minWidth: '152px',
+  flexDirection: 'row',
 }));
 
-const StyleToolBar = styled(Toolbar)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  width: '100%',
-}));
+const StyledAppBar = styled(AppBar)`
+  background-color: ${WHITE};
+  box-shadow: none;
+  border-bottom: 1px solid ${COOL_GRAY_20};
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyleToolBar = styled(Toolbar)`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 export default MobileMenu;

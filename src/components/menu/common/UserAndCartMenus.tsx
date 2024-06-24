@@ -14,9 +14,10 @@ const UserAndCartMenus: FC = () => {
   );
 };
 
-const UserAndCartMenusContainer = styled(Box)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-}));
+const UserAndCartMenusContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 export default UserAndCartMenus;

@@ -3,6 +3,7 @@ import { MenuItem, Select, SelectChangeEvent, styled, Typography } from '@mui/ma
 import { FC, useState } from 'react';
 
 import { Categories } from '../../lib/Categories';
+import { COOL_GRAY_10, COOL_GRAY_30, COOL_GRAY_60 } from '~/assets/style/colors';
 
 const SearchSelect: FC = () => {
   const [currentCategory, setCurrentCategory] = useState<string>('');
@@ -12,13 +13,7 @@ const SearchSelect: FC = () => {
   };
 
   return (
-    <StyledSelect
-      value={currentCategory}
-      onChange={handleChange}
-      displayEmpty
-      inputProps={{ 'aria-label': 'Without label' }}
-      IconComponent={KeyboardArrowDownIcon}
-    >
+    <StyledSelect value={currentCategory} onChange={handleChange} displayEmpty IconComponent={KeyboardArrowDownIcon}>
       <MenuItem value="">Все категории</MenuItem>
       {Categories.map((category) => (
         <MenuItem key={category} value={category}>
@@ -31,16 +26,17 @@ const SearchSelect: FC = () => {
   );
 };
 
-const StyledSelect = styled(Select)(() => ({
-  'backgroundColor': '#F2F4F8',
-  'minWidth': 180,
-  'height': '100%',
-  'borderRadius': '0px',
-  'color': '#697077',
-  '& .MuiSelect-icon': {
-    right: '15px',
-    fontSize: '30px',
-  },
-}));
+const StyledSelect = styled(Select)`
+  border-color: ${COOL_GRAY_30};
+  min-width: 180px;
+  height: 100%;
+  background-color: ${COOL_GRAY_10};
+  color: ${COOL_GRAY_60};
+
+  & .MuiSelect-icon {
+    right: 15px;
+    font-size: 30px;
+  }
+`;
 
 export default SearchSelect;

@@ -15,16 +15,13 @@ const TopMenu: FC = () => {
   );
 };
 
-const TopMenuContainer = styled(BaseMenuContainer)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-
-  borderBottom: `1px solid ${COOL_GRAY_30}`,
-
-  backgroundColor: WHITE,
-
-  height: '64px',
-}));
+const TopMenuContainer = styled(BaseMenuContainer)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid ${COOL_GRAY_30};
+  background-color: ${WHITE};
+  height: 64px;
+`;
 
 export default TopMenu;

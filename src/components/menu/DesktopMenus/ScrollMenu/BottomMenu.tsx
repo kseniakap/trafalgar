@@ -15,13 +15,12 @@ const MiddleMenu: FC = () => {
   );
 };
 
-const StyledBottomMenuContainer = styled(BaseMenuContainer)(() => ({
-  display: 'flex',
-  height: '64px',
-
-  paddingTop: '8px',
-  paddingBottom: '8px',
-  gap: '16px',
-  borderBottom: `1px solid ${COOL_GRAY_20}`,
-}));
+const StyledBottomMenuContainer = styled(BaseMenuContainer)`
+  display: flex;
+  height: 64px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 16px;
+  border-bottom: 1px solid ${COOL_GRAY_20};
+`;
 export default MiddleMenu;

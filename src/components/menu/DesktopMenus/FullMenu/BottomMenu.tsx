@@ -13,11 +13,11 @@ const BottomMenu: FC = () => {
   );
 };
 
-const BottomMenuContainer = styled(BaseMenuContainer)(() => ({
-  display: 'flex',
-  gap: '8px',
-  backgroundColor: COOL_GRAY_10,
-  height: '48px',
-}));
+const BottomMenuContainer = styled(BaseMenuContainer)`
+  display: flex;
+  gap: 8px;
+  background-color: ${COOL_GRAY_10};
+  height: 48px;
+`;
 
 export default BottomMenu;

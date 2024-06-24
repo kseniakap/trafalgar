@@ -42,19 +42,19 @@ const DrawerList: FC<IDrawerListProps> = ({ closeDrawer }) => {
 
 export default DrawerList;
 
-const StyledButton = styled(Button)(() => ({
-  color: '#458FF6',
-  border: '2px solid #458FF6',
-  height: '48px',
-  width: '100%',
-}));
+const StyledButton = styled(Button)`
+  color: #458ff6;
+  border: 2px solid #458ff6;
+  height: 48px;
+  width: 100%;
+`;
 
-const DrawerContainer = styled(Box)(() => ({
-  width: 256,
-  padding: '24px 16px',
-  borderRight: `1px solid ${COOL_GRAY_20}`,
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-}));
+const DrawerContainer = styled(Box)`
+  width: 256;
+  padding: 24px 16px;
+  border-right: 1px solid ${COOL_GRAY_20};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
