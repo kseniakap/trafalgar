@@ -17,6 +17,9 @@ const DefaultLayout: FC = ({ children }) => {
         <div>
           <Link to={Routes.REGISTER}>Регистрация</Link>
         </div>
+        <div>
+          <Link to={Routes.TEST}>Тестовая</Link>
+        </div>
       </div>
       {children}
     </FullHeight>
