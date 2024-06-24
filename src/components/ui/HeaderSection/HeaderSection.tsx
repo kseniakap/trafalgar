@@ -12,7 +12,7 @@ export const HeaderSection = () => {
       <LeftContainer>
         <Title>
           <TitleText isMobile={isMobile}>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</TitleText>
-          <Description isMobile={isMobile} className={isMobile ? 'body-m' : 'body-l'}>
+          <Description isMobile={isMobile}>
             Мы еще очень молоды, но достаточно амбициозны и планируем каждого случайного гостя нашего сайта превратить в
             его постоянного пользователя.
           </Description>
