@@ -1,4 +1,5 @@
 import logo from '@/assets/icons/trafalgarLogo.svg';
+import { ImageListItem } from '@mui/material';
 import { FC } from 'react';
 
 interface ILogoProps {
@@ -6,7 +7,11 @@ interface ILogoProps {
 }
 
 const Logo: FC<ILogoProps> = ({ width = '168px' }) => {
-  return <img src={logo} alt="logo" style={{ width }} />;
+  return (
+    <ImageListItem>
+      <img src={logo} alt="logo" style={{ width }} />
+    </ImageListItem>
+  );
 };
 
 export default Logo;

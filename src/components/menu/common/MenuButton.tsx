@@ -1,5 +1,5 @@
 import menuMenu from '@/assets/icons/menuMenu.svg';
-import { Button, styled, Typography } from '@mui/material';
+import { Button, ImageListItem, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
@@ -10,7 +10,14 @@ interface IMenuButtonProps {
 
 const MenuButton: FC<IMenuButtonProps> = ({ onClick }) => {
   return (
-    <NavButtonMenu onClick={onClick} startIcon={<img src={menuMenu} alt="Menu Icon" />}>
+    <NavButtonMenu
+      onClick={onClick}
+      startIcon={
+        <ImageListItem>
+          <img src={menuMenu} alt="Menu Icon" />
+        </ImageListItem>
+      }
+    >
       <Typography fontWeight={'500'} fontSize={'16px'}>
         Меню
       </Typography>
