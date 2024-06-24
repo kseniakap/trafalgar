@@ -11,11 +11,11 @@ export const HeaderSection = () => {
     <HeaderContainer>
       <LeftContainer>
         <Title>
-          <span className={isMobile ? 'heading-4' : 'heading-1'}>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</span>
-          <span className={isMobile ? 'body-m' : 'body-l'}>
+          <TitleText className={isMobile ? 'heading-4' : 'heading-1'}>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</TitleText>
+          <TitleText className={isMobile ? 'body-m' : 'body-l'}>
             Мы еще очень молоды, но достаточно амбициозны и планируем каждого случайного гостя нашего сайта превратить в
             его постоянного пользователя.
-          </span>
+          </TitleText>
         </Title>
         <Buttons>
           <Button
@@ -44,14 +44,17 @@ const HeaderContainer = styled(Box)`
   flex-direction: row;
   gap: 80px;
   justify-content: center;
-  align-items: center;
   width: 100%;
   padding: 80px;
   background: #f2f4f8;
   @media (max-width: 1024px) {
     flex-direction: column;
+    align-items: center;
     gap: 32px;
     padding: 48px 16px 24px 16px;
+  }
+  @media (min-width: 1440px) {
+    justify-content: space-around;
   }
 `;
 
@@ -64,6 +67,9 @@ const LeftContainer = styled(Box)`
   @media (max-width: 1024px) {
     gap: 48px;
     padding: 0;
+  }
+  @media (min-width: 1440px) {
+    max-width: none;
   }
 `;
 
@@ -92,10 +98,15 @@ const RightContainer = styled(Box)`
   @media (max-width: 768px) {
     padding-top: 20px;
   }
+  @media (min-width: 1440px) {
+    max-width: none;
+  }
 `;
+
 const Image = styled.img`
   width: 100%;
   @media (max-width: 1024px) {
     max-width: 360px;
   }
 `;
+const TitleText = styled.span``;
