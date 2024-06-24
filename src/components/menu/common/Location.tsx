@@ -1,5 +1,6 @@
 import locationIcon from '@/assets/icons/menuLocation.svg';
 import { Box, styled, Typography } from '@mui/material';
+import Image from 'mui-image';
 import { FC } from 'react';
 
 interface ILocationProps {
@@ -9,7 +10,7 @@ interface ILocationProps {
 const Location: FC<ILocationProps> = ({ location }) => {
   return (
     <StyledLocationContainer>
-      <img src={locationIcon} alt="locationIcon" />
+      <Image src={locationIcon} alt="locationIcon" />
       <Typography fontWeight={'500'} fontSize={'16px'}>
         {location}
       </Typography>
