@@ -21,9 +21,8 @@ export default TopMenu;
 const TopMenuContainer = styled(BaseMenuContainer)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
-  [theme.breakpoints.down('desktopXL')]: {
-    gap: theme.spacing(9),
-  },
+  gap: theme.spacing(9),
+
   [theme.breakpoints.down('desktop')]: {
     gap: theme.spacing(2),
   },
