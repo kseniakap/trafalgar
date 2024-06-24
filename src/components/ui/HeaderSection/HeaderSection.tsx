@@ -11,11 +11,11 @@ export const HeaderSection = () => {
     <HeaderContainer>
       <LeftContainer>
         <Title>
-          <TitleText className={isMobile ? 'heading-4' : 'heading-1'}>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</TitleText>
-          <TitleText className={isMobile ? 'body-m' : 'body-l'}>
+          <TitleText isMobile={isMobile}>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</TitleText>
+          <Description isMobile={isMobile} className={isMobile ? 'body-m' : 'body-l'}>
             Мы еще очень молоды, но достаточно амбициозны и планируем каждого случайного гостя нашего сайта превратить в
             его постоянного пользователя.
-          </TitleText>
+          </Description>
         </Title>
         <Buttons>
           <Button
@@ -109,4 +109,16 @@ const Image = styled.img`
     max-width: 360px;
   }
 `;
-const TitleText = styled.span``;
+const TitleText = styled.span<{ isMobile: boolean }>`
+  font-size: ${(props) => (props.isMobile ? '24px' : '54px')};
+  line-height: ${(props) => (props.isMobile ? '26.4px' : '59.4px')};
+  font-weight: 700;
+  text-align: left;
+`;
+
+const Description = styled.span<{ isMobile: boolean }>`
+  font-size: ${(props) => (props.isMobile ? '16px' : '18px')};
+  line-height: ${(props) => (props.isMobile ? '22.4px' : '25.2px')};
+  font-weight: 400;
+  text-align: left;
+`;
