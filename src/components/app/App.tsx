@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@mui/material';
+import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
 import '~/assets/style/main.scss';
 import { ApiProvider } from '~/components/api';
@@ -16,7 +17,9 @@ const App = ({ basePath }: AppProps) => {
     <ApiProvider petsApiBaseUrl={config.PETS_API_BASE_URL}>
       <ServicesProvider>
         <ThemeProvider theme={muiTheme}>
-          <AppRouter basePath={basePath} />
+          <SCThemeProvider theme={muiTheme}>
+            <AppRouter basePath={basePath} />
+          </SCThemeProvider>
         </ThemeProvider>
       </ServicesProvider>
     </ApiProvider>
