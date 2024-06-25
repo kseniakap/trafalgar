@@ -1,10 +1,10 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { MenuItem, Typography } from '@mui/material';
+import { Typography, MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import { alpha, styled } from '@mui/material/styles';
 import { FC, MouseEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ICustomMenu {
   title: string;
@@ -13,11 +13,11 @@ interface ICustomMenu {
     title: string;
     link: string;
   }[];
+  isActive?: boolean;
 }
 
-const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon }) => {
+const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
   const isOpened = Boolean(anchorEl);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -36,8 +36,8 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon }) => {
         aria-expanded={isOpened ? 'true' : undefined}
         variant="text"
         disableElevation
-        onClick={handleClick}
-        startIcon={startIcon ? <img src={startIcon}></img> : null}
+        onClick={handleClick }
+        startIcon={startIcon ? <img src={startIcon} alt='startIcon'></img> : null}
         endIcon={<CustomIcon />}
       >
         <StyledTypography>{title}</StyledTypography>
@@ -52,8 +52,8 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon }) => {
         onClose={handleClose}
       >
         {items.map((item) => (
-          <MenuItem disableRipple key={item.title} component={Link} href={item.link}>
-            <Typography sx = {{fontWeight: '500', fontSize: '16px'}}>{item.title}</Typography>
+          <MenuItem disableRipple key={item.title} component={Link} to={item.link} onClick={handleClose}>
+            <Typography sx={{ fontWeight: '500', fontSize: '16px' }}>{item.title}</Typography>
           </MenuItem>
         ))}
       </StyledMenu>
