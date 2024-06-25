@@ -28,21 +28,11 @@ const FooterBlock: FC = () => {
     return (
       <ul>
         {links.map((link, idx) => {
-          if ('img' in link) {
-            return (
-              <li key={idx}>
-                <a href={link.href}>
-                  <img src={link.img} alt={link.text} />
-                </a>
-              </li>
-            );
-          } else {
-            return (
-              <li key={idx}>
-                <a href={link.href}>{link.text}</a>
-              </li>
-            );
-          }
+          return (
+            <li key={idx}>
+              <a href={link.href}>{'img' in link ? <img src={link.img} alt={link.text} /> : link.text}</a>
+            </li>
+          );
         })}
       </ul>
     );
