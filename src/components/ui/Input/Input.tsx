@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
+import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 export enum InputType {
   Text = 'text',
@@ -91,6 +92,10 @@ const StyledTextField = styled(TextField)`
   input,
   textarea {
     padding: 12px 0px 12px 16px;
+    @media (min-width: ${Breakpoints.desktop}px) {
+      padding: 16px 0px 16px 20px;
+      font-size: 22px;
+    }
     ::placeholder {
       text-align: left;
       font-size: 16px;
