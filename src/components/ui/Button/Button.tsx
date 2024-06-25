@@ -44,24 +44,22 @@ const getPadding = (size?: ButtonSize) => {
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
   const { text, style, size, textSize, fullWidth, onClick, leftIcon, className } = props;
   return (
-    <div>
-      <StyledButton
-        variant={style}
-        onClick={onClick}
-        $btnSize={size}
-        $btnStyle={style}
-        fullWidth={fullWidth}
-        className={className}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            onClick;
-          }
-        }}
-      >
-        {leftIcon}
-        <span className={textSize || 'btn-text-m'}>{text}</span>
-      </StyledButton>
-    </div>
+    <StyledButton
+      variant={style}
+      onClick={onClick}
+      $btnSize={size}
+      $btnStyle={style}
+      fullWidth={fullWidth}
+      className={className}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          onClick;
+        }
+      }}
+    >
+      {leftIcon}
+      <span className={textSize || 'btn-text-m'}>{text}</span>
+    </StyledButton>
   );
 };
 
