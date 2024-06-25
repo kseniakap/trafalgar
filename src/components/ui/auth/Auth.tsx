@@ -10,6 +10,8 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { AuthWrapperImg } from './AuthWrapperImg';
 import styled from 'styled-components';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
+import { COOL_GRAY_20, COOL_GRAY_60 } from '~/assets/style/colors';
+import muiTheme from '~/lib/themes/muiTheme';
 
 interface AuthProps {
   isLogin: boolean;
@@ -46,8 +48,8 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
 
   return (
     <AuthWrapperImg>
-      <Div $breakpoint={Breakpoints.iPad}>
-        <Title $breakpoint={Breakpoints.tablet}>{isLogin ? 'Вход' : 'Регистрация'}</Title>
+      <Div breakpoint={Breakpoints.tablet}>
+        <Title breakpoint={Breakpoints.tablet}>{isLogin ? 'Вход' : 'Регистрация'}</Title>
         <Form
           onSubmit={(e) => {
             e.preventDefault();
@@ -66,18 +68,23 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
             </>
           )}
           <Input value={email} label="Email" type={InputType.Email} onChange={(e) => handleChange(e, 'email')} />
-          <Input
-            value={password}
-            label="Пароль"
-            type={showPassword ? InputType.Text : InputType.Password}
-            onChange={(e) => handleChange(e, 'password')}
-            rightIcon={
-              <IconButton onClick={handleTogglePassword} edge="end">
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            }
-          />
-          <StyledFormControlLabel
+          <div>
+            <Input
+              value={password}
+              label="Пароль"
+              type={showPassword ? InputType.Text : InputType.Password}
+              onChange={(e) => handleChange(e, 'password')}
+              rightIcon={
+                <IconButton onClick={handleTogglePassword} edge="end">
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              }
+            />
+            <Message breakpoint={Breakpoints.tablet}>
+              Пароль должен содержать минимум 8 символов, строчные и прописные символы
+            </Message>
+          </div>
+          <FormControlLabel
             control={<Checkbox />}
             label={isLogin ? 'Запомнить меня' : 'Согласен с политикой обработки персональных данных'}
           />
@@ -88,56 +95,63 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
             fullWidth
           />
         </Form>
-        <Btns $breakpoint={Breakpoints.iPad}>
+        <Btns breakpoint={Breakpoints.iPad}>
           <Button
             text="Вход с помощью Google"
             style={ButtonStyle.Outlined}
-            size={ButtonSize.Small}
-            textSize={ButtonTextSize.Medium}
+            size={muiTheme.breakpoints.down('tablet') ? ButtonSize.Small : ButtonSize.Large}
+            textSize={muiTheme.breakpoints.down('tablet') ? ButtonTextSize.Small : ButtonTextSize.Large}
             fullWidth
             leftIcon={<GoogleIcon />}
           />
           <Button
             text="Вход с помощью Apple"
             style={ButtonStyle.Outlined}
-            size={ButtonSize.Small}
-            textSize={ButtonTextSize.Medium}
+            size={muiTheme.breakpoints.down('tablet') ? ButtonSize.Small : ButtonSize.Large}
+            textSize={muiTheme.breakpoints.down('tablet') ? ButtonTextSize.Small : ButtonTextSize.Large}
             fullWidth
             leftIcon={<AppleIcon />}
           />
         </Btns>
         <Line />
-        <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
+        <LinkBlue breakpoint={Breakpoints.desktop} to={linkRoute}>
+          {linkText}
+        </LinkBlue>
       </Div>
     </AuthWrapperImg>
   );
 };
 
-const Div = styled.div<{ $breakpoint: number }>`
+
+const Div = styled.div<{ breakpoint: number }>`
   width: 560px;
   margin: 80px 40px;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
-    width: 100%;
-    margin: 30px;
+  @media (max-width: ${Breakpoints.iPad}px) {
+    width: 480px;
+    gap: 32px;
   }
-  @media (min-width: ${Breakpoints.desktopL}px) {
-    width: 800px;
+  @media screen and (max-width: ${(props) => props.breakpoint}px) {
+    width: 100%;
+    margin: 32px 16px;
   }
 
-  @media (min-width: ${Breakpoints.desktopXL}px) {
-    width: 1200px;
+  @media (min-width: ${Breakpoints.desktop}px) {
+    width: 100%;
   }
 `;
 
-const Title = styled.h2<{ $breakpoint: number }>`
+const Title = styled.h2<{ breakpoint: number }>`
   font-size: 42px;
   font-weight: 700;
   line-height: 46.2px;
-  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
+  @media screen and (max-width: ${(props) => props.breakpoint}px) {
     font-size: 35px;
+  }
+  @media (min-width: ${Breakpoints.desktop}px) {
+    font-size: 48px;
   }
 `;
 
@@ -146,12 +160,22 @@ const Form = styled.form`
   flex-direction: column;
   gap: 16px;
 `;
+const Message = styled.p<{ breakpoint: number }>`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: ${COOL_GRAY_60};
+  margin-top: 4px;
+  @media (min-width: ${Breakpoints.desktop}px) {
+    font-size: 14px;
+  }
+`;
 
-const Btns = styled.div<{ $breakpoint: number }>`
+const Btns = styled.div<{ breakpoint: number }>`
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  @media screen and (max-width: ${(props) => props.$breakpoint}px) {
+  @media screen and (max-width: ${(props) => props.breakpoint}px) {
     flex-wrap: wrap;
     > div {
       width: 100%;
@@ -160,23 +184,19 @@ const Btns = styled.div<{ $breakpoint: number }>`
 `;
 
 const Line = styled.div`
-  background-color: #dde1e6;
+  background-color: ${COOL_GRAY_20};
   width: 100%;
   height: 1px;
 `;
 
-const LinkBlue = styled(Link)`
+const LinkBlue = styled(Link)<{ breakpoint: number }>`
   color: #001d6c;
   font-weight: 400;
   font-size: 14px;
   line-height: 19.6px;
   text-decoration: none;
-`;
-
-const StyledFormControlLabel = styled(FormControlLabel)`
-  span {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19.6px;
+  @media screen and (min-width: ${(props) => props.breakpoint}px) {
+     font-size: 18px;
+    }
   }
 `;
