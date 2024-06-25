@@ -1,6 +1,5 @@
-import cart from '@/assets/icons/menuCart.svg';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Typography, MenuItem, SvgIcon, SvgIconProps, Icon } from '@mui/material';
+import { Typography, MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import { alpha, styled } from '@mui/material/styles';
