@@ -5,11 +5,11 @@ import envelopeIcon from '~/assets/icons/envelope.svg';
 import facebookIcon from '~/assets/icons/facebook.svg';
 import instagramIcon from '~/assets/icons/instagram.svg';
 import linkedinIcon from '~/assets/icons/linkedin.svg';
+import logoIcon from '~/assets/icons/trafalgarLogo.svg';
 import twitterIcon from '~/assets/icons/twitter.svg';
 import youtubeIcon from '~/assets/icons/youtube.svg';
 import appStoreBage from '~/assets/img/bage/appStore-bage.png';
 import googlePlayBage from '~/assets/img/bage/googlePlay-bage.png';
-import logoImg from '~/assets/img/logo/trafalgar.png';
 import { Button, ButtonStyle } from '~/components/ui/Button/Button';
 import { Input } from '~/components/ui/Input/Input';
 
@@ -23,7 +23,7 @@ const FooterBlock: FC = () => {
     <Block>
       <Content maxWidth="desktop">
         <Top>
-          <img src={logoImg} alt="Trafalgar" />
+          <img src={logoIcon} alt="Trafalgar" />
           <form>
             <EmailInput
               leftIcon={<img src={envelopeIcon} alt="Иконка конверта" />}
