@@ -3,14 +3,11 @@ import { Link } from 'react-router-dom';
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { Input, InputType } from '../Input/Input';
 import { Routes } from '~/lib/routes';
-import { Checkbox, FormControlLabel, IconButton } from '@mui/material';
+import { Checkbox, FormControlLabel, IconButton, styled } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { AuthWrapperImg } from './AuthWrapperImg';
-import styled from 'styled-components';
-import { Breakpoints } from '~/lib/breakpoints/breakpoints';
-import { COOL_GRAY_20, COOL_GRAY_60 } from '~/assets/style/colors';
 import muiTheme from '~/lib/themes/muiTheme';
 
 interface AuthProps {
@@ -48,8 +45,8 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
 
   return (
     <AuthWrapperImg>
-      <Div breakpoint={Breakpoints.tablet}>
-        <Title breakpoint={Breakpoints.tablet}>{isLogin ? 'Вход' : 'Регистрация'}</Title>
+      <Div>
+        <Title>{isLogin ? 'Вход' : 'Регистрация'}</Title>
         <Form
           onSubmit={(e) => {
             e.preventDefault();
@@ -80,9 +77,7 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
                 </IconButton>
               }
             />
-            <Message breakpoint={Breakpoints.tablet}>
-              Пароль должен содержать минимум 8 символов, строчные и прописные символы
-            </Message>
+            <Message>Пароль должен содержать минимум 8 символов, строчные и прописные символы</Message>
           </div>
           <FormControlLabel
             control={<Checkbox />}
@@ -95,7 +90,7 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
             fullWidth
           />
         </Form>
-        <Btns breakpoint={Breakpoints.iPad}>
+        <Btns>
           <Button
             text="Вход с помощью Google"
             style={ButtonStyle.Outlined}
@@ -114,89 +109,85 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
           />
         </Btns>
         <Line />
-        <LinkBlue breakpoint={Breakpoints.desktop} to={linkRoute}>
-          {linkText}
-        </LinkBlue>
+        <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
       </Div>
     </AuthWrapperImg>
   );
 };
 
+const Div = styled('div')(({ theme }) => ({
+  width: '560px',
+  margin: '80px 40px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(6),
+  [theme.breakpoints.down('iPad')]: {
+    margin: '40px 35px',
+  },
+  [theme.breakpoints.down('tablet')]: {
+    width: '100%',
+    margin: '32px 16px',
+    gap: theme.spacing(4),
+  },
 
-const Div = styled.div<{ breakpoint: number }>`
-  width: 560px;
-  margin: 80px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  @media (max-width: ${Breakpoints.iPad}px) {
-    width: 480px;
-    gap: 32px;
-  }
-  @media screen and (max-width: ${(props) => props.breakpoint}px) {
-    width: 100%;
-    margin: 32px 16px;
-  }
+  [theme.breakpoints.up('desktop')]: {
+    width: '100%',
+  },
+}));
 
-  @media (min-width: ${Breakpoints.desktop}px) {
-    width: 100%;
-  }
-`;
+const Title = styled('h2')(({ theme }) => ({
+  fontSize: '42px',
+  fontWeight: '700',
+  lineHeight: ' 46.2px',
+  [theme.breakpoints.up('desktop')]: {
+    fontSize: '35px',
+  },
 
-const Title = styled.h2<{ breakpoint: number }>`
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 46.2px;
-  @media screen and (max-width: ${(props) => props.breakpoint}px) {
-    font-size: 35px;
-  }
-  @media (min-width: ${Breakpoints.desktop}px) {
-    font-size: 48px;
-  }
-`;
+  [theme.breakpoints.up('desktopL')]: {
+    fontSize: '48px',
+  },
+}));
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-const Message = styled.p<{ breakpoint: number }>`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 140%;
-  color: ${COOL_GRAY_60};
-  margin-top: 4px;
-  @media (min-width: ${Breakpoints.desktop}px) {
-    font-size: 14px;
-  }
-`;
+const Form = styled('form')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(2),
+}));
 
-const Btns = styled.div<{ breakpoint: number }>`
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  @media screen and (max-width: ${(props) => props.breakpoint}px) {
-    flex-wrap: wrap;
-    > div {
-      width: 100%;
-    }
-  }
-`;
+const Message = styled('p')(({ theme }) => ({
+  fontSize: '12px',
+  fontWeight: '400',
+  lineHeight: '140%',
+  color: theme.palette.coolGray['coolGray-60'],
+  marginTop: '4px',
+  [theme.breakpoints.up('desktop')]: {
+    fontSize: '14px',
+  },
+}));
 
-const Line = styled.div`
-  background-color: ${COOL_GRAY_20};
-  width: 100%;
-  height: 1px;
-`;
+const Btns = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  gap: theme.spacing(2),
+  [theme.breakpoints.down('iPad')]: {
+    flexWrap: 'wrap',
+  },
+}));
 
-const LinkBlue = styled(Link)<{ breakpoint: number }>`
-  color: #001d6c;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19.6px;
-  text-decoration: none;
-  @media screen and (min-width: ${(props) => props.breakpoint}px) {
-     font-size: 18px;
-    }
-  }
-`;
+const Line = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.coolGray['coolGray-20'],
+  width: '100%',
+  height: '1px',
+}));
+
+const LinkBlue = styled(Link)(({ theme }) => ({
+  color: '#001d6c',
+  fontSize: '14px',
+  fontWeight: '400',
+  lineHeight: '19.6%',
+  textDecoration: 'none',
+  [theme.breakpoints.up('desktop')]: {
+    fontSize: '18px',
+  },
+}));
