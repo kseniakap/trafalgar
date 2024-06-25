@@ -52,4 +52,5 @@ const Link = styled(CardActions)<{ $withIcon?: boolean }>`
 
 const Media = styled(CardMedia)<{ $withIcon?: boolean }>`
   padding-left: ${(props) => (props.$withIcon ? '16px' : '0')};
+  height: ${(props) => (props.$withIcon ? '48px' : 'unset')};
 `;

@@ -10,7 +10,7 @@ const Location: FC<ILocationProps> = ({ location }) => {
   return (
     <StyledLocationContainer>
       <ImageListItem>
-        <img src={locationIcon} alt="locationIcon" style = {{width: 'auto', height: 'auto'}}/>
+        <img src={locationIcon} alt="locationIcon" style={{ width: 'auto', height: 'auto' }} />
       </ImageListItem>
       <Typography fontWeight={'500'} fontSize={'16px'}>
         {location}
@@ -25,7 +25,5 @@ const StyledLocationContainer = styled(Box)`
   gap: 8px;
   padding: 16px 8px 16px 13px;
 `;
-
-
 
 export default Location;
