@@ -16,7 +16,7 @@ const MobileMenu: FC = () => {
 
   return (
     <>
-      <StyledAppBar>
+      <StyledAppBar position="sticky">
         <StyleToolBar>
           <Logo width="100px" />
           <StyledStack>
