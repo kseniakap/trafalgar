@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 interface ICustomMenu {
   title: string;
   startIcon?: string;
-  items: {
+  items?: {
     title: string;
     link: string;
   }[];
@@ -21,6 +21,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
   const isOpened = Boolean(anchorEl);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
+    if(!isActive) return;
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -36,9 +37,10 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
         aria-expanded={isOpened ? 'true' : undefined}
         variant="text"
         disableElevation
-        onClick={handleClick }
-        startIcon={startIcon ? <img src={startIcon} alt='startIcon'></img> : null}
+        onClick={handleClick}
+        startIcon={startIcon ? <img src={startIcon} alt='startIcon' /> : null}
         endIcon={<CustomIcon />}
+
       >
         <StyledTypography>{title}</StyledTypography>
       </StyledButton>
@@ -51,7 +53,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
         open={isOpened}
         onClose={handleClose}
       >
-        {items.map((item) => (
+        {items?.map((item) => (
           <MenuItem disableRipple key={item.title} component={Link} to={item.link} onClick={handleClose}>
             <Typography sx={{ fontWeight: '500', fontSize: '16px' }}>{item.title}</Typography>
           </MenuItem>
