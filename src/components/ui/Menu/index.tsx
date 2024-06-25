@@ -21,7 +21,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
   const isOpened = Boolean(anchorEl);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
-    if(!isActive) return;
+    if (!isActive) return;
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -38,9 +38,8 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
         variant="text"
         disableElevation
         onClick={handleClick}
-        startIcon={startIcon ? <img src={startIcon} alt='startIcon' /> : null}
+        startIcon={startIcon ? <img src={startIcon} alt="startIcon" /> : null}
         endIcon={<CustomIcon />}
-
       >
         <StyledTypography>{title}</StyledTypography>
       </StyledButton>
