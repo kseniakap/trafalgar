@@ -1,13 +1,17 @@
 import { styled, Container, useMediaQuery, useTheme } from '@mui/material';
 import { FC, useState } from 'react';
 
+import {
+  ILink,
+  ILinkIcon,
+  adultCategory,
+  childCategory,
+  mainCategory,
+  newsCategory,
+  socialCategory,
+} from './footerCategories';
 import envelopeIcon from '~/assets/icons/envelope.svg';
-import facebookIcon from '~/assets/icons/facebook.svg';
-import instagramIcon from '~/assets/icons/instagram.svg';
-import linkedinIcon from '~/assets/icons/linkedin.svg';
 import logoIcon from '~/assets/icons/trafalgarLogo.svg';
-import twitterIcon from '~/assets/icons/twitter.svg';
-import youtubeIcon from '~/assets/icons/youtube.svg';
 import appStoreBage from '~/assets/img/bage/appStore-bage.png';
 import googlePlayBage from '~/assets/img/bage/googlePlay-bage.png';
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
@@ -19,6 +23,30 @@ const FooterBlock: FC = () => {
   const [emailState, setEmailState] = useState<string>('');
 
   const iPadMatch = useMediaQuery(breakpoints.down('iPad'));
+
+  const renderLinks = (links: ILink[] | ILinkIcon[]) => {
+    return (
+      <ul>
+        {links.map((link, idx) => {
+          if ('img' in link) {
+            return (
+              <li key={idx}>
+                <a href={link.href}>
+                  <img src={link.img} alt={link.text} />
+                </a>
+              </li>
+            );
+          } else {
+            return (
+              <li key={idx}>
+                <a href={link.href}>{link.text}</a>
+              </li>
+            );
+          }
+        })}
+      </ul>
+    );
+  };
 
   return (
     <Block>
@@ -38,54 +66,15 @@ const FooterBlock: FC = () => {
         <Center>
           <Column>
             <h3 className="heading-6">Для взрослых</h3>
-            <ul>
-              <li>
-                <a href="#">Кардиология</a>
-              </li>
-              <li>
-                <a href="#">Терапия</a>
-              </li>
-              <li>
-                <a href="#">Флебология</a>
-              </li>
-              <li>
-                <a href="#">Травмы</a>
-              </li>
-            </ul>
+            {renderLinks(adultCategory)}
           </Column>
           <Column>
             <h3 className="heading-6">Для детей</h3>
-            <ul>
-              <li>
-                <a href="#">Педиатрия</a>
-              </li>
-              <li>
-                <a href="#">Инфекции</a>
-              </li>
-              <li>
-                <a href="#">Неврология</a>
-              </li>
-              <li>
-                <a href="#">Фтизиатрия</a>
-              </li>
-            </ul>
+            {renderLinks(childCategory)}
           </Column>
           <Column>
             <h3 className="heading-6">Новости</h3>
-            <ul>
-              <li>
-                <a href="#">Новости здравоохранения</a>
-              </li>
-              <li>
-                <a href="#">Открытия</a>
-              </li>
-              <li>
-                <a href="#">Документы</a>
-              </li>
-              <li>
-                <a href="#">Справочники</a>
-              </li>
-            </ul>
+            {renderLinks(newsCategory)}
           </Column>
           <Column>
             <h3 className="heading-6">Контакты</h3>
@@ -100,56 +89,14 @@ const FooterBlock: FC = () => {
               </LinkBages>
               <SocialLinks>
                 <h4 className="heading-6">Присоединиться к нам</h4>
-                <ul>
-                  <li>
-                    <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-                      <img src={youtubeIcon} alt="YouTube" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                      <img src={facebookIcon} alt="Facebook" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://twitter.com/" target="_blank" rel="noreferrer">
-                      <img src={twitterIcon} alt="Twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                      <img src={instagramIcon} alt="Instagram" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                      <img src={linkedinIcon} alt="Linkedin" />
-                    </a>
-                  </li>
-                </ul>
+                {renderLinks(socialCategory)}
               </SocialLinks>
             </Column>
           </Column>
         </Center>
         <Bottom>
           <span className="body-s">Тестовая компания @ 2023. Все права защищены.</span>
-          <ul>
-            <li>
-              <a href="#" className="btn-text-m">
-                Медицина
-              </a>
-            </li>
-            <li>
-              <a href="#" className="btn-text-m">
-                Наука
-              </a>
-            </li>
-            <li>
-              <a href="#" className="btn-text-m">
-                Инновации
-              </a>
-            </li>
-          </ul>
+          <div className="btn-text-m">{renderLinks(mainCategory)}</div>
         </Bottom>
       </Content>
     </Block>
@@ -292,7 +239,7 @@ const Bottom = styled('div')(({ theme }) => ({
   'display': 'flex',
   'justifyContent': 'space-between',
 
-  '& > ul': {
+  '& > div > ul': {
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(4),

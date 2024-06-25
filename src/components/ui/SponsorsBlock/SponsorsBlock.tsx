@@ -1,39 +1,25 @@
 import { Container, styled } from '@mui/material';
 import { FC } from 'react';
 
-import artVenueLogo from '~/assets/img/logo/artvenue-white.png';
-import kontrastrLogo from '~/assets/img/logo/kontrastr-white.png';
-import shellsLogo from '~/assets/img/logo/shells-white.png';
-import smartFinderLogo from '~/assets/img/logo/smartFinder-white.png';
-import wavesMarathonLogo from '~/assets/img/logo/wavesmarathon-white.png';
-import zoomerrLogo from '~/assets/img/logo/zoomerr-white.png';
+import { sponsors } from './sponsors';
 
 const SponsorsBlock: FC = () => {
+  const renderSponsors = () => {
+    return (
+      <SponsorList>
+        {sponsors.map((sponsor, idx) => (
+          <li key={idx}>
+            <img src={sponsor.logo} alt={sponsor.name} />
+          </li>
+        ))}
+      </SponsorList>
+    );
+  };
+
   return (
     <>
       <Block>
-        <Content maxWidth="desktop">
-          <SponsorList>
-            <li>
-              <img src={shellsLogo} alt="Shells" />
-            </li>
-            <li>
-              <img src={smartFinderLogo} alt="SmartFinder" />
-            </li>
-            <li>
-              <img src={zoomerrLogo} alt="Zoomerr" />
-            </li>
-            <li>
-              <img src={artVenueLogo} alt="ArtVenue" />
-            </li>
-            <li>
-              <img src={kontrastrLogo} alt="Kontrastr" />
-            </li>
-            <li>
-              <img src={wavesMarathonLogo} alt="WavesMarathon" />
-            </li>
-          </SponsorList>
-        </Content>
+        <Content maxWidth="desktop">{renderSponsors()}</Content>
       </Block>
     </>
   );
