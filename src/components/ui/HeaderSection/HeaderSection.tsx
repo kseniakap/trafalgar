@@ -48,7 +48,7 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   background: '#f2f4f8',
   alignItems: 'center',
   [theme.breakpoints.up('desktop')]: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly;',
   },
   [theme.breakpoints.down('iPad')]: {
     flexDirection: 'column',

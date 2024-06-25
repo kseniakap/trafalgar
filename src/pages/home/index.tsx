@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { PageContainer } from '~/components/page';
+import { About } from '~/components/ui/About/About';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
 
 const HomePage: FC = () => {
@@ -8,6 +9,7 @@ const HomePage: FC = () => {
     <PageContainer>
       <h2>Главная страница</h2>
       <HeaderSection />
+      <About />
     </PageContainer>
   );
 };
