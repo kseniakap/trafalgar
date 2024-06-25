@@ -1,13 +1,14 @@
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import AppleIcon from '@mui/icons-material/Apple';
+import GoogleIcon from '@mui/icons-material/Google';
+import { Checkbox, FormControlLabel, IconButton } from '@mui/material';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { Input, InputType } from '../Input/Input';
 import { Routes } from '~/lib/routes';
-import { Checkbox, FormControlLabel, IconButton } from '@mui/material';
-import GoogleIcon from '@mui/icons-material/Google';
-import AppleIcon from '@mui/icons-material/Apple';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import styled from 'styled-components';
 
 interface AuthProps {
   isLogin: boolean;

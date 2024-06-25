@@ -28,7 +28,9 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     const { fallback, children } = this.props;
 
     if (hasError) {
-      return fallback ? fallback(error!, errorInfo!) : (
+      return fallback ? (
+        fallback(error!, errorInfo!)
+      ) : (
         <div>
           <div style={{ color: 'red' }}>Error occurred location {location.pathname}</div>
           <div style={{ color: 'red' }}>
