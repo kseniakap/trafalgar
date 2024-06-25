@@ -1,8 +1,10 @@
 import { FC } from 'react';
 
 import { PageContainer } from '~/components/page';
+import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { About } from '~/components/ui/About/About';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
+import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 
 const HomePage: FC = () => {
   return (
@@ -10,6 +12,8 @@ const HomePage: FC = () => {
       <h2>Главная страница</h2>
       <HeaderSection />
       <About />
+      <SponsorsBlock />
+      <FooterBlock />
     </PageContainer>
   );
 };
