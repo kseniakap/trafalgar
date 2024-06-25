@@ -14,7 +14,7 @@ const MenuButton: FC<IMenuButtonProps> = ({ onClick }) => {
       onClick={onClick}
       startIcon={
         <ImageListItem>
-          <img src={menuMenu} alt="Menu Icon"   style = {{width: 'auto', height: 'auto'}}/>
+          <img src={menuMenu} alt="Menu Icon" style={{ width: 'auto', height: 'auto' }} />
         </ImageListItem>
       }
     >
