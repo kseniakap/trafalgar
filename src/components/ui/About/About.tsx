@@ -27,8 +27,8 @@ const cardsInfo = [
   },
 ];
 export const About = () => {
-  const cards = cardsInfo.map((card, ind) => (
-    <CardContainer key={ind}>
+  const cards = cardsInfo.map((card, index) => (
+    <CardContainer key={index}>
       <ImageCard
         title={card.title}
         description={card.description}
@@ -41,10 +41,10 @@ export const About = () => {
   return (
     <AboutContainer>
       <Title>
-        <Box component={'span'} className="heading-2">
+        <Box component="span" className="heading-2">
           О проекте
         </Box>
-        <Box component={'span'} className="body-l">
+        <Box component="span" className="body-l">
           Наш проект создан группой врачей для популяризации современных медицинских знаний их доступности для всех, кто
           в этом заинтересован.
         </Box>
@@ -59,42 +59,57 @@ const AboutContainer = styled(Box)`
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;
-  padding: 80px;
+  gap: ${({ theme }) => theme.spacing(10)};
+  padding: ${({ theme }) => theme.spacing(10)};
+
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
     justify-content: space-evenly;
   }
+
   ${({ theme }) => theme.breakpoints.down('desktop')} {
     flex-direction: column;
   }
+
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     align-self: center;
-    gap: 32px;
-    max-width: 600px;
-    padding: 48px 16px 24px 16px;
+    gap: ${({ theme }) => theme.spacing(4)};
+    max-width: ${({ theme }) => theme.spacing(79)};
+    padding: ${({ theme }) => `${theme.spacing(6)} ${theme.spacing(0)} ${theme.spacing(3)} ${theme.spacing(0)}`};
   }
 `;
+
 const Title = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing(2)};
+
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
-    width: 1000px;
+    width: ${({ theme }) => theme.spacing(125)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down('iPad')} {
+    padding: ${({ theme }) => `${theme.spacing(0)} ${theme.spacing(2)}`};
   }
 `;
+
 const Cards = styled(Box)`
   display: flex;
   flex-direction: row;
+  gap: ${({ theme }) => theme.spacing(2)};
+
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
     width: 883.5px;
   }
+
   ${({ theme }) => theme.breakpoints.down('desktop')} {
-    gap: 32px;
+    gap: ${({ theme }) => theme.spacing(4)};
   }
+
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     flex-direction: column;
   }
 `;
+
 const CardContainer = styled(Box)`
-  min-width: 272px;
+  min-width: ${({ theme }) => theme.spacing(34)};
 `;
