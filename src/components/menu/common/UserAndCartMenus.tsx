@@ -15,7 +15,7 @@ const UserAndCartMenus: FC = () => {
   return (
     <UserAndCartMenusContainer>
       <CustomMenu startIcon={humanIcon} title="Профиль" items={ProfileMenuItems} />
-      <CustomMenu startIcon={cartIcon} title="Корзина" isActive={false} />
+      <CustomMenu startIcon={cartIcon} title="Корзина" disabled={true} />
     </UserAndCartMenusContainer>
   );
 };

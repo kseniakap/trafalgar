@@ -1,5 +1,6 @@
+import cart from '@/assets/icons/menuCart.svg';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Typography, MenuItem } from '@mui/material';
+import { Typography, MenuItem, SvgIcon, SvgIconProps, Icon } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import { alpha, styled } from '@mui/material/styles';
@@ -13,15 +14,14 @@ interface ICustomMenu {
     title: string;
     link: string;
   }[];
-  isActive?: boolean;
+  disabled?: boolean;
 }
 
-const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true }) => {
+const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, disabled = false }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isOpened = Boolean(anchorEl);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
-    if (!isActive) return;
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -40,6 +40,7 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, isActive = true 
         onClick={handleClick}
         startIcon={startIcon ? <img src={startIcon} alt="startIcon" /> : null}
         endIcon={<CustomIcon />}
+        disabled={disabled}
       >
         <StyledTypography>{title}</StyledTypography>
       </StyledButton>
@@ -76,11 +77,11 @@ const CustomIcon = styled(KeyboardArrowDownIcon)(() => ({
   fontSize: '30px !important',
 }));
 
-const StyledButton = styled(Button)(() => ({
+const StyledButton = styled(Button)(({ disabled }) => ({
   'textTransform': 'none',
   'color': 'black',
-  '& .MuiButton-endIcon': {
-    fontSize: '5rem',
+  '& .MuiButton-startIcon': {
+    opacity: `${disabled ? '25%' : '100%'}`,
   },
 }));
 
