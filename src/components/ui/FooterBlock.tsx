@@ -10,6 +10,7 @@ import twitterIcon from '~/assets/icons/twitter.svg';
 import youtubeIcon from '~/assets/icons/youtube.svg';
 import appStoreBage from '~/assets/img/bage/appStore-bage.png';
 import googlePlayBage from '~/assets/img/bage/googlePlay-bage.png';
+import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 import { Button, ButtonStyle } from '~/components/ui/Button/Button';
 import { Input } from '~/components/ui/Input/Input';
 
@@ -155,12 +156,12 @@ const FooterBlock: FC = () => {
   );
 };
 
-const Block = styled('div')(({ theme }) => ({
+const Block = styled('div')(() => ({
   background: 'linear-gradient(180deg, rgb(103, 195, 243), rgb(90, 152, 242) 100%)',
-  color: theme.palette.common.white,
+  color: WHITE,
 
   a: {
-    color: theme.palette.common.white,
+    color: WHITE,
     textDecoration: 'none',
   },
 
@@ -230,7 +231,7 @@ const Center = styled('div')(({ theme }) => ({
   padding: theme.spacing(6),
   borderWidth: '1px 0px 1px',
   borderStyle: 'solid',
-  borderColor: theme.palette.coolGray['coolGray-30'],
+  borderColor: COOL_GRAY_30,
 
   [theme.breakpoints.down('iPad')]: {
     gridTemplateColumns: '1fr',
