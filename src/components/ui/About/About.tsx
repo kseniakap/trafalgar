@@ -95,7 +95,6 @@ const Title = styled(Box)`
 const Cards = styled(Box)`
   display: flex;
   flex-direction: row;
-  gap: ${({ theme }) => theme.spacing(2)};
 
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
     width: 883.5px;
