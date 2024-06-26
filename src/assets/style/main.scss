@@ -57,3 +57,7 @@ body {
 .body-s {
   @include body-S;
 }
+
+.caption {
+  @include caption
+}
