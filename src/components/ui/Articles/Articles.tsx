@@ -36,7 +36,6 @@ export const Arcticles = () => {
   const arcticles = arcticlesList.map((arcticle, index) => (
     <CardContainer key={index}>
       <ImageCard
-        key={index}
         title={arcticle.title}
         description={arcticle.description}
         image={!arcticle.isLoading ? <Image src={arcticle.img} alt={arcticle.alt} /> : null}
