@@ -37,7 +37,9 @@ export const ImageCard: FC<ImageCardProps> = (props: ImageCardProps) => {
           <Title component="span" $withIcon={withIcon}>
             {title}
           </Title>
-          <span className="body-m">{description}</span>
+          <Description component="span" $withIcon={withIcon}>
+            {description}
+          </Description>
         </Content>
         {linkText && (
           <Link $withIcon={withIcon}>
@@ -83,11 +85,20 @@ const Title = styled(Box)<{ $withIcon?: boolean }>`
   line-height: 22px;
   text-align: left;
   ${({ theme }) => theme.breakpoints.down('tablet')} {
-    font-size: ${({ $withIcon }) => $withIcon && '16px'};
-    line-height: ${({ $withIcon }) => $withIcon && '17.6px'};
+    font-size: ${({ $withIcon }) => ($withIcon ? 'unset' : '16px')};
+    line-height: ${({ $withIcon }) => ($withIcon ? 'unset' : '17.6px')};
   }
 `;
-
+const Description = styled(Box)<{ $withIcon?: boolean }>`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
+    font-size: ${({ $withIcon }) => ($withIcon ? 'unset' : '14px')};
+    line-height: ${({ $withIcon }) => ($withIcon ? 'unset' : '19.6px')};
+  }
+`;
 const ContentContainer = styled(Box)`
   display: flex;
   flex: 1 1 auto;
