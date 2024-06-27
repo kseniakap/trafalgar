@@ -64,6 +64,7 @@ const ArcticlesList = styled(Box)`
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   width: auto;
+  list-style: none;
 
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
     column-gap: ${({ theme }) => theme.spacing(8)};
