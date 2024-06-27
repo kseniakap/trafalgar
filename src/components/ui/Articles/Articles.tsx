@@ -1,44 +1,19 @@
 import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
+import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { ImageCard } from '../Card/ImgCard';
-import Arcticle1 from '~/assets/img/arcticles/arcticle1.png';
-import Arcticle2 from '~/assets/img/arcticles/arcticle2.png';
-import Arcticle3 from '~/assets/img/arcticles/arcticle3.png';
+import { arcticlesList } from './arcticlesData';
 
-const arcticlesList = [
-  {
-    title: 'Головная боль',
-    description: 'Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы ...',
-    img: Arcticle1,
-    alt: 'Headache arcticle',
-  },
-  {
-    title: 'Мигрень',
-    description: 'Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика',
-    image: null,
-    isLoading: true,
-  },
-  {
-    title: 'Доказательная медицина',
-    description: 'Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться...',
-    img: Arcticle2,
-    alt: 'Evidence-based medicine arcticle',
-  },
-  {
-    title: 'Антидепрессанты',
-    description: 'Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив...',
-    img: Arcticle3,
-    alt: 'Antidepressants arcticle',
-  },
-];
 export const Arcticles = () => {
-  const arcticles = arcticlesList.map((arcticle, index) => (
-    <CardContainer key={index}>
+  const arcticles = arcticlesList.map((arcticle, index: number) => (
+    <CardContainer key={index} component="li">
       <ImageCard
         title={arcticle.title}
         description={arcticle.description}
-        image={!arcticle.isLoading ? <Image src={arcticle.img} alt={arcticle.alt} /> : null}
+        image={
+          !arcticle.isLoading && arcticle.img && arcticle.alt ? <Image src={arcticle.img} alt={arcticle.alt} /> : null
+        }
         linkText="Подробнее"
       />
     </CardContainer>
@@ -53,7 +28,10 @@ export const Arcticles = () => {
           Статьи для врачей, пациентов и их родственников, а также научно-популярные доклады о прорывах в медицине
         </Description>
       </Title>
-      <ArcticlesList display="grid">{arcticles}</ArcticlesList>
+      <ArcticlesList display="grid" component="ul">
+        {arcticles}
+      </ArcticlesList>
+      <Button style={ButtonStyle.Contained} text="Все статьи" size={ButtonSize.Large} textSize={ButtonTextSize.Large} />
     </ArcticlesContainer>
   );
 };
