@@ -6,17 +6,18 @@ import { Switch } from '../Switch/Switch';
 import { prices } from './pricesData';
 
 export const Prices = () => {
-  const pricesList = prices.map((price, index) => (
-    <PricingCard
-      key={index}
-      title={price.title}
-      description={price.description}
-      price={price.price}
-      discount={price.discount}
-      services={price.services}
-      monthPrice={price.monthPrice}
-      isPopular={price.isPopular}
-    />
+  const priceItems = prices.map((price, index) => (
+    <li key={index}>
+      <PricingCard
+        title={price.title}
+        description={price.description}
+        price={price.price}
+        discount={price.discount}
+        services={price.services}
+        monthPrice={price.monthPrice}
+        isPopular={price.isPopular}
+      />
+    </li>
   ));
   return (
     <PricesContainer>
@@ -46,7 +47,7 @@ export const Prices = () => {
           Месяц
         </Box>
       </Switcher>
-      <PricesList>{pricesList}</PricesList>
+      <PricesList component="ul">{priceItems}</PricesList>
     </PricesContainer>
   );
 };
@@ -124,7 +125,7 @@ const PricesList = styled(Box)`
   justify-content: space-between;
   width: -webkit-fill-available;
   width: -moz-available;
-
+  list-style: none;
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
     max-width: ${({ theme }) => theme.spacing(201)};
   }
