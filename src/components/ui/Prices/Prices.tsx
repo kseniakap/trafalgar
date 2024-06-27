@@ -124,17 +124,25 @@ const PricesList = styled(Box)`
   justify-content: space-between;
   width: -webkit-fill-available;
   width: -moz-available;
+
   ${({ theme }) => theme.breakpoints.up('desktopL')} {
-    justify-content: space-evenly;
     max-width: ${({ theme }) => theme.spacing(201)};
   }
+
+  ${({ theme }) => theme.breakpoints.up('desktop')} {
+    justify-content: space-evenly;
+    gap: ${({ theme }) => theme.spacing(3)};
+  }
+
   ${({ theme }) => theme.breakpoints.down('desktop')} {
     gap: ${({ theme }) => theme.spacing(1)};
     padding: ${({ theme }) => `${theme.spacing(0)} ${theme.spacing(2)}`};
   }
+
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     padding: ${({ theme }) => theme.spacing(0)};
   }
+
   ${({ theme }) => theme.breakpoints.down('tablet')} {
     align-items: center;
     flex-direction: column;
