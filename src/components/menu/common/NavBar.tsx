@@ -37,14 +37,20 @@ const NavButton = styled(Button)(({ theme }) => ({
 }));
 
 const NavBarContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'start',
-  alignItems: 'center',
-  width: '100%',
-  height: '48px',
-  padding: '8px 0px 8px 0px',
+  'display': 'flex',
+  'justifyContent': 'start',
+  'alignItems': 'center',
+  'width': '100%',
+  'height': '48px',
+  'padding': '8px 0px 8px 0px',
+  'overflowInline': 'auto',
 
-  overflowInline: 'auto',
+  'scrollbarWidth': 'none',
+  'msOverflowStyle': 'none',
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+
   [theme.breakpoints.down('desktop')]: {
     overflowX: 'auto',
   },
