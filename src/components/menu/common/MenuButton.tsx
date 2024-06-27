@@ -6,9 +6,10 @@ import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 
 interface IMenuButtonProps {
   onClick?: () => void;
+  color?: string;
 }
 
-const MenuButton: FC<IMenuButtonProps> = ({ onClick }) => {
+const MenuButton: FC<IMenuButtonProps> = ({ onClick, color = 'black' }) => {
   return (
     <NavButtonMenu
       onClick={onClick}
@@ -18,7 +19,7 @@ const MenuButton: FC<IMenuButtonProps> = ({ onClick }) => {
         </ImageListItem>
       }
     >
-      <Typography fontWeight={'500'} fontSize={'16px'}>
+      <Typography color={color} fontWeight={'500'} fontSize={'16px'}>
         Меню
       </Typography>
     </NavButtonMenu>
