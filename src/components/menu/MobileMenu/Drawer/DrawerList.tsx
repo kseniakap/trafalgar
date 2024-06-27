@@ -12,13 +12,13 @@ interface IDrawerListProps {
 
 const DrawerList: FC<IDrawerListProps> = ({ closeDrawer }) => {
   return (
-    <DrawerContainer role="presentation">
+    <DrawerContainer sx={{ width: '256px' }} role="presentation">
       <Stack spacing={2}>
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <Logo width="160px" />
         </Box>
         <Box sx={{ height: '48px' }}>
-          <SearchTextField />
+          <SearchTextField variant="standard" />
         </Box>
         <List sx={{ padding: '0px' }}>
           {navigationLinks.map((nav) => (
