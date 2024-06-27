@@ -1,10 +1,11 @@
 import { Box, Button, Divider, List, ListItem, Stack, styled, Typography } from '@mui/material';
 import { FC, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import Logo from '../../common/Logo';
 import SearchTextField from '../../common/SearchBar/SearchTextField';
 import { navigationLinks } from '../../lib/NavigationLinks';
-import { COOL_GRAY_20 } from '~/assets/style/colors';
+import { COOL_GRAY_10, COOL_GRAY_20 } from '~/assets/style/colors';
 
 interface IDrawerListProps {
   closeDrawer: () => void;
@@ -23,11 +24,13 @@ const DrawerList: FC<IDrawerListProps> = ({ closeDrawer }) => {
         <List sx={{ padding: '0px' }}>
           {navigationLinks.map((nav) => (
             <Fragment key={nav}>
-              <ListItem onClick={closeDrawer} key={nav} sx={{ padding: '8px ' }}>
-                <Typography fontWeight={'500'} fontSize={'16px'}>
-                  {nav}
-                </Typography>
-              </ListItem>
+              <StyledListItem onClick={closeDrawer} key={nav}>
+                <StyledLink to="#">
+                  <Typography color="black" fontWeight={'500'} fontSize={'16px'}>
+                    {nav}
+                  </Typography>
+                </StyledLink>
+              </StyledListItem>
               <Divider />
             </Fragment>
           ))}
@@ -50,11 +53,28 @@ const StyledButton = styled(Button)`
 `;
 
 const DrawerContainer = styled(Box)`
-  width: 256;
+  width: 256px;
   padding: 24px 16px;
   border-right: 1px solid ${COOL_GRAY_20};
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+const StyledListItem = styled(ListItem)`
+  padding: 8px;
+
+  &:hover {
+    background-color: ${COOL_GRAY_10};
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  width: 100%;
+
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
 `;
