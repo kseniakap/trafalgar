@@ -1,15 +1,17 @@
 import { FC } from 'react';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 import { allQuestion } from './allQuestions';
-import DecorBlockQuestions from '~/assets/images/decorBlockQuestions.png';
+import DecorBlockQuestions from '~/assets/img/decor/decorBlockQuestions.png';
 import { Question } from './Question';
 
 export const QuestionsBlock: FC = () => {
+  const { breakpoints } = useTheme();
+  const tabletMatch = useMediaQuery(breakpoints.down('tablet'));
   return (
     <Block>
-      <Title>Вопросы</Title>
-      <Subtitle>Ответы на частые вопросы</Subtitle>
+      <h5 className="heading-5">Вопросы</h5>
+      <h2 className={tabletMatch ? 'heading-4' : 'heading-2'}>Ответы на частые вопросы</h2>
       <AllQuestionsBlock>
         {allQuestion.map((item, i) => (
           <Question key={i} question={item.question} answer={item.answer} />
@@ -24,6 +26,20 @@ const Block = styled('div')(({ theme }) => ({
   'minHeight': 'auto',
   'padding': '80px 30px',
   'background': 'linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%)',
+  '& h5': {
+    marginBottom: theme.spacing(1),
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    color: '#001d6c',
+  },
+  '& h2': {
+    marginBottom: theme.spacing(8),
+    textAlign: 'center',
+    [theme.breakpoints.down('tablet')]: {
+      marginBottom: theme.spacing(4),
+    },
+  },
+
   '&:before': {
     position: 'absolute',
     top: '5px',
@@ -51,34 +67,13 @@ const Block = styled('div')(({ theme }) => ({
   },
 }));
 
-const Title = styled('h5')(({ theme }) => ({
-  marginBottom: theme.spacing(1),
-  fontWeight: 700,
-  fontSize: '20px',
-  textAlign: 'center',
-  textTransform: 'uppercase',
-  color: '#001d6c',
-}));
-
-const Subtitle = styled('h2')(({ theme }) => ({
-  marginBottom: theme.spacing(8),
-  fontWeight: 700,
-  fontSize: '42px',
-  textAlign: 'center',
-  lineHeight: '100%',
-  [theme.breakpoints.down('tablet')]: {
-    marginBottom: theme.spacing(4),
-    fontSize: '24px',
-  },
-}));
-
 const AllQuestionsBlock = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: theme.spacing(2),
   width: '900px',
   margin: '0 auto',
-  [theme.breakpoints.up('desktop')]: {
+  [theme.breakpoints.up('desktopL')]: {
     width: '60%',
   },
   [theme.breakpoints.down('iPad')]: {

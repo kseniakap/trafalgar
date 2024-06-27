@@ -1,15 +1,18 @@
 import { FC, useState } from 'react';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { IAllQuestion } from './allQuestions';
 
 export const Question: FC<IAllQuestion> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const { breakpoints } = useTheme();
+  const tabletMatch = useMediaQuery(breakpoints.down('tablet'));
+
   return (
     <StyledAccordion
       expanded={isOpen}
@@ -25,10 +28,10 @@ export const Question: FC<IAllQuestion> = ({ question, answer }) => {
         aria-controls="panel1-content"
         id="panel1-header"
       >
-        <QuestionsTypography>{question}</QuestionsTypography>
+        <h4 className={tabletMatch ? 'heading-6' : 'heading-5'}>{question}</h4>
       </StyledAccordionSummary>
       <AccordionDetails>
-        <AnswerTypography>{answer}</AnswerTypography>
+        <p className="body-M">{answer}</p>
       </AccordionDetails>
     </StyledAccordion>
   );
@@ -38,28 +41,17 @@ const StyledAccordion = styled(Accordion)(({ theme }) => ({
   'margin': '0px!important',
   'padding': `${theme.spacing(2)}!important`,
   'border': '1px solid #dde1e6',
-  'borderRadius': '8px!important',
+  'borderRadius': `${theme.spacing(1)}!important`,
+  '& p': {
+    marginTop: theme.spacing(3),
+  },
   '& div': {
     minHeight: theme.spacing(3),
     margin: '0px!important',
     padding: 0,
   },
 }));
-const StyledAccordionSummary = styled(AccordionSummary)(() => ({
-  minHeight: '24px!important',
-}));
-const QuestionsTypography = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  fontSize: '20px',
-  lineHeight: '110%',
-  [theme.breakpoints.down('tablet')]: {
-    fontSize: '18px',
-  },
-}));
 
-const AnswerTypography = styled(Typography)(({ theme }) => ({
-  marginTop: theme.spacing(3),
-  fontWeight: 400,
-  fontSize: '16px',
-  lineHeight: '140%',
+const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  minHeight: `${theme.spacing(3)}!important`,
 }));
