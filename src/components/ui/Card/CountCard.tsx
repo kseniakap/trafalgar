@@ -3,6 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { COOL_GRAY_60 } from '~/assets/style/colors';
+
 interface CountCardProps {
   count: string;
   description: string;
@@ -16,7 +18,7 @@ export const CountCard: FC<CountCardProps> = (props: CountCardProps) => {
       {icon}
       <Content>
         <div>
-          <span className="heading-4">{count}</span>
+          <span className="heading-4">{count + '+'}</span>
         </div>
         <div>
           <span className="body-m">{description}</span>
@@ -29,11 +31,26 @@ export const CountCard: FC<CountCardProps> = (props: CountCardProps) => {
 const NumberCard = styled(Card)`
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  padding: 16px !important;
+  gap:  ${({ theme }) => theme.spacing(2)};
+  padding: ${({ theme }) => theme.spacing(2)};
   border: 1px solid #dde1e6;
   border-radius: 8px !important;
   box-shadow: none !important;
+
+  span.body-m {
+    color: ${COOL_GRAY_60};
+  }
+
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: ${({ theme }) => theme.spacing(2, 1)};
+
+    .body-m {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Content = styled(CardContent)`
