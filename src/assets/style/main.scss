@@ -8,6 +8,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  color: #21272a;
 }
 
 .btn-text-l {
@@ -29,7 +30,6 @@ body {
 .heading-2 {
   @include h2;
 }
-
 
 .heading-3 {
   @include h3;
@@ -57,4 +57,12 @@ body {
 
 .body-s {
   @include body-S;
+}
+
+.body-xs {
+  @include body-XS;
+}
+
+.caption {
+  @include caption;
 }

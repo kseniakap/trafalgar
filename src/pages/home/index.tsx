@@ -1,11 +1,13 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import { PageContainer } from '~/components/page';
-import { Routes } from '~/lib/routes';
-import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { About } from '~/components/ui/About/About';
+import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
+import { Prices } from '~/components/ui/Prices/Prices';
 import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
+import { Routes } from '~/lib/routes';
 
 const HomePage: FC = () => {
   return (
@@ -24,6 +26,7 @@ const HomePage: FC = () => {
       <h2>Главная страница</h2>
       <HeaderSection />
       <About />
+      <Prices />
       <SponsorsBlock />
       <FooterBlock />
     </PageContainer>
