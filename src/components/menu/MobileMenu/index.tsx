@@ -20,7 +20,7 @@ const MobileMenu: FC = () => {
         <StyleToolBar>
           <Logo width="100px" />
           <StyledStack>
-            <CartIconWithBadge badgeContent={9} />
+            <CartIconWithBadge badgeContent={9} color="#001D6C" />
             <MenuButton onClick={toggleDrawer(true)} color="#001D6C" />
           </StyledStack>
         </StyleToolBar>

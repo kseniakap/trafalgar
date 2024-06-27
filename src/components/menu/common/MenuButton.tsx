@@ -1,5 +1,5 @@
-import menuMenu from '@/assets/icons/menuMenu.svg';
-import { Button, ImageListItem, styled, Typography } from '@mui/material';
+import { ReactComponent as MenuMenu } from '@/assets/icons/menuMenu.svg';
+import { Button, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
@@ -11,14 +11,7 @@ interface IMenuButtonProps {
 
 const MenuButton: FC<IMenuButtonProps> = ({ onClick, color = 'black' }) => {
   return (
-    <NavButtonMenu
-      onClick={onClick}
-      startIcon={
-        <ImageListItem>
-          <img src={menuMenu} alt="Menu Icon" style={{ width: 'auto', height: 'auto' }} />
-        </ImageListItem>
-      }
-    >
+    <NavButtonMenu onClick={onClick} startIcon={<StyledMenuIcon color={color} />}>
       <Typography color={color} fontWeight={'500'} fontSize={'16px'}>
         Меню
       </Typography>
@@ -26,7 +19,11 @@ const MenuButton: FC<IMenuButtonProps> = ({ onClick, color = 'black' }) => {
   );
 };
 
-export default MenuButton;
+const StyledMenuIcon = styled(MenuMenu)<{ color: string }>`
+  path {
+    fill: ${(props) => props.color};
+  }
+`;
 
 const NavButtonMenu = styled(Button)(({ theme }) => ({
   color: 'black',
@@ -39,3 +36,5 @@ const NavButtonMenu = styled(Button)(({ theme }) => ({
     border: `1px solid ${COOL_GRAY_30}`,
   },
 }));
+
+export default MenuButton;
