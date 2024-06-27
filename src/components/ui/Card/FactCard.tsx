@@ -17,7 +17,6 @@ interface FactCardProps {
 }
 
 const FactCard: FC<FactCardProps> = ({ data }) => {
-
   return (
     <>
       <CardContainer $breakpoint={Breakpoints.tablet}>

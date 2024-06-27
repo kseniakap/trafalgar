@@ -9,7 +9,7 @@ const SearchTextField: FC = () => {
     startAdornment: (
       <InputAdornment position="start" sx={{ height: '100%' }}>
         <ImageListItem>
-          <img src={searchIcon} alt="Search Icon" style = {{width: 'auto', height: 'auto'}}/>
+          <img src={searchIcon} alt="Search Icon" style={{ width: 'auto', height: 'auto' }} />
         </ImageListItem>
       </InputAdornment>
     ),

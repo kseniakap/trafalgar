@@ -1,19 +1,25 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Typography } from '@mui/material';
+import { Typography, MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import { FC, MouseEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ICustomMenu {
   title: string;
-  items: string[];
+  startIcon?: string;
+  items?: {
+    title: string;
+    link: string;
+  }[];
+  disabled?: boolean;
 }
 
-const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
+const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, disabled = false }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isOpened = Boolean(anchorEl);
+
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -31,7 +37,9 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
         variant="text"
         disableElevation
         onClick={handleClick}
+        startIcon={startIcon ? <img src={startIcon} alt="startIcon" /> : null}
         endIcon={<CustomIcon />}
+        disabled={disabled}
       >
         <StyledTypography>{title}</StyledTypography>
       </StyledButton>
@@ -44,11 +52,9 @@ const CustomMenu: FC<ICustomMenu> = ({ title, items }) => {
         open={isOpened}
         onClose={handleClose}
       >
-        {items.map((item) => (
-          <MenuItem disableRipple key={item} value={item} onClick={handleClose}>
-            <Typography fontWeight={'500'} fontSize={'16px'}>
-              {item}
-            </Typography>
+        {items?.map((item) => (
+          <MenuItem disableRipple key={item.title} component={Link} to={item.link} onClick={handleClose}>
+            <Typography sx={{ fontWeight: '500', fontSize: '16px' }}>{item.title}</Typography>
           </MenuItem>
         ))}
       </StyledMenu>
@@ -65,21 +71,22 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     fontSize: '0px',
   },
 }));
+
 const CustomIcon = styled(KeyboardArrowDownIcon)(() => ({
   fontSize: '30px !important',
 }));
 
-const StyledButton = styled(Button)(() => ({
+const StyledButton = styled(Button)(({ disabled }) => ({
   'textTransform': 'none',
   'color': 'black',
-  '& .MuiButton-endIcon': {
-    fontSize: '5rem',
+  '& .MuiButton-startIcon': {
+    opacity: `${disabled ? '25%' : '100%'}`,
   },
 }));
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
-    elevation={0}
+    elevation={3}
     anchorOrigin={{
       vertical: 'bottom',
       horizontal: 'right',
