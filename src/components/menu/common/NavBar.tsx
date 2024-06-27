@@ -33,14 +33,14 @@ const NavButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const NavBarContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'start',
-  alignItems: 'center',
-  width: '100%',
-  height: '48px',
-  padding: '8px 0px 8px 0px',
-}));
+const NavBarContainer = styled(Box)`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding: 8px 0px 8px 0px;
+`;
 
 const NavButtonsContainer = styled(Box)(({ theme }) => ({
   width: '100%',
