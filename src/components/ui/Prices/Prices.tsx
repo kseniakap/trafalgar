@@ -7,7 +7,7 @@ import { prices } from './pricesData';
 
 export const Prices = () => {
   const priceItems = prices.map((price, index) => (
-    <li key={index}>
+    <PriceItem key={index}>
       <PricingCard
         title={price.title}
         description={price.description}
@@ -17,7 +17,7 @@ export const Prices = () => {
         monthPrice={price.monthPrice}
         isPopular={price.isPopular}
       />
-    </li>
+    </PriceItem>
   ));
   return (
     <PricesContainer>
@@ -163,4 +163,11 @@ const Badge = styled(Box)<{ size?: string }>`
 
 const LeftSwitch = styled(Box)`
   position: relative;
+`;
+
+const PriceItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;

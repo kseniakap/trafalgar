@@ -61,8 +61,10 @@ const Container = styled(Box)`
   position: relative;
   height: 858px;
   width: 410px;
-  ${({ theme }) => theme.breakpoints.down('tablet')} {
+  ${({ theme }) => theme.breakpoints.down('desktop')} {
     width: 100%;
+  }
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
     max-width: 410px;
     height: unset;
   }
