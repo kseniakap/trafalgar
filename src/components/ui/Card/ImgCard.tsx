@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -5,10 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { Loader } from '../Loader/Loader';
 import { ArrowLink } from '../Text/ArrowLink';
+import LoaderBg from '~/assets/img/arcticles/loader.png';
 
 interface ImageCardProps {
-  image: ReactElement;
+  image: ReactElement | null;
   title?: string;
   description?: string;
   linkText?: string;
@@ -16,27 +19,45 @@ interface ImageCardProps {
 }
 
 export const ImageCard: FC<ImageCardProps> = (props: ImageCardProps) => {
-  const { title, description, image, linkText, withIcon } = props;
+  const { title, description, linkText, withIcon, image } = props;
   return (
     <MediaCard $withIcon={withIcon}>
-      <Media $withIcon={withIcon}>{image}</Media>
-      <Content>
-        <span className="heading-5">{title}</span>
-        <span className="body-m">{description}</span>
-      </Content>
-      {linkText && (
-        <Link $withIcon={withIcon}>
-          <ArrowLink text={linkText} />
-        </Link>
-      )}
+      <Media $withIcon={withIcon}>
+        {image ? (
+          <>{image}</>
+        ) : (
+          <>
+            <img src={LoaderBg} alt="loader" />
+            <Loader />
+          </>
+        )}
+      </Media>
+      <ContentContainer>
+        <Content>
+          <Title component="span" $withIcon={withIcon}>
+            {title}
+          </Title>
+          <Description component="span" $withIcon={withIcon}>
+            {description}
+          </Description>
+        </Content>
+        {linkText && (
+          <Link $withIcon={withIcon}>
+            <ArrowLink text={linkText} />
+          </Link>
+        )}
+      </ContentContainer>
     </MediaCard>
   );
 };
 
 const MediaCard = styled(Card)<{ $withIcon?: boolean }>`
+  display: flex;
+  flex-direction: column;
   border: ${(props) => (props.$withIcon ? 'none' : '1px solid #dde1e6;')};
   border-radius: 8px !important;
   box-shadow: none !important;
+  height: 100%;
 `;
 
 const Content = styled(CardContent)`
@@ -51,6 +72,36 @@ const Link = styled(CardActions)<{ $withIcon?: boolean }>`
 `;
 
 const Media = styled(CardMedia)<{ $withIcon?: boolean }>`
-  padding-left: ${(props) => (props.$withIcon ? '16px' : '0')};
-  height: ${(props) => (props.$withIcon ? '48px' : 'unset')};
+  position: relative;
+  padding-left: ${(props) => (props.$withIcon ? props.theme.spacing(2) : '0')};
+  height: ${(props) => (props.$withIcon ? props.theme.spacing(6) : 'unset')};
+  img {
+    width: ${(props) => (props.$withIcon ? 'unset' : '100%')};
+  }
+`;
+const Title = styled(Box)<{ $withIcon?: boolean }>`
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: left;
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
+    font-size: ${({ $withIcon }) => ($withIcon ? 'unset' : '16px')};
+    line-height: ${({ $withIcon }) => ($withIcon ? 'unset' : '17.6px')};
+  }
+`;
+const Description = styled(Box)<{ $withIcon?: boolean }>`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
+    font-size: ${({ $withIcon }) => ($withIcon ? 'unset' : '14px')};
+    line-height: ${({ $withIcon }) => ($withIcon ? 'unset' : '19.6px')};
+  }
+`;
+const ContentContainer = styled(Box)`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
 `;

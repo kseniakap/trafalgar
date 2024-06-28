@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+
+import AppMenu from '~/components/menu';
 import { PageContainer } from '~/components/page';
-import { Routes } from '~/lib/routes';
-import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { About } from '~/components/ui/About/About';
+import { Arcticles } from '~/components/ui/Articles/Articles';
+import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
 import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 import KnowledgeBlock from '~/components/ui/KnowledgeBlock/KnowledgeBlock';
@@ -11,20 +12,10 @@ import KnowledgeBlock from '~/components/ui/KnowledgeBlock/KnowledgeBlock';
 const HomePage: FC = () => {
   return (
     <PageContainer>
-      <div>
-        <div>
-          <Link to={Routes.HOME}>Главная</Link>
-        </div>
-        <div>
-          <Link to={Routes.LOGIN}>Вход</Link>
-        </div>
-        <div>
-          <Link to={Routes.REGISTER}>Регистрация</Link>
-        </div>
-      </div>
-      <h2>Главная страница</h2>
+      <AppMenu />
       <HeaderSection />
       <About />
+      <Arcticles />
       <KnowledgeBlock />
       <SponsorsBlock />
       <FooterBlock />

@@ -25,11 +25,6 @@ const AppRoutes: AppRoute[] = [
     page: AppPages.RegisterPage,
     exact: true,
   },
-  {
-    path: Routes.TEST,
-    page: AppPages.TestPage,
-    exact: true,
-  },
 ];
 
 export { AppRoutes };
