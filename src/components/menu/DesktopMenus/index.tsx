@@ -6,7 +6,7 @@ import FullMenu from './FullMenu';
 import ScrollMenu from './ScrollMenu';
 import { COOL_GRAY_10 } from '~/assets/style/colors';
 
-const DeskTopMenus: FC = () => {
+const DesktopMenus: FC = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef<null | HTMLDivElement>(null);
 
@@ -53,7 +53,7 @@ const MenuContainer = styled(Box)`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 5;
 `;
 
-export default DeskTopMenus;
+export default DesktopMenus;
