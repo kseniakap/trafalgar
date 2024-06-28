@@ -160,7 +160,7 @@ const Badge = styled(Box)<{ size?: string }>`
   width: max-content;
   padding: 1px 10px 2px 10px;
   border-radius: 10px;
-  background: #f2f4f8;
+  background: ${({ theme }) => theme.palette.coolGray['coolGray-10']};;
 `;
 
 const LeftSwitch = styled(Box)`
