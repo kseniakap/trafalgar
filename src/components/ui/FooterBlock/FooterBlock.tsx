@@ -50,7 +50,7 @@ const FooterBlock: FC = () => {
               value={emailState}
               onChange={(value) => setEmailState(value)}
             />
-            <Button text="Подписаться" style={ButtonStyle.Contained} onClick={() => setEmailState('')} />
+            <SubsribeBtn text="Подписаться" style={ButtonStyle.Contained} onClick={() => setEmailState('')} />
           </form>
         </Top>
         <Center>
@@ -130,7 +130,9 @@ const Top = styled('div')(({ theme }) => ({
   },
 
   form: {
+    width: '100%',
     display: 'flex',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     gap: theme.spacing(2),
   },
@@ -138,26 +140,54 @@ const Top = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('iPad')]: {
     flexDirection: 'column',
     gap: '48px',
+
+    form: {
+      gap: theme.spacing(1),
+      justifyContent: 'center',
+    },
   },
 }));
 
+const SubsribeBtn = styled(Button)(() => ({
+  minWidth: '160px !important',
+  height: '45px !important',
+}));
+
 const EmailInput = styled(Input)(({ theme }) => ({
-  'width': '261px',
+  'maxWidth': '261px',
+
+  '.MuiInputBase-root': {
+    gap: '8px',
+    padding: '0px',
+  },
+
+  '.MuiInputBase-input': {
+    height: '48px',
+    padding: '0px',
+  },
+
+  '.MuiFormControl-root': {
+    marginTop: '0',
+  },
+
+  '& ::placeholder': {
+    transform: 'translate3d(0, -2px ,0)',
+  },
+
   'img': {
     width: '24px',
     height: '24px',
   },
 
-  '& .MuiFormControl-root': {
-    marginTop: '0 !important',
+  [theme.breakpoints.down('desktop')]: {
+    '& ::placeholder': {
+      transform: 'translate3d(0, 0 ,0)',
+    },
   },
-
-  [theme.breakpoints.down('iPad')]: {
-    width: '100%',
-  },
-
   [theme.breakpoints.down(390)]: {
-    '& ::placeholder': { fontSize: '14px !important' },
+    '& ::placeholder': {
+      fontSize: '14px !important',
+    },
   },
 }));
 
