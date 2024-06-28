@@ -104,6 +104,10 @@ const BtnGroup = styled.div`
 
   & > button {
     height: 56px;
+
+    .btn-text-m {
+      font-size: 20px;
+    }
   }
 
   & > .docBtn {
@@ -120,6 +124,10 @@ const BtnGroup = styled.div`
     & > button {
       height: 40px;
       padding: 13px !important;
+
+      .btn-text-m {
+        font-size: 14px;
+      }
     }
 
     & > .docBtn {
