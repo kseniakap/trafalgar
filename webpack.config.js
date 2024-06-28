@@ -105,11 +105,15 @@ module.exports = (env, argv) => {
         },
         // Images
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
           generator: {
             filename: 'images/[name][hash][ext][query]',
           },
+        },
+        {
+          test: /\.(svg)$/,
+          use: ['@svgr/webpack', 'file-loader'],
         },
         // Fonts
         {
