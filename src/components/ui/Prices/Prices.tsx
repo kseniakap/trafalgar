@@ -6,19 +6,22 @@ import { Switch } from '../Switch/Switch';
 import { prices } from './pricesData';
 
 export const Prices = () => {
-  const priceItems = prices.map((price, index) => (
-    <PriceItem key={index}>
-      <PricingCard
-        title={price.title}
-        description={price.description}
-        price={price.price}
-        discount={price.discount}
-        services={price.services}
-        monthPrice={price.monthPrice}
-        isPopular={price.isPopular}
-      />
-    </PriceItem>
-  ));
+  const priceItems = prices.map((item, index) => {
+    const { title, description, price, discount, services, monthPrice, isPopular } = item;
+    return (
+      <PriceItem key={index}>
+        <PricingCard
+          title={title}
+          description={description}
+          price={price}
+          discount={discount}
+          services={services}
+          monthPrice={monthPrice}
+          isPopular={isPopular}
+        />
+      </PriceItem>
+    );
+  });
   return (
     <PricesContainer>
       <Title>

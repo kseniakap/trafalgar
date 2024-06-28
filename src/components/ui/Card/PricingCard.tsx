@@ -39,9 +39,9 @@ export const PricingCard: FC<PricingCardProps> = (props: PricingCardProps) => {
           <Description className="body-l">{description}</Description>
         </SectionBox>
         <PriceSectionBox>
-          <CrossOutPrice className="heading-1">{price}</CrossOutPrice>
-          <span className="heading-1">{discount}</span>
-          <span className="body-s">{`${monthPrice} каждый месяц`}</span>
+          <CrossOutPrice className="heading-1">${price}</CrossOutPrice>
+          <span className="heading-1">${discount}</span>
+          <span className="body-s">{`$${monthPrice} каждый месяц`}</span>
         </PriceSectionBox>
         <SectionBox>
           <Button
