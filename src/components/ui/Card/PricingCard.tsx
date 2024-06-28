@@ -38,9 +38,7 @@ export const PricingCard: FC<PricingCardProps> = (props: PricingCardProps) => {
           <Description className="body-l">{description}</Description>
         </SectionBox>
         <PriceSectionBox>
-          <CrossOutPrice>
-            <del>${price}</del>
-          </CrossOutPrice>
+          <CrossOutPrice>${price}</CrossOutPrice>
           <span className="heading-1">${monthPrice}</span>
           <span className="body-s">{`$${monthPrice} USD каждый месяц`}</span>
         </PriceSectionBox>
@@ -115,6 +113,8 @@ const CrossOutPrice = styled(Box)`
   font-size: 54px;
   font-weight: 700;
   line-height: 59.4px;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
 `;
 
 const Service = styled(Box)`
