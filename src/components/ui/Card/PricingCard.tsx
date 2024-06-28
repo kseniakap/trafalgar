@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import Check from '~/assets/icons/check.svg';
+import { COOL_GRAY_10, COOL_GRAY_20, COOL_GRAY_40 } from '~/assets/style/colors';
 
 interface PricingCardProps {
   title: string;
@@ -75,7 +76,7 @@ const PriceCard = styled(Card)`
   align-items: center;
   height: 100%;
   padding: 16px 24px;
-  border: 1px solid ${({ theme }) => theme.palette.coolGray['coolGray-20']};
+  border: 1px solid ${COOL_GRAY_20};
   border-radius: 8px !important;
   box-shadow: none !important;
   ${({ theme }) => theme.breakpoints.down('tablet')} {
@@ -109,12 +110,12 @@ const ServicesSection = styled(SectionBox)`
 `;
 
 const CrossOutPrice = styled(Box)`
-  color: ${({ theme }) => theme.palette.coolGray['coolGray-40']};
+  color: ${COOL_GRAY_40};
   font-size: 54px;
   font-weight: 700;
   line-height: 59.4px;
   text-decoration: line-through;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: from-font;
 `;
 
 const Service = styled(Box)`
@@ -131,5 +132,5 @@ const Badge = styled(Box)<{ size?: string }>`
   width: fit-content;
   padding: 2px 12px;
   border-radius: 10px;
-  background: ${({ theme }) => theme.palette.coolGray['coolGray-10']};
+  background: ${COOL_GRAY_10};
 `;

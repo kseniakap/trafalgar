@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { PricingCard } from '../Card/PricingCard';
 import { Switch } from '../Switch/Switch';
 import { prices } from './pricesData';
+import { CAPTION, COOL_GRAY_10 } from '~/assets/style/colors';
 
 export const Prices = () => {
   const priceItems = prices.map((item, index) => {
@@ -84,7 +85,7 @@ const Title = styled(Box)`
 `;
 
 const BlockName = styled(Box)`
-  color: #001d6c;
+  color: ${CAPTION};
 `;
 
 const TitleText = styled(Box)`
@@ -160,7 +161,7 @@ const Badge = styled(Box)<{ size?: string }>`
   width: max-content;
   padding: 1px 10px 2px 10px;
   border-radius: 10px;
-  background: ${({ theme }) => theme.palette.coolGray['coolGray-10']};;
+  background: ${COOL_GRAY_10};
 `;
 
 const LeftSwitch = styled(Box)`
