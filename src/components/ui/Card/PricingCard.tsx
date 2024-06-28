@@ -114,8 +114,10 @@ const CrossOutPrice = styled(Box)`
   font-size: 54px;
   font-weight: 700;
   line-height: 59.4px;
-  text-decoration: line-through;
+  text-decoration: underline;
   text-decoration-thickness: from-font;
+  text-underline-offset: -14px;
+  text-decoration-skip-ink: none;
 `;
 
 const Service = styled(Box)`
