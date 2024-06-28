@@ -65,9 +65,6 @@ const LeftContainer = styled(Box)(({ theme }) => ({
   maxWidth: 'max(41.6vw, 600px)',
   padding: '80px 0',
 
-  // [theme.breakpoints.up('desktop')]: {
-  //   maxWidth: '600px',
-  // },
   [theme.breakpoints.down('iPad')]: {
     gap: theme.spacing(6),
     padding: '0',

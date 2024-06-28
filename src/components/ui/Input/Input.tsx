@@ -94,7 +94,7 @@ const StyledTextField = styled(TextField)`
   input,
   textarea {
     padding: 12px 0px 12px 16px;
-    @media (min-width: ${Breakpoints.desktop}px) {
+    @media (min-width: ${Breakpoints.desktopL}px) {
       padding: 16px 0px 16px 20px;
       font-size: 22px;
     }

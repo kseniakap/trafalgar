@@ -186,8 +186,11 @@ const Line = styled('div')(({ theme }) => ({
   height: '1px',
 }));
 
-const LinkText = styled('span')(() => ({
+const LinkText = styled('span')(({ theme }) => ({
   color: `${CAPTION}`,
+  [theme.breakpoints.up('desktop')]: {
+    fontSize: '18px',
+  },
 }));
 const LinkBlue = styled(Link)(({ theme }) => ({
   'color': `${CAPTION}`,
@@ -196,10 +199,10 @@ const LinkBlue = styled(Link)(({ theme }) => ({
   'lineHeight': '19.6%',
   'textDecoration': 'none',
   ':hover': {
-    filter: 'brightness(45%)',
+    filter: 'contrast(80%) brightness(150%);',
   },
   ':active': {
-    filter: 'brightness(95%)',
+    filter: 'brightness(150%)',
   },
   [theme.breakpoints.up('desktop')]: {
     fontSize: '18px',
