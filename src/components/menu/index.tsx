@@ -6,7 +6,7 @@ import MobileMenu from './MobileMenu';
 
 const AppMenu: FC = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('iPad'));
 
   return <>{isMobile ? <MobileMenu /> : <DesktopMenus />}</>;
 };

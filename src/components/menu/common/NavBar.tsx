@@ -29,34 +29,27 @@ const NavButton = styled(Button)(({ theme }) => ({
     padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
   },
   [theme.breakpoints.down('desktop')]: {
-    padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
-  },
-  [theme.breakpoints.down('iPad')]: {
-    padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+    padding: '0px',
   },
 }));
 
-const NavBarContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'start',
-  alignItems: 'center',
-  width: '100%',
-  height: '48px',
-  padding: '8px 0px 8px 0px',
-
-  overflowInline: 'auto',
-  [theme.breakpoints.down('desktop')]: {
-    overflowX: 'auto',
-  },
-}));
+const NavBarContainer = styled(Box)`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding: 8px 0px 8px 0px;
+`;
 
 const NavButtonsContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
   display: 'flex',
-  [theme.breakpoints.down('desktopXL')]: {
-    gap: '8px',
-  },
+  gap: theme.spacing(1),
+  justifyContent: 'flex-start',
   [theme.breakpoints.down('desktop')]: {
-    gap: '8px',
+    gap: theme.spacing(0),
+    justifyContent: 'space-between',
   },
 }));
 

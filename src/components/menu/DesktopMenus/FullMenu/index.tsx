@@ -7,7 +7,9 @@ import TopMenu from './TopMenu';
 const FullMenu: FC = () => {
   return (
     <>
-      <TopMenu /> <MiddleMenu /> <BottomMenu />
+      <TopMenu />
+      <MiddleMenu />
+      <BottomMenu />
     </>
   );
 };
