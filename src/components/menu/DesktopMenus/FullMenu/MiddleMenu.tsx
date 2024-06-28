@@ -4,6 +4,7 @@ import { FC } from 'react';
 import Logo from '../../common/Logo';
 import SearchBar from '../../common/SearchBar';
 import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
+import { WHITE } from '~/assets/style/colors';
 
 const MiddleMenu: FC = () => {
   return (
@@ -19,7 +20,7 @@ const MiddleMenuContainer = styled(BaseMenuContainer)`
   justify-content: center;
   align-items: center;
   height: 96px;
-
+  background-color: ${WHITE};
   gap: 24px;
 `;
 
