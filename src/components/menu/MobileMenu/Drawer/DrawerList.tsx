@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../common/Logo';
 import SearchTextField from '../../common/SearchBar/SearchTextField';
 import { navigationLinks } from '../../lib/NavigationLinks';
-import { COOL_GRAY_10, COOL_GRAY_20 } from '~/assets/style/colors';
+import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
 
 interface IDrawerListProps {
   closeDrawer: () => void;
@@ -46,8 +46,8 @@ const DrawerList: FC<IDrawerListProps> = ({ closeDrawer }) => {
 export default DrawerList;
 
 const StyledButton = styled(Button)`
-  color: #458ff6;
-  border: 2px solid #458ff6;
+  color: ${SECONDARY_BG};
+  border: 2px solid ${SECONDARY_BG};
   height: 48px;
   width: 100%;
 `;

@@ -3,6 +3,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import ArrowRight from '~/assets/icons/arrow-right.svg';
+import { SECONDARY_BG } from '~/assets/style/colors';
 
 interface ArrowLinkProps {
   text: string;
@@ -25,7 +26,7 @@ const TextContainer = styled(Box)`
   gap: 8px;
   align-items: center;
   width: fit-content;
-  color: #458ff6;
+  color: ${SECONDARY_BG};
   cursor: pointer;
   :hover {
     filter: brightness(85%);

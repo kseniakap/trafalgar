@@ -1,13 +1,15 @@
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import AppleIcon from '@mui/icons-material/Apple';
+import GoogleIcon from '@mui/icons-material/Google';
+import { Checkbox, FormControlLabel, IconButton, styled } from '@mui/material';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { Input, InputType } from '../Input/Input';
-import { Routes } from '~/lib/routes';
-import { Checkbox, FormControlLabel, IconButton, styled } from '@mui/material';
-import GoogleIcon from '@mui/icons-material/Google';
-import AppleIcon from '@mui/icons-material/Apple';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { AuthWrapperImg } from './AuthWrapperImg';
+import { CAPTION } from '~/assets/style/colors';
+import { Routes } from '~/lib/routes';
 import muiTheme from '~/lib/themes/muiTheme';
 
 interface AuthProps {
@@ -26,7 +28,7 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
   const { name, surname, email, password, showPassword } = formData;
 
   const linkRoute = isLogin ? Routes.REGISTER : Routes.LOGIN;
-  const linkText = isLogin ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт?';
+  const linkText = isLogin ? 'Зарегистрироваться' : 'Уже есть аккаунт?';
 
   const handleChange = (e: string | React.ChangeEvent<HTMLInputElement>, fieldName: string) => {
     const value = typeof e === 'string' ? e : e.target.value;
@@ -109,7 +111,10 @@ export const Auth: FC<AuthProps> = ({ isLogin }) => {
           />
         </Btns>
         <Line />
-        <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
+        <LinkText className="body-s">
+          {isLogin && `Нет аккаунта? `}
+          <LinkBlue to={linkRoute}>{linkText}</LinkBlue>
+        </LinkText>
       </Div>
     </AuthWrapperImg>
   );
@@ -181,12 +186,21 @@ const Line = styled('div')(({ theme }) => ({
   height: '1px',
 }));
 
+const LinkText = styled('span')(() => ({
+  color: `${CAPTION}`,
+}));
 const LinkBlue = styled(Link)(({ theme }) => ({
-  color: '#001d6c',
-  fontSize: '14px',
-  fontWeight: '400',
-  lineHeight: '19.6%',
-  textDecoration: 'none',
+  'color': `${CAPTION}`,
+  'fontSize': '14px',
+  'fontWeight': '400',
+  'lineHeight': '19.6%',
+  'textDecoration': 'none',
+  ':hover': {
+    filter: 'brightness(45%)',
+  },
+  ':active': {
+    filter: 'brightness(95%)',
+  },
   [theme.breakpoints.up('desktop')]: {
     fontSize: '18px',
   },

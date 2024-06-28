@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { PricingCard } from '../Card/PricingCard';
 import { Switch } from '../Switch/Switch';
-import { prices } from './pricesData';
 import { CAPTION, COOL_GRAY_10 } from '~/assets/style/colors';
+import { prices } from '~/const/pricesData';
 
 export const Prices = () => {
   const priceItems = prices.map((item, index) => {

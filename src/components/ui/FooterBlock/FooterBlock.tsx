@@ -1,6 +1,13 @@
 import { styled, Container, useMediaQuery, useTheme } from '@mui/material';
 import { FC, useState } from 'react';
 
+import envelopeIcon from '~/assets/icons/envelope.svg';
+import logoIcon from '~/assets/icons/trafalgarLogo.svg';
+import appStoreBage from '~/assets/img/bage/appStore-bage.png';
+import googlePlayBage from '~/assets/img/bage/googlePlay-bage.png';
+import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
+import { Button, ButtonStyle } from '~/components/ui/Button/Button';
+import { Input } from '~/components/ui/Input/Input';
 import {
   ILink,
   ILinkIcon,
@@ -9,14 +16,7 @@ import {
   mainCategory,
   newsCategory,
   socialCategory,
-} from './footerCategories';
-import envelopeIcon from '~/assets/icons/envelope.svg';
-import logoIcon from '~/assets/icons/trafalgarLogo.svg';
-import appStoreBage from '~/assets/img/bage/appStore-bage.png';
-import googlePlayBage from '~/assets/img/bage/googlePlay-bage.png';
-import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
-import { Button, ButtonStyle } from '~/components/ui/Button/Button';
-import { Input } from '~/components/ui/Input/Input';
+} from '~/const/footerCategories';
 
 const FooterBlock: FC = () => {
   const { breakpoints } = useTheme();

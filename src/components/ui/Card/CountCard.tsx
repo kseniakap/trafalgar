@@ -3,6 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { COOL_GRAY_20 } from '~/assets/style/colors';
+
 interface CountCardProps {
   count: string;
   description: string;
@@ -31,7 +33,7 @@ const NumberCard = styled(Card)`
   flex-direction: row;
   gap: 8px;
   padding: 16px !important;
-  border: 1px solid #dde1e6;
+  border: 1px solid ${COOL_GRAY_20};
   border-radius: 8px !important;
   box-shadow: none !important;
 `;

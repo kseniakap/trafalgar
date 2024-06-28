@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 import SearchSelect from './SearchSelect';
 import SearchTextField from './SearchTextField';
+import { SECONDARY_BG } from '~/assets/style/colors';
 
 interface ISearchBarProps {
   height: string;
@@ -28,7 +29,7 @@ export default SearchBar;
 
 const StyledButton = styled(Button)`
   width: 105px;
-  background-color: #458ff6;
+  background-color: ${SECONDARY_BG};
   text-transform: none;
 `;
 

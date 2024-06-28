@@ -32,7 +32,7 @@ const NavButtonMenu = styled(Button)(({ theme }) => ({
   backgroundColor: WHITE,
 
   minWidth: '108px',
-  [theme.breakpoints.up('desktop')]: {
+  [theme.breakpoints.up('iPad')]: {
     border: `1px solid ${COOL_GRAY_30}`,
   },
 }));
