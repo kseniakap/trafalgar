@@ -7,14 +7,13 @@ import { prices } from './pricesData';
 
 export const Prices = () => {
   const priceItems = prices.map((item, index) => {
-    const { title, description, price, discount, services, monthPrice, isPopular } = item;
+    const { title, description, price, services, monthPrice, isPopular } = item;
     return (
       <PriceItem key={index}>
         <PricingCard
           title={title}
           description={description}
           price={price}
-          discount={discount}
           services={services}
           monthPrice={monthPrice}
           isPopular={isPopular}

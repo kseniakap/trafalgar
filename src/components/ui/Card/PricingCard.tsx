@@ -10,14 +10,13 @@ interface PricingCardProps {
   title: string;
   description: string;
   price: string;
-  discount?: string;
   monthPrice?: string;
   services: string[];
   isPopular?: boolean;
 }
 
 export const PricingCard: FC<PricingCardProps> = (props: PricingCardProps) => {
-  const { title, description, price, discount, monthPrice, services, isPopular } = props;
+  const { title, description, price, monthPrice, services, isPopular } = props;
 
   const servicesList = services.map((service, index) => (
     <Service key={index}>
@@ -28,20 +27,22 @@ export const PricingCard: FC<PricingCardProps> = (props: PricingCardProps) => {
 
   return (
     <Container>
-      {isPopular ? (
+      {isPopular && (
         <Badge>
           <Box component="span">Популярный</Box>
         </Badge>
-      ) : null}
+      )}
       <PriceCard>
         <SectionBox>
           <span className="heading-3">{title}</span>
           <Description className="body-l">{description}</Description>
         </SectionBox>
         <PriceSectionBox>
-          <CrossOutPrice className="heading-1">${price}</CrossOutPrice>
-          <span className="heading-1">${discount}</span>
-          <span className="body-s">{`$${monthPrice} каждый месяц`}</span>
+          <CrossOutPrice>
+            <del>${price}</del>
+          </CrossOutPrice>
+          <span className="heading-1">${monthPrice}</span>
+          <span className="body-s">{`$${monthPrice} USD каждый месяц`}</span>
         </PriceSectionBox>
         <SectionBox>
           <Button
@@ -76,7 +77,7 @@ const PriceCard = styled(Card)`
   align-items: center;
   height: 100%;
   padding: 16px 24px;
-  border: 1px solid #dde1e6;
+  border: 1px solid ${({ theme }) => theme.palette.coolGray['coolGray-20']};
   border-radius: 8px !important;
   box-shadow: none !important;
   ${({ theme }) => theme.breakpoints.down('tablet')} {
@@ -110,8 +111,10 @@ const ServicesSection = styled(SectionBox)`
 `;
 
 const CrossOutPrice = styled(Box)`
-  color: #a2a9b0;
-  text-decoration: line-through;
+  color: ${({ theme }) => theme.palette.coolGray['coolGray-40']};
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 59.4px;
 `;
 
 const Service = styled(Box)`
@@ -128,5 +131,5 @@ const Badge = styled(Box)<{ size?: string }>`
   width: fit-content;
   padding: 2px 12px;
   border-radius: 10px;
-  background: #f2f4f8;
+  background: ${({ theme }) => theme.palette.coolGray['coolGray-10']};
 `;
