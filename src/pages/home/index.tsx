@@ -8,6 +8,7 @@ import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
 import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 import KnowledgeBlock from '~/components/ui/KnowledgeBlock/KnowledgeBlock';
+import { QuestionsBlock } from '~/components/ui/QuestionsBlock/QuestionsBlock';
 
 const HomePage: FC = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage: FC = () => {
       <About />
       <Arcticles />
       <KnowledgeBlock />
+      <QuestionsBlock/>
       <SponsorsBlock />
       <FooterBlock />
     </PageContainer>
