@@ -3,19 +3,19 @@ import { FC, useState } from 'react';
 import styled from 'styled-components';
 
 import { CountCard } from '../Card/CountCard';
-import { IStatCardData, statCardData } from './statCardData';
+import { StatCardData, statCardData } from './statCardData';
 import dashboardIcon from '~/assets/icons/dashboard.svg';
 import { PRIMARY_60, COOL_GRAY_90 } from '~/assets/style/colors';
 import { Button, ButtonStyle } from '~/components/ui/Button/Button';
-import toCompactNumber from '~/uttils/toCompactNum';
+import { toCompactNumber } from '~/utils/toCompactNum';
 
 const KnowledgeBlock: FC = () => {
-  const [isDocCategoryState, setIsDocCategoryState] = useState<boolean>(true);
+  const [isDocCategoryState, setIsDocCategoryState] = useState(true);
 
   const { breakpoints } = useTheme();
   const tabletMatch = useMediaQuery(breakpoints.down('tablet'));
 
-  const renderStatCards = (cardsData: IStatCardData[]) => {
+  const renderStatCards = (cardsData: StatCardData[]) => {
     return (
       <CountCards>
         {cardsData.map((data, idx) => (
@@ -32,35 +32,33 @@ const KnowledgeBlock: FC = () => {
   };
 
   return (
-    <>
-      <Block>
-        <Content maxWidth="desktop">
-          <h2 className="heading-5">ЗНАНИЯ</h2>
-          <p className={tabletMatch ? 'heading-4' : 'heading-2'}>
-            Информацию по отдельным заболеваниям ориентированную на пациентов можно найти в соответствующем разделе
-            сайта, статьи разделены на категории.
-          </p>
-          <BtnGroup>
-            <Button
-              className="docBtn"
-              text="Для врачей"
-              style={isDocCategoryState ? ButtonStyle.Contained : ButtonStyle.Outlined}
-              onClick={() => setIsDocCategoryState(true)}
-            />
-            <Button
-              className="patientBtn"
-              text="Для пациентов"
-              style={isDocCategoryState ? ButtonStyle.Outlined : ButtonStyle.Contained}
-              onClick={() => setIsDocCategoryState(false)}
-            />
-          </BtnGroup>
-          <Stats>
-            <img src={dashboardIcon} alt="График публикаций" />
-            {renderStatCards(statCardData)}
-          </Stats>
-        </Content>
-      </Block>
-    </>
+    <Block>
+      <Content maxWidth="desktop">
+        <h2 className="heading-5">ЗНАНИЯ</h2>
+        <p className={tabletMatch ? 'heading-4' : 'heading-2'}>
+          Информацию по отдельным заболеваниям ориентированную на пациентов можно найти в соответствующем разделе сайта,
+          статьи разделены на категории.
+        </p>
+        <BtnGroup>
+          <Button
+            className="docBtn"
+            text="Для врачей"
+            style={isDocCategoryState ? ButtonStyle.Contained : ButtonStyle.Outlined}
+            onClick={() => setIsDocCategoryState(true)}
+          />
+          <Button
+            className="patientBtn"
+            text="Для пациентов"
+            style={isDocCategoryState ? ButtonStyle.Outlined : ButtonStyle.Contained}
+            onClick={() => setIsDocCategoryState(false)}
+          />
+        </BtnGroup>
+        <Stats>
+          <img src={dashboardIcon} alt="График публикаций" />
+          {renderStatCards(statCardData)}
+        </Stats>
+      </Content>
+    </Block>
   );
 };
 

@@ -7,14 +7,14 @@ import smileBoxIcon from '~/assets/icons/smileBox.svg';
 import usersIcon from '~/assets/icons/users.svg';
 import usersBoxIcon from '~/assets/icons/usersBox.svg';
 
-export interface IStatCardData {
+export interface StatCardData {
   value: number;
   title: string;
   icon: string;
   iconAlt: string;
 }
 
-export const statCardData: IStatCardData[] = [
+export const statCardData: StatCardData[] = [
   {
     value: 250,
     title: 'Научных статей',
