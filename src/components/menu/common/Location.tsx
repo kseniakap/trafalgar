@@ -2,11 +2,11 @@ import locationIcon from '@/assets/icons/menuLocation.svg';
 import { ImageListItem, styled, Typography, Box } from '@mui/material';
 import { FC } from 'react';
 
-interface ILocationProps {
+interface LocationProps {
   location: string;
 }
 
-const Location: FC<ILocationProps> = ({ location }) => {
+const Location: FC<LocationProps> = ({ location }) => {
   return (
     <StyledLocationContainer>
       <ImageListItem>

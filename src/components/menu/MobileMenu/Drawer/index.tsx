@@ -3,12 +3,12 @@ import { FC } from 'react';
 
 import DrawerList from './DrawerList';
 
-interface ICustomDrawerProps {
+interface CustomDrawerProps {
   open: boolean;
   onClose: () => void;
 }
 
-const CustomDrawer: FC<ICustomDrawerProps> = ({ open, onClose }) => {
+const CustomDrawer: FC<CustomDrawerProps> = ({ open, onClose }) => {
   return (
     <Drawer open={open} onClose={onClose}>
       <DrawerList closeDrawer={onClose} />

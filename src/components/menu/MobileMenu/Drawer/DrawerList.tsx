@@ -7,11 +7,11 @@ import SearchTextField from '../../common/SearchBar/SearchTextField';
 import { navigationLinks } from '../../lib/NavigationLinks';
 import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
 
-interface IDrawerListProps {
+interface DrawerListProps {
   closeDrawer: () => void;
 }
 
-const DrawerList: FC<IDrawerListProps> = ({ closeDrawer }) => {
+const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
   return (
     <DrawerContainer sx={{ width: '256px' }} role="presentation">
       <Stack spacing={2}>

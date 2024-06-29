@@ -5,12 +5,12 @@ import smartFinderLogo from '~/assets/img/logo/smartFinder-white.png';
 import wavesMarathonLogo from '~/assets/img/logo/wavesmarathon-white.png';
 import zoomerrLogo from '~/assets/img/logo/zoomerr-white.png';
 
-export interface ISponsor {
+export interface Sponsor {
   name: string;
   logo: string;
 }
 
-export const sponsors: ISponsor[] = [
+export const sponsors: Sponsor[] = [
   {
     name: 'Shells',
     logo: shellsLogo,

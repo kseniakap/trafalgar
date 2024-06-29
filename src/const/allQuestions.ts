@@ -1,9 +1,9 @@
-export interface IAllQuestion {
+export interface AllQuestion {
   question: string;
   answer: string;
 }
 
-export const allQuestion: IAllQuestion[] = [
+export const allQuestion: AllQuestion[] = [
   {
     question: 'В каких городах работает сервис?',
     answer:

@@ -9,8 +9,8 @@ import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 import { Button, ButtonStyle } from '~/components/ui/Button/Button';
 import { Input } from '~/components/ui/Input/Input';
 import {
-  ILink,
-  ILinkIcon,
+  Link,
+  LinkIcon,
   adultCategory,
   childCategory,
   mainCategory,
@@ -24,7 +24,7 @@ const FooterBlock: FC = () => {
 
   const iPadMatch = useMediaQuery(breakpoints.down('iPad'));
 
-  const renderLinks = (links: ILink[] | ILinkIcon[]) => {
+  const renderLinks = (links: Link[] | LinkIcon[]) => {
     return (
       <ul>
         {links.map((link, idx) => {

@@ -6,10 +6,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import { FC, useState } from 'react';
 
-import { IAllQuestion } from '../../../const/allQuestions';
+import { AllQuestion } from '../../../const/allQuestions';
 import { COOL_GRAY_20 } from '~/assets/style/colors';
 
-export const Question: FC<IAllQuestion> = ({ question, answer }) => {
+export const Question: FC<AllQuestion> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { breakpoints } = useTheme();
