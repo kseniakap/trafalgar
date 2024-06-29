@@ -1,7 +1,8 @@
-import { Box, Button, styled, Typography } from '@mui/material';
+import { Box, Button, MenuItem, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
-import SearchSelect from './SearchSelect';
+import Select from '../../../Select/Selects';
+import { Categories } from '../../lib/Categories';
 import SearchTextField from './SearchTextField';
 
 interface ISearchBarProps {
@@ -13,7 +14,15 @@ const SearchBar: FC<ISearchBarProps> = ({ height }) => {
     <SearchBarContainer height={height}>
       <SearchBox>
         <SearchTextField />
-        <SearchSelect />
+        <StyledSelect placeholder="Все категории">
+          {Categories.map((category) => (
+            <MenuItem key={category} value={category}>
+              <Typography fontWeight={'500'} fontSize={'16px'}>
+                {category}
+              </Typography>
+            </MenuItem>
+          ))}
+        </StyledSelect>
       </SearchBox>
       <StyledButton disableElevation variant="contained">
         <Typography fontWeight={'500'} fontSize={'16px'}>
@@ -25,6 +34,10 @@ const SearchBar: FC<ISearchBarProps> = ({ height }) => {
 };
 
 export default SearchBar;
+
+const StyledSelect = styled(Select)`
+  width: 180px;
+`;
 
 const StyledButton = styled(Button)`
   width: 105px;
