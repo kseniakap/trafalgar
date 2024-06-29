@@ -148,31 +148,30 @@ const BtnGroup = styled.div`
 `;
 
 const Stats = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: ${({ theme }) => theme.spacing(10)};
 
   & > img {
-    width: 546px;
-    height: 396px;
-  }
-
-  ${({ theme }) => theme.breakpoints.up('desktopL')} {
-    & > img {
-      width: 846px;
-      height: auto;
-    }
+    width: 100%;
+    max-width: 1046px;
   }
 
   ${({ theme }) => theme.breakpoints.down('desktop')} {
     align-items: flex-start;
-    gap: ${({ theme }) => theme.spacing(3)};
+
+    & > img {
+      width: 546px;
+      height: 396px;
+    }
   }
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     flex-direction: column;
     align-items: center;
+    gap: ${({ theme }) => theme.spacing(3)};
 
     & > img {
       width: 100%;
@@ -183,19 +182,15 @@ const Stats = styled.div`
 
 const CountCards = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 420px);
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
   gap: ${({ theme }) => theme.spacing(3)};
 
-  ${({ theme }) => theme.breakpoints.down('desktopL')} {
-    grid-template-columns: repeat(2, 320px);
-  }
-
   ${({ theme }) => theme.breakpoints.down('desktop')} {
-    grid-template-columns: repeat(1, 320px);
+    grid-template-columns: repeat(1, 1fr);
   }
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
-    width: 100%;
     grid-template-columns: repeat(2, 1fr);
 
     & > li > div {
