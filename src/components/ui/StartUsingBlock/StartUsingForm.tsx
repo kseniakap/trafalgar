@@ -18,7 +18,7 @@ interface StartUsingFormProps {
 const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHandler, formData }) => {
   const { name, question, surname, theme } = formData;
   return (
-    <FormContainer onSubmit={onSubmitHandler} component="form">
+    <Box onSubmit={onSubmitHandler} component="form">
       <Stack gap="16px">
         <Stack direction="row" gap={2}>
           <CustomInput
@@ -66,13 +66,11 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
         ></FormControlLabel>
         <CustomButton type={ButtonType.Submit} text="Отправить" style={ButtonStyle.Contained}></CustomButton>
       </Stack>
-    </FormContainer>
+    </Box>
   );
 };
 
 export default StartUsingForm;
-
-const FormContainer = styled(Box)``;
 
 const CustomInput = styled(Input)`
   .MuiInputBase-root {

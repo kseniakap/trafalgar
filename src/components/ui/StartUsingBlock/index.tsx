@@ -3,10 +3,10 @@ import { Box } from '@mui/material';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
+import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
 import StartUsingForm from './StartUsingForm';
 import SuccessForm from './SuccessForm';
 import { FormData } from './interfaces';
-import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
 
 const StartUsingBlock: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -39,16 +39,17 @@ const StartUsingBlock: React.FC = () => {
     <StartUsingContainer>
       <BackgroundImage />
       <FormContainer>
-        {isSuccess ? (
-          <SuccessForm onclick={onClickHandler} />
-        ) : (
-          <FormContentContainer>
-            <Box>
-              <p className="heading-3">Начать использование</p>
-              <p className="body">Хотите начать сотрудничество? Напишите нам</p>
-            </Box>
-            <StartUsingForm formData={formData} onChangeHandler={onChangeHandler} onSubmitHandler={onSubmitHandler} />
-          </FormContentContainer>
+        <FormContentContainer style={{ visibility: isSuccess ? 'hidden' : 'visible' }}>
+          <Box>
+            <p className="heading-3">Начать использование</p>
+            <p className="body">Хотите начать сотрудничество? Напишите нам</p>
+          </Box>
+          <StartUsingForm formData={formData} onChangeHandler={onChangeHandler} onSubmitHandler={onSubmitHandler} />
+        </FormContentContainer>
+        {isSuccess && (
+
+            <SuccessForm onclick={onClickHandler} />
+
         )}
       </FormContainer>
     </StartUsingContainer>
@@ -56,6 +57,9 @@ const StartUsingBlock: React.FC = () => {
 };
 
 export default StartUsingBlock;
+
+
+
 
 const StartUsingContainer = styled(Box)`
   display: flex;
@@ -83,7 +87,7 @@ const BackgroundImage = styled('div')`
 `;
 
 const FormContainer = styled(Box)`
-  margin: 0 auto;
+  margin: auto;
   background-color: ${WHITE};
   border-radius: ${({ theme }) => theme.spacing(1)};
   border: 1px solid ${COOL_GRAY_20};

@@ -1,5 +1,5 @@
 import successIcon from '@/assets/icons/succsessMark.svg';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { FC } from 'react';
 import styled from 'styled-components';
 
@@ -10,9 +10,12 @@ interface SuccessFormProps {
 }
 
 const SuccessForm: FC<SuccessFormProps> = ({ onclick }) => {
+  const theme = useTheme();
+  const IsTablet = useMediaQuery(theme.breakpoints.down('tablet'));
+
   return (
     <SuccessFormContainer>
-      <p className="heading-3">Форма успешно отправлена</p>
+      <p className={IsTablet ? 'heading-5' : 'heading-3'}>Форма успешно отправлена</p>
       <img src={successIcon} alt="successImg"></img>
       <ArrowLink onClick={onclick} text="Вернуться к форме"></ArrowLink>
     </SuccessFormContainer>
@@ -22,9 +25,16 @@ const SuccessForm: FC<SuccessFormProps> = ({ onclick }) => {
 export default SuccessForm;
 
 const SuccessFormContainer = styled(Box)`
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: ${({ theme }) => theme.spacing(2)};
+  height: 100%;
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-inline: 32px;
 `;
