@@ -1,4 +1,4 @@
-import { GroupsData } from './interfaces';
+import { GroupsData } from '../components/ui/StartUsingBlock/interfaces';
 
 export const groups: GroupsData[] = [
   {

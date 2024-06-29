@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, List, ListItem } from '@mui/material';
 import { FC } from 'react';
 
-import { groups } from './groupsData';
+import { groups } from '../../../const/groupsData';
 import { GroupsData } from './interfaces';
 
 const GroupMenuItems: FC = () => {
