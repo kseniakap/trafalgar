@@ -150,7 +150,7 @@ const Top = styled('div')(({ theme }) => ({
 
 const SubsribeBtn = styled(Button)(() => ({
   minWidth: '160px !important',
-  height: '45px !important',
+  height: '44px !important',
 }));
 
 const EmailInput = styled(Input)(({ theme }) => ({
