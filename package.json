@@ -2,12 +2,15 @@
   "name": "react-starter",
   "version": "1.0.0",
   "description": "React (TS) starter project",
+  "homepage": "https://kseniakap.github.io/trafalgar",
   "main": "index.js",
   "engines": {
     "node": ">=15.0.0",
     "npm": ">=7.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "webpack-cli serve --env NODE_ENV=development --mode development",
     "build": "webpack --env NODE_ENV=production --mode production",
     "build:dev": "webpack --env NODE_ENV=development --mode development",
@@ -35,6 +38,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "core-js": "^3.15.2",
+    "gh-pages": "^6.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
@@ -105,14 +109,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/web-bee-ru/react-starter.git"
+    "url": "git+https://kseniakap.github.io/trafalgar.git"
   },
   "author": "criitch@yandex.ru",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/web-bee-ru/react-starter/issues"
+    "url": "https://kseniakap.github.io/trafalgar/issues"
   },
-  "homepage": "https://github.com/web-bee-ru/react-starter#readme",
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
