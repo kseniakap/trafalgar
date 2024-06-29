@@ -25,16 +25,17 @@ const SuccessForm: FC<SuccessFormProps> = ({ onclick }) => {
 export default SuccessForm;
 
 const SuccessFormContainer = styled(Box)`
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: ${({ theme }) => theme.spacing(2)};
   height: 100%;
-  position: absolute;
-  z-index: 200;
-  top: 0;
-  left: 0;
   width: 100%;
   padding-inline: 32px;
 `;

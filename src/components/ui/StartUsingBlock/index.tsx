@@ -3,10 +3,10 @@ import { Box } from '@mui/material';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
-import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
 import StartUsingForm from './StartUsingForm';
 import SuccessForm from './SuccessForm';
 import { FormData } from './interfaces';
+import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
 
 const StartUsingBlock: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -46,11 +46,7 @@ const StartUsingBlock: React.FC = () => {
           </Box>
           <StartUsingForm formData={formData} onChangeHandler={onChangeHandler} onSubmitHandler={onSubmitHandler} />
         </FormContentContainer>
-        {isSuccess && (
-
-            <SuccessForm onclick={onClickHandler} />
-
-        )}
+        {isSuccess && <SuccessForm onclick={onClickHandler} />}
       </FormContainer>
     </StartUsingContainer>
   );
@@ -58,16 +54,13 @@ const StartUsingBlock: React.FC = () => {
 
 export default StartUsingBlock;
 
-
-
-
 const StartUsingContainer = styled(Box)`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  position: relative;
-  overflow: hidden;
   padding: ${({ theme }) => theme.spacing(10)};
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
@@ -80,19 +73,23 @@ const BackgroundImage = styled('div')`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
+
   width: 100%;
   height: 35%;
+
   background: url(${StartUsingImg}) center/cover no-repeat;
-  z-index: -1;
 `;
 
 const FormContainer = styled(Box)`
+  z-index: 1;
+
+  padding: ${({ theme }) => theme.spacing(6)};
   margin: auto;
+
   background-color: ${WHITE};
   border-radius: ${({ theme }) => theme.spacing(1)};
   border: 1px solid ${COOL_GRAY_20};
-  padding: ${({ theme }) => theme.spacing(6)};
-  z-index: 1;
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     padding: ${({ theme }) => theme.spacing(2)};
