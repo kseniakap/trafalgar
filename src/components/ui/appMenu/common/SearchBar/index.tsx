@@ -1,7 +1,7 @@
+import Select from '@/components/ui/Select';
 import { Box, Button, MenuItem, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
-import Select from '../../../Select/Selects';
 import { Categories } from '../../lib/Categories';
 import SearchTextField from './SearchTextField';
 
