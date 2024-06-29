@@ -1,4 +1,4 @@
-import { Container, useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 
@@ -23,7 +23,7 @@ const KnowledgeBlock: FC = () => {
             <CountCard
               count={toCompactNumber(data.value) + '+'}
               description={data.title}
-              icon={<img src={tabletMatch ? data.iconAlt : data.icon} alt={data.title} />}
+              icon={tabletMatch ? data.iconAlt : data.icon}
             />
           </li>
         ))}
@@ -33,26 +33,29 @@ const KnowledgeBlock: FC = () => {
 
   return (
     <Block>
-      <Content maxWidth="desktop">
-        <h2 className="heading-5">ЗНАНИЯ</h2>
-        <p className={tabletMatch ? 'heading-4' : 'heading-2'}>
-          Информацию по отдельным заболеваниям ориентированную на пациентов можно найти в соответствующем разделе сайта,
-          статьи разделены на категории.
-        </p>
-        <BtnGroup>
-          <Button
-            className="docBtn"
-            text="Для врачей"
-            style={isDocCategoryState ? ButtonStyle.Contained : ButtonStyle.Outlined}
-            onClick={() => setIsDocCategoryState(true)}
-          />
-          <Button
-            className="patientBtn"
-            text="Для пациентов"
-            style={isDocCategoryState ? ButtonStyle.Outlined : ButtonStyle.Contained}
-            onClick={() => setIsDocCategoryState(false)}
-          />
-        </BtnGroup>
+      <Content>
+        <Head>
+          <h2 className="heading-5">ЗНАНИЯ</h2>
+          <p className={tabletMatch ? 'heading-4' : 'heading-2'}>
+            Информацию по отдельным заболеваниям ориентированную на пациентов можно найти в соответствующем разделе
+            сайта, статьи разделены на категории.
+          </p>
+          <BtnGroup>
+            <Button
+              className="docBtn"
+              text="Для врачей"
+              style={isDocCategoryState ? ButtonStyle.Contained : ButtonStyle.Outlined}
+              onClick={() => setIsDocCategoryState(true)}
+            />
+            <Button
+              className="patientBtn"
+              text="Для пациентов"
+              style={isDocCategoryState ? ButtonStyle.Outlined : ButtonStyle.Contained}
+              onClick={() => setIsDocCategoryState(false)}
+            />
+          </BtnGroup>
+        </Head>
+
         <Stats>
           <img src={dashboardIcon} alt="График публикаций" />
           {renderStatCards(statCardData)}
@@ -68,10 +71,24 @@ const Block = styled.div`
   }
 `;
 
-const Content = styled(Container)`
-  padding: ${({ theme }) => theme.spacing(10, 10)} !important;
-  min-height: 874px;
+const Content = styled.div`
+  max-width: 2400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: ${({ theme }) => theme.spacing(10, 10)};
 
+  ${({ theme }) => theme.breakpoints.down('desktop')} {
+    padding: ${({ theme }) => theme.spacing(10, 5)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down('tablet')} {
+    padding: ${({ theme }) => theme.spacing(6, 2)};
+  }
+`;
+
+const Head = styled.div`
   & > h2 {
     color: ${PRIMARY_60};
     padding-bottom: ${({ theme }) => theme.spacing(1)};
@@ -84,14 +101,6 @@ const Content = styled(Container)`
     ${({ theme }) => theme.breakpoints.down('tablet')} {
       padding-bottom: ${({ theme }) => theme.spacing(4)};
     }
-  }
-
-  ${({ theme }) => theme.breakpoints.down('desktop')} {
-    padding: ${({ theme }) => theme.spacing(10, 5)} !important;
-  }
-
-  ${({ theme }) => theme.breakpoints.down('tablet')} {
-    padding: ${({ theme }) => theme.spacing(6, 2)} !important;
   }
 `;
 
@@ -141,29 +150,45 @@ const BtnGroup = styled.div`
 const Stats = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: ${({ theme }) => theme.spacing(10)};
+
+  & > img {
+    width: 546px;
+    height: 396px;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('desktopL')} {
+    & > img {
+      width: 846px;
+      height: auto;
+    }
+  }
 
   ${({ theme }) => theme.breakpoints.down('desktop')} {
     align-items: flex-start;
-    justify-content: center;
+    gap: ${({ theme }) => theme.spacing(3)};
   }
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     flex-direction: column;
     align-items: center;
 
-    gap: ${({ theme }) => theme.spacing(3)};
-
     & > img {
       width: 100%;
+      height: auto;
     }
   }
 `;
 
 const CountCards = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 320px);
+  grid-template-columns: repeat(2, 420px);
   gap: ${({ theme }) => theme.spacing(3)};
+
+  ${({ theme }) => theme.breakpoints.down('desktopL')} {
+    grid-template-columns: repeat(2, 320px);
+  }
 
   ${({ theme }) => theme.breakpoints.down('desktop')} {
     grid-template-columns: repeat(1, 320px);
