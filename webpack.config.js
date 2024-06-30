@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
   const mode = argv.mode || env.NODE_ENV || 'none';
   const isProduction = mode === 'production';
 
-  const PUBLIC_PATH = env.PUBLIC_PATH || '/';
+  const PUBLIC_PATH = env.PUBLIC_PATH || '/trafalgar';
   const STATIC_PATH = PUBLIC_PATH;
 
   return {
@@ -184,7 +184,7 @@ module.exports = (env, argv) => {
         GIT_COMMIT: env.GIT_COMMIT || '',
         GIT_BRANCH: env.GIT_BRANCH || '',
         DEVELOPMENT_IN_PRODUCTION: env.DEVELOPMENT_IN_PRODUCTION || '',
-        APP_BASE_URL: env.APP_BASE_URL || '/',
+        APP_BASE_URL: env.APP_BASE_URL || '/trafalgar',
         PETS_API_BASE_URL: env.PETS_API_BASE_URL || 'https://petstore3.swagger.io/api/v3',
       }),
       new MiniCssExtractPlugin({

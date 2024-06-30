@@ -2,12 +2,12 @@ import { ReactComponent as cartIcon } from '@/assets/icons/menuCart.svg';
 import { Badge, IconButton, ImageListItem, styled } from '@mui/material';
 import { FC } from 'react';
 
-interface ICartIconWithBadge {
+interface CartIconWithBadge {
   badgeContent: number;
   color?: string;
 }
 
-const CartIconWithBadge: FC<ICartIconWithBadge> = ({ badgeContent, color = 'black' }) => {
+const CartIconWithBadge: FC<CartIconWithBadge> = ({ badgeContent, color = 'black' }) => {
   return (
     <IconButton>
       <Badge badgeContent={badgeContent} color="error">

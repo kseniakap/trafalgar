@@ -2,6 +2,8 @@ import { default as Btn } from '@mui/material/Button';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { SECONDARY_BG, WHITE } from '~/assets/style/colors';
+
 export enum ButtonStyle {
   Contained = 'contained',
   Outlined = 'outlined',
@@ -75,10 +77,10 @@ const StyledButton = styled(Btn)<{ $btnSize?: ButtonSize; $btnStyle: ButtonStyle
   display: flex;
   gap: 8px;
   padding: ${(props) => getPadding(props.$btnSize)};
-  background-color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? 'none' : '#458FF6 !important')};
-  color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? '#458FF6 !important' : 'white')};
+  background-color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? 'none' : `${SECONDARY_BG} !important`)};
+  color: ${(props) => (props.$btnStyle === ButtonStyle.Outlined ? `${SECONDARY_BG} !important` : `${WHITE}`)};
   text-transform: none !important;
-  outline: 2px solid #458ff6 !important;
+  outline: 2px solid ${SECONDARY_BG} !important;
   border: none !important;
   border-radius: 0px !important;
   box-shadow: none !important;

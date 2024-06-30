@@ -1,17 +1,14 @@
 import { Box, Container } from '@mui/material';
-import { FC, useRef, ComponentProps } from 'react';
+import { FC, useRef } from 'react';
 import styled from 'styled-components';
 import { SwiperProps } from 'swiper/react';
 
 import Slider from '~/components/slider/Slider';
 import FactCard from '~/components/ui/Card/FactCard';
+import { factsData } from '~/const/factsData';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
-interface FactsBlockProps {
-  factsData: ComponentProps<typeof FactCard>['data'][];
-}
-
-const FactsBlock: FC<FactsBlockProps> = ({ factsData }) => {
+const FactsBlock: FC = () => {
   const slideId = useRef(1);
 
   const sliderBreakpoints: SwiperProps['breakpoints'] = {

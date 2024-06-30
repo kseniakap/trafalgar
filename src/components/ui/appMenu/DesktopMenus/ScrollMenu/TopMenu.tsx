@@ -5,6 +5,7 @@ import Location from '../../common/Location';
 import SearchBar from '../../common/SearchBar';
 import UserAndCartMenus from '../../common/UserAndCartMenus';
 import BaseMenuContainer from '../../common/ui/BaseMenuContainer';
+import { COOL_GRAY_30 } from '~/assets/style/colors';
 
 const TopMenu: FC = () => {
   return (
@@ -31,6 +32,6 @@ const TopMenuContainer = styled(BaseMenuContainer)(({ theme }) => ({
   },
   alignItems: 'center',
 
-  borderBottom: '1px solid #C1C7CD',
+  borderBottom: `1px solid ${COOL_GRAY_30}`,
   height: '64px',
 }));

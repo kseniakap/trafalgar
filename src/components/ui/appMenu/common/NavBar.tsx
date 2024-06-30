@@ -29,7 +29,7 @@ const NavButton = styled(Button)(({ theme }) => ({
     padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
   },
   [theme.breakpoints.down('desktop')]: {
-    padding: '0px',
+    padding: '0px ',
   },
 }));
 
@@ -37,6 +37,7 @@ const NavBarContainer = styled(Box)`
   display: flex;
   justify-content: start;
   align-items: center;
+  gap: ${({ theme }) => theme.spacing(3)};
   width: 100%;
   height: 48px;
   padding: 8px 0px 8px 0px;

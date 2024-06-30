@@ -4,12 +4,12 @@ import { FC } from 'react';
 
 import { COOL_GRAY_30, WHITE } from '~/assets/style/colors';
 
-interface IMenuButtonProps {
+interface MenuButtonProps {
   onClick?: () => void;
   color?: string;
 }
 
-const MenuButton: FC<IMenuButtonProps> = ({ onClick, color = 'black' }) => {
+const MenuButton: FC<MenuButtonProps> = ({ onClick, color = 'black' }) => {
   return (
     <NavButtonMenu onClick={onClick} startIcon={<StyledMenuIcon color={color} />}>
       <Typography color={color} fontWeight={'500'} fontSize={'16px'}>
@@ -32,7 +32,7 @@ const NavButtonMenu = styled(Button)(({ theme }) => ({
   backgroundColor: WHITE,
 
   minWidth: '108px',
-  [theme.breakpoints.up('desktop')]: {
+  [theme.breakpoints.up('iPad')]: {
     border: `1px solid ${COOL_GRAY_30}`,
   },
 }));

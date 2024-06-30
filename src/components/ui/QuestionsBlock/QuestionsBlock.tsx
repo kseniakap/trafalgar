@@ -1,9 +1,10 @@
-import { FC } from 'react';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
+import { FC } from 'react';
 
-import { allQuestion } from './allQuestions';
-import DecorBlockQuestions from '~/assets/img/decor/decorBlockQuestions.png';
 import { Question } from './Question';
+import DecorBlockQuestions from '~/assets/img/decor/decorBlockQuestions.png';
+import { CAPTION, GRADIENT_END, GRADIENT_START } from '~/assets/style/colors';
+import { allQuestion } from '~/const/allQuestions';
 
 export const QuestionsBlock: FC = () => {
   const { breakpoints } = useTheme();
@@ -25,12 +26,12 @@ const Block = styled('div')(({ theme }) => ({
   'position': 'relative',
   'minHeight': 'auto',
   'padding': '80px 30px',
-  'background': 'linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%)',
+  'background': `linear-gradient(180deg, ${GRADIENT_START} 0%, ${GRADIENT_END} 100%)`,
   '& h5': {
     marginBottom: theme.spacing(1),
     textAlign: 'center',
     textTransform: 'uppercase',
-    color: '#001d6c',
+    color: `${CAPTION}`,
   },
   '& h2': {
     marginBottom: theme.spacing(8),

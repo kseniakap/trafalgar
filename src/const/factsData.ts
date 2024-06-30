@@ -1,7 +1,7 @@
 import artVenueLogo from '~/assets/img/logo/artvenue.png';
 import zoomerrLogo from '~/assets/img/logo/zoomerr.png';
 
-export interface IFactData {
+export interface FactData {
   author: string;
   job: string;
   text: string;
@@ -10,7 +10,7 @@ export interface IFactData {
   avatar?: string;
 }
 
-export const factsData: IFactData[] = [
+export const factsData: FactData[] = [
   {
     author: 'Петров Петр',
     job: 'Невролог',

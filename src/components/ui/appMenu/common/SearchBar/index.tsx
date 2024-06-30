@@ -4,12 +4,13 @@ import { FC } from 'react';
 
 import { Categories } from '../../lib/Categories';
 import SearchTextField from './SearchTextField';
+import { SECONDARY_BG } from '~/assets/style/colors';
 
-interface ISearchBarProps {
+interface SearchBarProps {
   height: string;
 }
 
-const SearchBar: FC<ISearchBarProps> = ({ height }) => {
+const SearchBar: FC<SearchBarProps> = ({ height }) => {
   return (
     <SearchBarContainer height={height}>
       <SearchBox>
@@ -41,11 +42,11 @@ const StyledSelect = styled(Select)`
 
 const StyledButton = styled(Button)`
   width: 105px;
-  background-color: #458ff6;
+  background-color: ${SECONDARY_BG};
   text-transform: none;
 `;
 
-const SearchBarContainer = styled(Box)(({ height }: ISearchBarProps) => ({
+const SearchBarContainer = styled(Box)(({ height }: SearchBarProps) => ({
   display: 'flex',
   gap: '24px',
   width: '100%',

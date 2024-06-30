@@ -4,16 +4,16 @@ import linkedinIcon from '~/assets/icons/linkedin.svg';
 import twitterIcon from '~/assets/icons/twitter.svg';
 import youtubeIcon from '~/assets/icons/youtube.svg';
 
-export interface ILink {
+export interface Link {
   text: string;
   href: string;
 }
 
-export interface ILinkIcon extends ILink {
+export interface LinkIcon extends Link {
   img: string;
 }
 
-export const adultCategory: ILink[] = [
+export const adultCategory: Link[] = [
   {
     text: 'Кардиология',
     href: '#',
@@ -32,7 +32,7 @@ export const adultCategory: ILink[] = [
   },
 ];
 
-export const childCategory: ILink[] = [
+export const childCategory: Link[] = [
   {
     text: 'Педиатрия',
     href: '#',
@@ -51,7 +51,7 @@ export const childCategory: ILink[] = [
   },
 ];
 
-export const newsCategory: ILink[] = [
+export const newsCategory: Link[] = [
   {
     text: 'Новости здравоохранения',
     href: '#',
@@ -70,7 +70,7 @@ export const newsCategory: ILink[] = [
   },
 ];
 
-export const mainCategory: ILink[] = [
+export const mainCategory: Link[] = [
   {
     text: 'Медицина',
     href: '#',
@@ -85,7 +85,7 @@ export const mainCategory: ILink[] = [
   },
 ];
 
-export const socialCategory: ILinkIcon[] = [
+export const socialCategory: LinkIcon[] = [
   {
     text: 'YouTube',
     href: 'https://www.youtube.com/',

@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { Loader } from '../Loader/Loader';
 import { ArrowLink } from '../Text/ArrowLink';
 import LoaderBg from '~/assets/img/arcticles/loader.png';
+import { COOL_GRAY_20 } from '~/assets/style/colors';
 
 interface ImageCardProps {
   image: ReactElement | null;
@@ -54,7 +55,7 @@ export const ImageCard: FC<ImageCardProps> = (props: ImageCardProps) => {
 const MediaCard = styled(Card)<{ $withIcon?: boolean }>`
   display: flex;
   flex-direction: column;
-  border: ${(props) => (props.$withIcon ? 'none' : '1px solid #dde1e6;')};
+  border: ${(props) => (props.$withIcon ? 'none' : `1px solid ${COOL_GRAY_20}`)};
   border-radius: 8px !important;
   box-shadow: none !important;
   height: 100%;

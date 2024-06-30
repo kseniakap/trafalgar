@@ -1,7 +1,7 @@
 import { Container, styled } from '@mui/material';
 import { FC } from 'react';
 
-import { sponsors } from './sponsors';
+import { sponsors } from '~/const/sponsors';
 
 const SponsorsBlock: FC = () => {
   const renderSponsors = () => {

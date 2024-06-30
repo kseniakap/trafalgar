@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { COOL_GRAY_10, COOL_GRAY_30, COOL_GRAY_60 } from '~/assets/style/colors';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 export enum InputType {
@@ -74,19 +75,19 @@ const StyledTextField = styled(TextField)`
   .MuiInputBase-root {
     padding: 0px 2px 2px 0px;
     border-radius: 0;
-    background-color: #f2f4f8 !important;
+    background-color: ${COOL_GRAY_10} !important;
     :hover {
-      background-color: #f2f4f8;
+      background-color: ${COOL_GRAY_10};
       :not(.Mui-disabled, .Mui-error)::before {
-        border-bottom: 1px solid #c1c7cd;
+        border-bottom: 1px solid ${COOL_GRAY_30};
       }
     }
     :focus {
-      background-color: #f2f4f8;
+      background-color: ${COOL_GRAY_10};
     }
     ::before,
     ::after {
-      border-bottom: 1px solid #c1c7cd;
+      border-bottom: 1px solid ${COOL_GRAY_30};
     }
     textarea {
       resize: vertical;
@@ -95,7 +96,7 @@ const StyledTextField = styled(TextField)`
   input,
   textarea {
     padding: 12px 0px 12px 16px;
-    @media (min-width: ${Breakpoints.desktop}px) {
+    @media (min-width: ${Breakpoints.desktopL}px) {
       padding: 16px 0px 16px 20px;
       font-size: 22px;
     }
@@ -104,7 +105,7 @@ const StyledTextField = styled(TextField)`
       font-size: 16px;
       font-weight: 400;
       line-height: 22.4px;
-      color: #697077;
+      color: ${COOL_GRAY_60};
       opacity: unset;
     }
   }

@@ -5,7 +5,7 @@ import CartIconWithBadge from '../common/CartIconWithBadge';
 import Logo from '../common/Logo';
 import MenuButton from '../common/MenuButton';
 import CustomDrawer from './Drawer';
-import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
+import { CAPTION, COOL_GRAY_20, WHITE } from '~/assets/style/colors';
 
 const MobileMenu: FC = () => {
   const [open, setOpen] = useState(false);
@@ -20,8 +20,8 @@ const MobileMenu: FC = () => {
         <StyleToolBar>
           <Logo width="100px" />
           <StyledStack>
-            <CartIconWithBadge badgeContent={9} color="#001D6C" />
-            <MenuButton onClick={toggleDrawer(true)} color="#001D6C" />
+            <CartIconWithBadge badgeContent={9} color={CAPTION} />
+            <MenuButton onClick={toggleDrawer(true)} color={CAPTION} />
           </StyledStack>
         </StyleToolBar>
       </StyledAppBar>
