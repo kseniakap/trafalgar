@@ -17,6 +17,7 @@ const StartUsingBlock: React.FC = () => {
     theme: '',
     question: '',
     groups: [],
+    isAgreedToPolicy: false,
   });
 
   const onSubmitHandler = (e: FormEvent) => {
@@ -28,10 +29,11 @@ const StartUsingBlock: React.FC = () => {
       theme: '',
       question: '',
       groups: [],
+      isAgreedToPolicy: false,
     });
   };
 
-  const onChangeHandler = (name: string, value: string) => {
+  const onChangeHandler = (name: string, value: string | boolean) => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,

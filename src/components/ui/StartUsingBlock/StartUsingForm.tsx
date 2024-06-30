@@ -11,12 +11,12 @@ import { WHITE } from '~/assets/style/colors';
 
 interface StartUsingFormProps {
   onSubmitHandler: (e: FormEvent) => void;
-  onChangeHandler: (name: string, value: string) => void;
+  onChangeHandler: (name: string, value: string | boolean) => void;
   formData: FormData;
 }
 
 const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHandler, formData }) => {
-  const { name, question, surname, theme } = formData;
+  const { name, question, surname, theme, isAgreedToPolicy } = formData;
   const muiTheme = useTheme();
   const isTablet = useMediaQuery(muiTheme.breakpoints.down('tablet'));
   return (
@@ -65,10 +65,12 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
         <FormControlLabel
           control={
             <Checkbox
+              checked={isAgreedToPolicy}
+              onChange={(e) => onChangeHandler('isAgreedToPolicy', e.target.checked)}
               sx={{
                 'alignSelf': 'flex-start',
                 '&.Mui-checked': {
-                  color: '#458FF6', // изменяем цвет на красный
+                  color: '#458FF6',
                 },
               }}
             ></Checkbox>

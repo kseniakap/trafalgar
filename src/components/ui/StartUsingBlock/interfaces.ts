@@ -14,4 +14,5 @@ export interface FormData {
   theme: string;
   question: string;
   groups: GroupsData[];
+  isAgreedToPolicy: boolean;
 }
