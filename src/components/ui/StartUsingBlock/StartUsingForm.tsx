@@ -60,7 +60,6 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
           </Box>
         </FormControl>
         <FormControlLabel
-          required
           control={<Checkbox sx={{ alignSelf: 'flex-start' }}></Checkbox>}
           label="Согласен с политикой обработки данных"
         ></FormControlLabel>
