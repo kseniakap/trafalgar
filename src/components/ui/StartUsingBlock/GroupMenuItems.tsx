@@ -1,5 +1,6 @@
 import { Checkbox, FormControlLabel, List, ListItem } from '@mui/material';
 import { ChangeEvent, FC, useState } from 'react';
+import styled from 'styled-components';
 
 import { groups } from '../../../const/groupsData';
 import { GroupsData, GroupsDataWithChecked } from './interfaces';
@@ -59,7 +60,10 @@ const GroupMenuItems: FC = () => {
     return groupsData.map(({ title, subGroups, checked }) => (
       <div key={title}>
         <ListItem sx={{ padding: '0px', paddingLeft: `${level * 16}px` }}>
-          <FormControlLabel label={title} control={<Checkbox checked={checked} onChange={handleCheck(title)} />} />
+          <FormControlLabel
+            label={title}
+            control={<StyledCheckbox checked={checked} onChange={handleCheck(title)} />}
+          />
         </ListItem>
         {subGroups && (
           <List disablePadding component="div">
@@ -75,7 +79,7 @@ const GroupMenuItems: FC = () => {
       <ListItem sx={{ padding: '0px' }}>
         <FormControlLabel
           label="Выбрать все"
-          control={<Checkbox checked={globalCheck} onChange={handleGlobalCheck} />}
+          control={<StyledCheckbox checked={globalCheck} onChange={handleGlobalCheck} />}
         />
       </ListItem>
       {renderGroups(groupChecked)}
@@ -84,3 +88,9 @@ const GroupMenuItems: FC = () => {
 };
 
 export default GroupMenuItems;
+
+const StyledCheckbox = styled(Checkbox)`
+  &&.Mui-checked {
+    color: #458ff6;
+  }
+`;

@@ -63,7 +63,16 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
           </Box>
         </FormControl>
         <FormControlLabel
-          control={<Checkbox sx={{ alignSelf: 'flex-start' }}></Checkbox>}
+          control={
+            <Checkbox
+              sx={{
+                'alignSelf': 'flex-start',
+                '&.Mui-checked': {
+                  color: '#458FF6', // изменяем цвет на красный
+                },
+              }}
+            ></Checkbox>
+          }
           label={<p className="body-s">Согласен с политикой обработки данных</p>}
         ></FormControlLabel>
         <CustomButton type={ButtonType.Submit} text="Отправить" style={ButtonStyle.Contained}></CustomButton>
