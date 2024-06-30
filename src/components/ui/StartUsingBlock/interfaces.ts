@@ -3,6 +3,11 @@ export interface GroupsData {
   subGroups?: GroupsData[];
 }
 
+export interface GroupsDataWithChecked extends GroupsData {
+  checked: boolean;
+  subGroups?: GroupsDataWithChecked[];
+}
+
 export interface FormData {
   name: string;
   surname: string;
