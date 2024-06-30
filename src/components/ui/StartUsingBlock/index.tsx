@@ -22,6 +22,13 @@ const StartUsingBlock: React.FC = () => {
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     setIsSuccess(true);
+    setFormData({
+      name: '',
+      surname: '',
+      theme: '',
+      question: '',
+      groups: [],
+    });
   };
 
   const onChangeHandler = (name: string, value: string) => {
