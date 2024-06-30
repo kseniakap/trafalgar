@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { FC, ReactElement } from 'react';
 import styled from 'styled-components';
+
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 export enum InputType {
@@ -22,6 +23,7 @@ interface InputProps {
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   className?: string;
+  minRows?: number;
 }
 
 export const Input: FC<InputProps> = (props: InputProps) => {
@@ -36,6 +38,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
     leftIcon,
     rightIcon,
     className,
+    minRows = 3,
   } = props;
 
   return (
@@ -51,7 +54,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
           autoFocus={autoFocus}
           placeholder={placeholder}
           multiline={multiline}
-          minRows={3}
+          minRows={minRows}
           InputProps={{
             startAdornment: leftIcon && <StartIcon position="start">{leftIcon}</StartIcon>,
             endAdornment: rightIcon && <EndIcon position="end">{rightIcon}</EndIcon>,

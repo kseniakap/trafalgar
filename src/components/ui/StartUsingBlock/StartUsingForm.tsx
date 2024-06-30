@@ -1,5 +1,5 @@
 import Select from '@/components/ui/Select';
-import { Box, Checkbox, FormControl, FormControlLabel, Stack } from '@mui/material';
+import { Box, Checkbox, FormControl, FormControlLabel, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { FC, FormEvent } from 'react';
 import styled from 'styled-components';
 
@@ -17,6 +17,8 @@ interface StartUsingFormProps {
 
 const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHandler, formData }) => {
   const { name, question, surname, theme } = formData;
+  const muiTheme = useTheme();
+  const isTablet = useMediaQuery(muiTheme.breakpoints.down('tablet'));
   return (
     <Box onSubmit={onSubmitHandler} component="form">
       <Stack gap="16px">
@@ -48,6 +50,7 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
           placeholder="Ваш вопрос ..."
           value={question}
           onChange={(value) => onChangeHandler('question', value)}
+          minRows={isTablet ? 1 : 3}
         ></Input>
         <FormControl>
           <span style={{ paddingBottom: '8px' }} className="body-s">
@@ -61,7 +64,7 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
         </FormControl>
         <FormControlLabel
           control={<Checkbox sx={{ alignSelf: 'flex-start' }}></Checkbox>}
-          label="Согласен с политикой обработки данных"
+          label={<p className="body-s">Согласен с политикой обработки данных</p>}
         ></FormControlLabel>
         <CustomButton type={ButtonType.Submit} text="Отправить" style={ButtonStyle.Contained}></CustomButton>
       </Stack>

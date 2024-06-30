@@ -27,7 +27,7 @@ export default SuccessForm;
 const SuccessFormContainer = styled(Box)`
   position: absolute;
   z-index: 200;
-  top: 0;
+  top: 100px;
   left: 0;
 
   display: flex;
@@ -38,4 +38,8 @@ const SuccessFormContainer = styled(Box)`
   height: 100%;
   width: 100%;
   padding-inline: 32px;
+
+  ${({ theme }) => theme.breakpoints.down('iPad')} {
+    top: 65px;
+  }
 `;

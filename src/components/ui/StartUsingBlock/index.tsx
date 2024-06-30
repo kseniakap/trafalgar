@@ -1,5 +1,5 @@
 import StartUsingImg from '@/assets/img/startUsing.png';
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
@@ -47,10 +47,10 @@ const StartUsingBlock: React.FC = () => {
       <BackgroundImage />
       <FormContainer>
         <FormContentContainer style={{ visibility: isSuccess ? 'hidden' : 'visible' }}>
-          <Box>
+          <Stack gap={1}>
             <p className="heading-3">Начать использование</p>
             <p className="body">Хотите начать сотрудничество? Напишите нам</p>
-          </Box>
+          </Stack>
           <StartUsingForm formData={formData} onChangeHandler={onChangeHandler} onSubmitHandler={onSubmitHandler} />
         </FormContentContainer>
         {isSuccess && <SuccessForm onclick={onClickHandler} />}
@@ -83,16 +83,20 @@ const BackgroundImage = styled('div')`
   z-index: -1;
 
   width: 100%;
-  height: 35%;
+  height: 45%;
 
   background: url(${StartUsingImg}) center/cover no-repeat;
+
+  ${({ theme }) => theme.breakpoints.down('iPad')} {
+    height: 30%;
+  }
 `;
 
 const FormContainer = styled(Box)`
   z-index: 1;
 
   padding: ${({ theme }) => theme.spacing(6)};
-  margin: auto;
+  margin: 200px auto 0;
 
   background-color: ${WHITE};
   border-radius: ${({ theme }) => theme.spacing(1)};
@@ -100,6 +104,7 @@ const FormContainer = styled(Box)`
 
   ${({ theme }) => theme.breakpoints.down('iPad')} {
     padding: ${({ theme }) => theme.spacing(2)};
+    margin: 65px auto 0;
   }
 `;
 
