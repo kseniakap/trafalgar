@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { groups } from '../../../const/groupsData';
 import { GroupsData, GroupsDataWithChecked } from './interfaces';
+import { SECONDARY_BG } from '~/assets/style/colors';
 
 const GroupMenuItems: FC = () => {
   const addCheckedProperty = (groups: GroupsData[]): GroupsDataWithChecked[] => {
@@ -91,6 +92,6 @@ export default GroupMenuItems;
 
 const StyledCheckbox = styled(Checkbox)`
   &&.Mui-checked {
-    color: #458ff6;
+    color: ${SECONDARY_BG};
   }
 `;

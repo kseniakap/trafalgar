@@ -2,13 +2,12 @@ import { FC } from 'react';
 
 import { PageContainer } from '~/components/page';
 import { About } from '~/components/ui/About/About';
-import FactsBlock from '~/components/ui/FactsBlock/FactsBlock';
 import { Arcticles } from '~/components/ui/Articles/Articles';
+import FactsBlock from '~/components/ui/FactsBlock/FactsBlock';
 import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
-import { Prices } from '~/components/ui/Prices/Prices';
-import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 import KnowledgeBlock from '~/components/ui/KnowledgeBlock/KnowledgeBlock';
+import { Prices } from '~/components/ui/Prices/Prices';
 import { QuestionsBlock } from '~/components/ui/QuestionsBlock/QuestionsBlock';
 import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 import StartUsingBlock from '~/components/ui/StartUsingBlock';
@@ -23,8 +22,9 @@ const HomePage: FC = () => {
       <Arcticles />
       <FactsBlock />
       <KnowledgeBlock />
-      <QuestionsBlock/>
+      <QuestionsBlock />
       <Prices />
+      <StartUsingBlock />
       <SponsorsBlock />
       <FooterBlock />
     </PageContainer>

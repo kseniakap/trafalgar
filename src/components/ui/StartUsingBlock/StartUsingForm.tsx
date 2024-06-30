@@ -7,7 +7,7 @@ import { Button, ButtonStyle, ButtonType } from '../Button/Button';
 import { Input } from '../Input/Input';
 import GroupMenuItems from './GroupMenuItems';
 import { FormData } from './interfaces';
-import { WHITE } from '~/assets/style/colors';
+import { SECONDARY_BG, WHITE } from '~/assets/style/colors';
 
 interface StartUsingFormProps {
   onSubmitHandler: (e: FormEvent) => void;
@@ -70,7 +70,7 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
               sx={{
                 'alignSelf': 'flex-start',
                 '&.Mui-checked': {
-                  color: '#458FF6',
+                  color: SECONDARY_BG,
                 },
               }}
             ></Checkbox>
