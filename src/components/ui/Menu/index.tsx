@@ -6,7 +6,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { FC, MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-interface ICustomMenu {
+interface CustomMenu {
   title: string;
   startIcon?: string;
   items?: {
@@ -16,7 +16,7 @@ interface ICustomMenu {
   disabled?: boolean;
 }
 
-const CustomMenu: FC<ICustomMenu> = ({ title, items, startIcon, disabled = false }) => {
+const CustomMenu: FC<CustomMenu> = ({ title, items, startIcon, disabled = false }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isOpened = Boolean(anchorEl);
 

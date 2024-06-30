@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 
 import Illustration from '../../../assets/img/header-illustration.png';
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
+import { COOL_GRAY_10 } from '~/assets/style/colors';
 import muiTheme from '~/lib/themes/muiTheme';
 
 export const HeaderSection = () => {
@@ -45,7 +46,7 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   width: '100%',
   padding: theme.spacing(10),
-  background: '#f2f4f8',
+  background: `${COOL_GRAY_10}`,
   alignItems: 'center',
   [theme.breakpoints.up('desktop')]: {
     justifyContent: 'space-evenly;',
@@ -61,11 +62,9 @@ const LeftContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: theme.spacing(8),
-  maxWidth: '600px',
+  maxWidth: 'max(41.6vw, 600px)',
   padding: '80px 0',
-  [theme.breakpoints.up('desktop')]: {
-    maxWidth: 'none',
-  },
+
   [theme.breakpoints.down('iPad')]: {
     gap: theme.spacing(6),
     padding: '0',
@@ -110,8 +109,8 @@ const Image = styled('img')(({ theme }) => ({
 }));
 
 const TitleText = styled('span')(({ theme }) => ({
-  fontSize: '54px',
-  lineHeight: '59.4px',
+  fontSize: 'min(3.75vw, 54px)',
+  lineHeight: 'min(4.1vw, 59.4px)',
   fontWeight: '700',
   textAlign: 'left',
   [theme.breakpoints.down('tablet')]: {
@@ -121,8 +120,8 @@ const TitleText = styled('span')(({ theme }) => ({
 }));
 
 const Description = styled('span')(({ theme }) => ({
-  fontSize: '18px',
-  lineHeight: '25.2px',
+  fontSize: 'max(1.25vw, 18px)',
+  lineHeight: 'max(1.75vw, 25.2px)',
   fontWeight: '400',
   textAlign: 'left',
   [theme.breakpoints.down('tablet')]: {

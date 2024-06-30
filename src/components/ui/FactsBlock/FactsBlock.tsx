@@ -5,7 +5,7 @@ import { SwiperProps } from 'swiper/react';
 
 import Slider from '~/components/slider/Slider';
 import FactCard from '~/components/ui/Card/FactCard';
-import { factsData } from '~/components/ui/FactsBlock/factsData';
+import { factsData } from '~/const/factsData';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 const FactsBlock: FC = () => {

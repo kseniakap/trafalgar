@@ -21,4 +21,9 @@ export const COOL_GRAY_30 = '#c1c7cd';
 export const COOL_GRAY_20 = '#dde1e6';
 export const COOL_GRAY_10 = '#f2f4f8';
 
-export const CAPTION = '#f2f4f8';
+export const CAPTION = '#001D6C';
+
+export const SECONDARY_BG = '#458ff6';
+
+export const GRADIENT_START = '#67c3f3';
+export const GRADIENT_END = '#5a98f2';

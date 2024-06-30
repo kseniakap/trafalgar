@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import Minus from '~/assets/icons/minus.svg';
 import Plus from '~/assets/icons/plus.svg';
+import { COOL_GRAY_20 } from '~/assets/style/colors';
 
 interface DropDownCardProps {
   title: string;
@@ -36,7 +37,7 @@ export const DropDownCard: FC<DropDownCardProps> = (props: DropDownCardProps) =>
 };
 
 const DropCard = styled(Card)`
-  border: 1px solid #dde1e6;
+  border: 1px solid ${COOL_GRAY_20};
   border-radius: 8px !important;
   box-shadow: none !important;
 `;

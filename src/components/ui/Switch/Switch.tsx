@@ -3,6 +3,8 @@ import { default as MUISwitch } from '@mui/material/Switch';
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import { COOL_GRAY_40, WHITE, SECONDARY_BG } from '~/assets/style/colors';
+
 export const Switch = () => {
   const [isChecked, setIsChecked] = useState(true);
   return (
@@ -26,11 +28,11 @@ const SwitchContainer = styled(Box)`
     width: 16px;
     height: 16px;
     padding: 2px;
-    color: #fff !important;
+    color: ${WHITE} !important;
     transform: translateX(-16px) !important;
   }
   .Mui-checked + .MuiSwitch-track {
-    background: #458ff6 !important;
+    background: ${SECONDARY_BG} !important;
     opacity: 1 !important;
   }
   .MuiSwitch-track {
@@ -38,7 +40,7 @@ const SwitchContainer = styled(Box)`
     height: 16px;
     padding: 2px;
     border-radius: 33px;
-    background: #a2a9b0;
+    background: ${COOL_GRAY_40};
   }
   .MuiSwitch-thumb {
     width: 12px;

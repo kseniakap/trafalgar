@@ -2,14 +2,14 @@ import Arcticle1 from '~/assets/img/arcticles/arcticle1.png';
 import Arcticle2 from '~/assets/img/arcticles/arcticle2.png';
 import Arcticle3 from '~/assets/img/arcticles/arcticle3.png';
 
-interface IArcticle {
+interface Arcticle {
   title: string;
   description: string;
   img: string | null;
   alt: string | null;
   isLoading: boolean;
 }
-export const arcticlesList: IArcticle[] = [
+export const arcticlesList: Arcticle[] = [
   {
     title: 'Головная боль',
     description: 'Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы ...',

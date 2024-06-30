@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { ImageCard } from '../Card/ImgCard';
-import { arcticlesList } from './arcticlesData';
+import { CAPTION } from '~/assets/style/colors';
+import { arcticlesList } from '~/const/arcticlesData';
 
 export const Arcticles = () => {
   const arcticles = arcticlesList.map((arcticle, index: number) => (
@@ -54,7 +55,7 @@ const Title = styled(Box)`
   gap: ${({ theme }) => theme.spacing(1)};
 `;
 const TitleText = styled(Box)`
-  color: #001d6c;
+  color: ${CAPTION};
 `;
 
 const ArcticlesList = styled(Box)`

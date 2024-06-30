@@ -1,13 +1,15 @@
-import { FC, useState } from 'react';
-import { styled, useMediaQuery, useTheme } from '@mui/material';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { IAllQuestion } from './allQuestions';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import { FC, useState } from 'react';
 
-export const Question: FC<IAllQuestion> = ({ question, answer }) => {
+import { AllQuestion } from '../../../const/allQuestions';
+import { COOL_GRAY_20 } from '~/assets/style/colors';
+
+export const Question: FC<AllQuestion> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { breakpoints } = useTheme();
@@ -40,7 +42,7 @@ export const Question: FC<IAllQuestion> = ({ question, answer }) => {
 const StyledAccordion = styled(Accordion)(({ theme }) => ({
   'margin': '0px!important',
   'padding': `${theme.spacing(2)}!important`,
-  'border': '1px solid #dde1e6',
+  'border': `1px solid ${COOL_GRAY_20}`,
   'borderRadius': `${theme.spacing(1)}!important`,
   '& p': {
     marginTop: theme.spacing(3),

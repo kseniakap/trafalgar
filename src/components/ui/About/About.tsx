@@ -1,31 +1,9 @@
 import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
-import ClinicSearch from '../../../assets/icons/clinicSearch.svg';
-import Consultation from '../../../assets/icons/consultation.svg';
-import Tests from '../../../assets/icons/tests.svg';
 import { ImageCard } from '../Card/ImgCard';
+import { cardsInfo } from '~/const/cardsInfo';
 
-const cardsInfo = [
-  {
-    title: 'Консультация',
-    description: 'На нашем форуме вы найдете ответы на вопросы',
-    icon: Consultation,
-    alt: 'consultation icon',
-  },
-  {
-    title: 'Тесты',
-    description: 'Вы можете пройти тесты на нашем сайте',
-    icon: Tests,
-    alt: 'tests icon',
-  },
-  {
-    title: 'Поиск клиники',
-    description: 'Мы поможем найти Вам ближайшую поликлинику',
-    icon: ClinicSearch,
-    alt: 'clinic search icon',
-  },
-];
 export const About = () => {
   const cards = cardsInfo.map((card, index) => (
     <CardContainer key={index}>
