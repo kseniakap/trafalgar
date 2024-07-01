@@ -6,7 +6,7 @@ import { FC, useState } from 'react';
 import { COOL_GRAY_10, COOL_GRAY_30, COOL_GRAY_60 } from '~/assets/style/colors';
 
 const Select: FC<SelectProps> = ({ variant = 'outlined', children, placeholder, ...rest }) => {
-  const [currentItem, setCurrentItem] = useState<string>('');
+  const [currentItem, setCurrentItem] = useState('');
 
   const handleChange = (event: SelectChangeEvent<unknown>) => {
     setCurrentItem(event.target.value as string);
