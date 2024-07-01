@@ -11,7 +11,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "dev": "webpack-cli serve --env NODE_ENV=development --mode development",
+    "dev": "webpack-cli serve --env NODE_ENV=development PUBLIC_PATH=/ APP_BASE_URL=/ --mode development",
     "build": "webpack --env NODE_ENV=production --mode production",
     "build:dev": "webpack --env NODE_ENV=development --mode development",
     "start": "node index.js",
