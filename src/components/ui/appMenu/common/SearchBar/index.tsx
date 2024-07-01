@@ -2,7 +2,7 @@ import Select from '@/components/ui/Select';
 import { Box, Button, MenuItem, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
-import { Categories } from '../../lib/Categories';
+import { Categories } from '../../../../../const/categories';
 import SearchTextField from './SearchTextField';
 import { SECONDARY_BG } from '~/assets/style/colors';
 

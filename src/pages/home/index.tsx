@@ -17,15 +17,33 @@ const HomePage: FC = () => {
   return (
     <PageContainer>
       <AppMenu />
-      <HeaderSection />
-      <About />
-      <Arcticles />
-      <FactsBlock />
-      <KnowledgeBlock />
-      <QuestionsBlock />
-      <Prices />
-      <StartUsingBlock />
-      <SponsorsBlock />
+      <a id="Главная">
+        <HeaderSection />
+      </a>
+      <a id="О проекте">
+        <About />
+      </a>
+      <a id="Статьи">
+        <Arcticles />
+      </a>
+      <a id="Отзывы">
+        <FactsBlock />
+      </a>
+      <a id="Знания">
+        <KnowledgeBlock />
+      </a>
+      <a id="Вопросы">
+        <QuestionsBlock />
+      </a>
+      <a id="Цены">
+        <Prices />
+      </a>
+      <a id="Оставить заявку">
+        <StartUsingBlock />
+      </a>
+      <a id="Спонсоры">
+        <SponsorsBlock />
+      </a>
       <FooterBlock />
     </PageContainer>
   );

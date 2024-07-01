@@ -1,16 +1,17 @@
 import { Box, Button, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 
-import { navigationLinks } from '../lib/NavigationLinks';
 import MenuButton from './MenuButton';
+import { navigationLinks } from '~/const/navigationLinks';
 
 const NavBar: FC = () => {
   return (
     <NavBarContainer>
       <MenuButton />
+
       <NavButtonsContainer>
         {navigationLinks.map((nav) => (
-          <NavButton key={nav}>
+          <NavButton key={nav} href={`#${nav}`}>
             <Typography fontWeight={'500'} fontSize={'16px'}>
               {nav}
             </Typography>
