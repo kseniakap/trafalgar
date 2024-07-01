@@ -9,6 +9,12 @@ export enum ButtonStyle {
   Outlined = 'outlined',
 }
 
+export enum ButtonType {
+  Submit = 'submit',
+  Button = 'button',
+  Reset = 'reset',
+}
+
 export enum ButtonSize {
   Small = 1,
   Medium = 2,
@@ -24,6 +30,7 @@ export enum ButtonTextSize {
 interface ButtonProps {
   text: string;
   style: ButtonStyle;
+  type?: ButtonType;
   size?: ButtonSize;
   textSize?: ButtonTextSize;
   fullWidth?: boolean;
@@ -44,7 +51,7 @@ const getPadding = (size?: ButtonSize) => {
 };
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
-  const { text, style, size, textSize, fullWidth, onClick, leftIcon, className } = props;
+  const { text, style, size, textSize, fullWidth, onClick, leftIcon, className, type } = props;
   return (
     <StyledButton
       variant={style}
@@ -52,6 +59,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
       $btnSize={size}
       $btnStyle={style}
       fullWidth={fullWidth}
+      type={type}
       className={className}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {

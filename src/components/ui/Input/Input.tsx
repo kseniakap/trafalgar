@@ -24,6 +24,7 @@ interface InputProps {
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   className?: string;
+  minRows?: number;
 }
 
 export const Input: FC<InputProps> = (props: InputProps) => {
@@ -38,6 +39,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
     leftIcon,
     rightIcon,
     className,
+    minRows = 3,
   } = props;
 
   return (
@@ -53,7 +55,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
           autoFocus={autoFocus}
           placeholder={placeholder}
           multiline={multiline}
-          minRows={3}
+          minRows={minRows}
           InputProps={{
             startAdornment: leftIcon && <StartIcon position="start">{leftIcon}</StartIcon>,
             endAdornment: rightIcon && <EndIcon position="end">{rightIcon}</EndIcon>,

@@ -1,29 +1,49 @@
 import { FC } from 'react';
 
-import AppMenu from '~/components/menu';
 import { PageContainer } from '~/components/page';
 import { About } from '~/components/ui/About/About';
-import FactsBlock from '~/components/ui/FactsBlock/FactsBlock';
 import { Arcticles } from '~/components/ui/Articles/Articles';
+import FactsBlock from '~/components/ui/FactsBlock/FactsBlock';
 import FooterBlock from '~/components/ui/FooterBlock/FooterBlock';
 import { HeaderSection } from '~/components/ui/HeaderSection/HeaderSection';
-import { Prices } from '~/components/ui/Prices/Prices';
-import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
 import KnowledgeBlock from '~/components/ui/KnowledgeBlock/KnowledgeBlock';
+import { Prices } from '~/components/ui/Prices/Prices';
 import { QuestionsBlock } from '~/components/ui/QuestionsBlock/QuestionsBlock';
+import SponsorsBlock from '~/components/ui/SponsorsBlock/SponsorsBlock';
+import StartUsingBlock from '~/components/ui/StartUsingBlock';
+import AppMenu from '~/components/ui/appMenu';
 
 const HomePage: FC = () => {
   return (
     <PageContainer>
       <AppMenu />
-      <HeaderSection />
-      <About />
-      <Arcticles />
-      <FactsBlock />
-      <KnowledgeBlock />
-      <QuestionsBlock/>
-      <Prices />
-      <SponsorsBlock />
+      <a id="Главная">
+        <HeaderSection />
+      </a>
+      <a id="О проекте">
+        <About />
+      </a>
+      <a id="Статьи">
+        <Arcticles />
+      </a>
+      <a id="Отзывы">
+        <FactsBlock />
+      </a>
+      <a id="Знания">
+        <KnowledgeBlock />
+      </a>
+      <a id="Вопросы">
+        <QuestionsBlock />
+      </a>
+      <a id="Цены">
+        <Prices />
+      </a>
+      <a id="Оставить заявку">
+        <StartUsingBlock />
+      </a>
+      <a id="Спонсоры">
+        <SponsorsBlock />
+      </a>
       <FooterBlock />
     </PageContainer>
   );
