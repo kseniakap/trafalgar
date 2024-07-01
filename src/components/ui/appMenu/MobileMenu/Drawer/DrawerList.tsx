@@ -2,10 +2,10 @@ import { Box, Button, Divider, List, ListItem, Stack, styled, Typography } from 
 import { FC, Fragment } from 'react';
 import { Link } from 'react-scroll';
 
-import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
 import { navigationLinks } from '../../../../../const/navigationLinks';
 import Logo from '../../common/Logo';
 import SearchTextField from '../../common/SearchBar/SearchTextField';
+import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
 
 interface DrawerListProps {
   closeDrawer: () => void;
@@ -24,13 +24,13 @@ const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
         <List sx={{ padding: '0px' }}>
           {navigationLinks.map((nav) => (
             <Fragment key={nav}>
-              <StyledListItem key={nav}>
-                <Link to={nav} offset={-80}  onClick={closeDrawer}>
+              <Link to={nav} offset={-80} onClick={closeDrawer}>
+                <StyledListItem key={nav}>
                   <Typography color="black" fontWeight={'500'} fontSize={'16px'}>
                     {nav}
                   </Typography>
-                </Link>
-              </StyledListItem>
+                </StyledListItem>
+              </Link>
               <Divider />
             </Fragment>
           ))}
