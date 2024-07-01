@@ -1,11 +1,11 @@
 import { Box, Button, Divider, List, ListItem, Stack, styled, Typography } from '@mui/material';
 import { FC, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
+import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
+import { navigationLinks } from '../../../../../const/navigationLinks';
 import Logo from '../../common/Logo';
 import SearchTextField from '../../common/SearchBar/SearchTextField';
-import { navigationLinks } from '../../lib/NavigationLinks';
-import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
 
 interface DrawerListProps {
   closeDrawer: () => void;
@@ -24,12 +24,12 @@ const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
         <List sx={{ padding: '0px' }}>
           {navigationLinks.map((nav) => (
             <Fragment key={nav}>
-              <StyledListItem onClick={closeDrawer} key={nav}>
-                <StyledLink to="#">
+              <StyledListItem key={nav}>
+                <Link to={nav} offset={-80}  onClick={closeDrawer}>
                   <Typography color="black" fontWeight={'500'} fontSize={'16px'}>
                     {nav}
                   </Typography>
-                </StyledLink>
+                </Link>
               </StyledListItem>
               <Divider />
             </Fragment>
@@ -68,13 +68,4 @@ const StyledListItem = styled(ListItem)`
   &:hover {
     background-color: ${COOL_GRAY_10};
   }
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-  width: 100%;
-
-  -webkit-tap-highlight-color: transparent !important;
-  outline: none !important;
 `;
