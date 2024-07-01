@@ -7,7 +7,7 @@ import { Button, ButtonStyle, ButtonType } from '../Button/Button';
 import { Input } from '../Input/Input';
 import GroupMenuItems from './GroupMenuItems';
 import { FormData } from './interfaces';
-import { SECONDARY_BG, WHITE } from '~/assets/style/colors';
+import { SECONDARY_BG } from '~/assets/style/colors';
 
 interface StartUsingFormProps {
   onSubmitHandler: (e: FormEvent) => void;
@@ -56,11 +56,11 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
           <span style={{ paddingBottom: '8px' }} className="body-s">
             Группы
           </span>
-          <Box sx={{ height: '48px' }}>
+          <FormControl hiddenLabel fullWidth sx={{ height: '48px' }}>
             <Select placeholder="Группы" variant="filled">
               <GroupMenuItems />
             </Select>
-          </Box>
+          </FormControl>
         </FormControl>
         <FormControlLabel
           control={
@@ -77,7 +77,9 @@ const StartUsingForm: FC<StartUsingFormProps> = ({ onSubmitHandler, onChangeHand
           }
           label={<p className="body-s">Согласен с политикой обработки данных</p>}
         ></FormControlLabel>
-        <CustomButton type={ButtonType.Submit} text="Отправить" style={ButtonStyle.Contained}></CustomButton>
+        <Box sx={{ alignSelf: 'flex-end', width: '140px' }}>
+          <Button style={ButtonStyle.Contained} type={ButtonType.Submit} text="Отправить"></Button>
+        </Box>
       </Stack>
     </Box>
   );
@@ -89,10 +91,4 @@ const CustomInput = styled(Input)`
   .MuiInputBase-root {
     height: 48px;
   }
-`;
-
-const CustomButton = styled(Button)`
-  align-self: flex-end;
-  width: 140px;
-  color: ${WHITE} !important;
 `;

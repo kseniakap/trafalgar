@@ -20,7 +20,6 @@ const Select: FC<SelectProps> = ({ variant = 'outlined', children, placeholder, 
       displayEmpty
       renderValue={(value) => (value as string) || placeholder}
       IconComponent={KeyboardArrowDownIcon}
-      hiddenLabel
       {...rest}
     >
       {children}
