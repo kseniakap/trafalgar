@@ -1,17 +1,22 @@
 import { Box, Button, Divider, List, ListItem, Stack, styled, Typography } from '@mui/material';
-import { FC, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { FC } from 'react';
+import { NavHashLink } from 'react-router-hash-link';
 
 import Logo from '../../common/Logo';
 import SearchTextField from '../../common/SearchBar/SearchTextField';
-import { navigationLinks } from '../../lib/NavigationLinks';
 import { COOL_GRAY_10, COOL_GRAY_20, SECONDARY_BG } from '~/assets/style/colors';
+import { navigationLinks } from '~/const/navigationLinks';
 
 interface DrawerListProps {
   closeDrawer: () => void;
 }
 
 const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
+  const handleScroll = (el: HTMLElement) => {
+    const yOffset = -80;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
   return (
     <DrawerContainer sx={{ width: '256px' }} role="presentation">
       <Stack spacing={2}>
@@ -22,17 +27,15 @@ const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
           <SearchTextField variant="standard" />
         </Box>
         <List sx={{ padding: '0px' }}>
-          {navigationLinks.map((nav) => (
-            <Fragment key={nav}>
-              <StyledListItem onClick={closeDrawer} key={nav}>
-                <StyledLink to="#">
-                  <Typography color="black" fontWeight={'500'} fontSize={'16px'}>
-                    {nav}
-                  </Typography>
-                </StyledLink>
+          {Object.entries(navigationLinks).map(([, value]) => (
+            <StyledLink key={value.id} to={`#${value.id}`} scroll={handleScroll}>
+              <StyledListItem onClick={closeDrawer}>
+                <Typography color="black" fontWeight={'500'} fontSize={'16px'}>
+                  {value.title}
+                </Typography>
               </StyledListItem>
               <Divider />
-            </Fragment>
+            </StyledLink>
           ))}
         </List>
       </Stack>
@@ -44,6 +47,15 @@ const DrawerList: FC<DrawerListProps> = ({ closeDrawer }) => {
 };
 
 export default DrawerList;
+
+const StyledLink = styled(NavHashLink)`
+  color: black;
+  text-decoration: none;
+  width: 100%;
+
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+`;
 
 const StyledButton = styled(Button)`
   color: ${SECONDARY_BG};
@@ -68,13 +80,4 @@ const StyledListItem = styled(ListItem)`
   &:hover {
     background-color: ${COOL_GRAY_10};
   }
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-  width: 100%;
-
-  -webkit-tap-highlight-color: transparent !important;
-  outline: none !important;
 `;

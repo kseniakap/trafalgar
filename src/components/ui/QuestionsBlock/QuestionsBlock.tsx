@@ -5,12 +5,13 @@ import { Question } from './Question';
 import DecorBlockQuestions from '~/assets/img/decor/decorBlockQuestions.png';
 import { CAPTION, GRADIENT_END, GRADIENT_START } from '~/assets/style/colors';
 import { allQuestion } from '~/const/allQuestions';
+import { navigationLinks } from '~/const/navigationLinks';
 
 export const QuestionsBlock: FC = () => {
   const { breakpoints } = useTheme();
   const tabletMatch = useMediaQuery(breakpoints.down('tablet'));
   return (
-    <Block>
+    <Block id={navigationLinks.QUESTIONS.id}>
       <h5 className="heading-5">Вопросы</h5>
       <h2 className={tabletMatch ? 'heading-4' : 'heading-2'}>Ответы на частые вопросы</h2>
       <AllQuestionsBlock>

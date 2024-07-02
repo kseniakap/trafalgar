@@ -1,21 +1,28 @@
 import { Box, Button, styled, Typography } from '@mui/material';
 import { FC } from 'react';
+import { NavHashLink } from 'react-router-hash-link';
 
 import MenuButton from './MenuButton';
 import { navigationLinks } from '~/const/navigationLinks';
 
 const NavBar: FC = () => {
+  const handleScroll = (el: HTMLElement) => {
+    const yOffset = -128;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
   return (
     <NavBarContainer>
       <MenuButton />
-
       <NavButtonsContainer>
-        {navigationLinks.map((nav) => (
-          <NavButton key={nav} href={`#${nav}`}>
-            <Typography fontWeight={'500'} fontSize={'16px'}>
-              {nav}
-            </Typography>
-          </NavButton>
+        {Object.entries(navigationLinks).map(([, value]) => (
+          <NavHashLink key={value.id} to={`#${value.id}`} scroll={handleScroll}>
+            <NavButton>
+              <Typography fontWeight={'500'} fontSize={'16px'}>
+                {value.title}
+              </Typography>
+            </NavButton>
+          </NavHashLink>
         ))}
       </NavButtonsContainer>
     </NavBarContainer>

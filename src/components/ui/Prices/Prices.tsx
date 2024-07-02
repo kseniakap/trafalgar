@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { PricingCard } from '../Card/PricingCard';
 import { Switch } from '../Switch/Switch';
 import { CAPTION, COOL_GRAY_10 } from '~/assets/style/colors';
+import { navigationLinks } from '~/const/navigationLinks';
 import { prices } from '~/const/pricesData';
 
 export const Prices = () => {
@@ -23,7 +24,7 @@ export const Prices = () => {
     );
   });
   return (
-    <PricesContainer>
+    <PricesContainer id={navigationLinks.PRICES.id}>
       <Title>
         <BlockName component="span" className="caption">
           Цены

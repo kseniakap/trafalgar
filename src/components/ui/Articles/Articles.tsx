@@ -5,8 +5,9 @@ import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Butto
 import { ImageCard } from '../Card/ImgCard';
 import { CAPTION } from '~/assets/style/colors';
 import { arcticlesList } from '~/const/arcticlesData';
+import { navigationLinks } from '~/const/navigationLinks';
 
-export const Arcticles = () => {
+export const Articles = () => {
   const arcticles = arcticlesList.map((arcticle, index: number) => (
     <CardContainer key={index} component="li">
       <ImageCard
@@ -20,7 +21,7 @@ export const Arcticles = () => {
     </CardContainer>
   ));
   return (
-    <ArcticlesContainer>
+    <ArcticlesContainer id={navigationLinks.ARTICLES.id}>
       <Title>
         <TitleText component="span" className="caption">
           Статьи

@@ -7,6 +7,7 @@ import StartUsingForm from './StartUsingForm';
 import SuccessForm from './SuccessForm';
 import { FormData } from './interfaces';
 import { COOL_GRAY_20, WHITE } from '~/assets/style/colors';
+import { navigationLinks } from '~/const/navigationLinks';
 
 const StartUsingBlock: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -47,7 +48,7 @@ const StartUsingBlock: React.FC = () => {
   return (
     <StartUsingContainer>
       <BackgroundImage />
-      <FormContainer>
+      <FormContainer id={navigationLinks.START_USING.id}>
         <FormContentContainer style={{ visibility: isSuccess ? 'hidden' : 'visible' }}>
           <Stack gap={1}>
             <p className="heading-3">Начать использование</p>

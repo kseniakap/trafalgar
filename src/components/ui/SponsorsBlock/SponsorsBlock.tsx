@@ -1,6 +1,7 @@
 import { Container, styled } from '@mui/material';
 import { FC } from 'react';
 
+import { navigationLinks } from '~/const/navigationLinks';
 import { sponsors } from '~/const/sponsors';
 
 const SponsorsBlock: FC = () => {
@@ -17,11 +18,9 @@ const SponsorsBlock: FC = () => {
   };
 
   return (
-    <>
-      <Block>
-        <Content maxWidth="desktop">{renderSponsors()}</Content>
-      </Block>
-    </>
+    <Block id={navigationLinks.SPONSORS.id}>
+      <Content maxWidth="desktop">{renderSponsors()}</Content>
+    </Block>
   );
 };
 

@@ -6,6 +6,7 @@ import { SwiperProps } from 'swiper/react';
 import Slider from '~/components/slider/Slider';
 import FactCard from '~/components/ui/Card/FactCard';
 import { factsData } from '~/const/factsData';
+import { navigationLinks } from '~/const/navigationLinks';
 import { Breakpoints } from '~/lib/breakpoints/breakpoints';
 
 const FactsBlock: FC = () => {
@@ -24,13 +25,11 @@ const FactsBlock: FC = () => {
   });
 
   return (
-    <>
-      <Block>
-        <SliderContainer maxWidth="desktop" $breakpoint={Breakpoints.iPad}>
-          <FactsSlider breakpoints={sliderBreakpoints} slidesPerView={1} slides={slides} />
-        </SliderContainer>
-      </Block>
-    </>
+    <Block id={navigationLinks.FACTS.id}>
+      <SliderContainer maxWidth="desktop" $breakpoint={Breakpoints.iPad}>
+        <FactsSlider breakpoints={sliderBreakpoints} slidesPerView={1} slides={slides} />
+      </SliderContainer>
+    </Block>
   );
 };
 
