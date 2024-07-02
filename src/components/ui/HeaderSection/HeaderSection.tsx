@@ -4,11 +4,12 @@ import Box from '@mui/material/Box';
 import Illustration from '../../../assets/img/header-illustration.png';
 import { Button, ButtonSize, ButtonStyle, ButtonTextSize } from '../Button/Button';
 import { COOL_GRAY_10 } from '~/assets/style/colors';
+import { navigationLinks } from '~/const/navigationLinks';
 import muiTheme from '~/lib/themes/muiTheme';
 
 export const HeaderSection = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer id={navigationLinks.MAIN.id}>
       <LeftContainer>
         <Title>
           <TitleText>ДОКАЗАТЕЛЬНАЯ МЕДИЦИНА ДЛЯ ВСЕХ</TitleText>

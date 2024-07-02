@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import { CountCard } from '../Card/CountCard';
 import { StatCardData, statCardData } from './statCardData';
 import dashboardIcon from '~/assets/icons/dashboard.svg';
-import { PRIMARY_60, COOL_GRAY_90 } from '~/assets/style/colors';
+import { COOL_GRAY_90, PRIMARY_60 } from '~/assets/style/colors';
 import { Button, ButtonStyle } from '~/components/ui/Button/Button';
+import { navigationLinks } from '~/const/navigationLinks';
 import { toCompactNumber } from '~/utils/toCompactNum';
 
 const KnowledgeBlock: FC = () => {
@@ -32,7 +33,7 @@ const KnowledgeBlock: FC = () => {
   };
 
   return (
-    <Block>
+    <Block id={navigationLinks.KNOWLEDGE.id}>
       <Content>
         <Head>
           <h2 className="heading-5">ЗНАНИЯ</h2>

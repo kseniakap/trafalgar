@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { ImageCard } from '../Card/ImgCard';
 import { cardsInfo } from '~/const/cardsInfo';
+import { navigationLinks } from '~/const/navigationLinks';
 
 export const About = () => {
   const cards = cardsInfo.map((card, index) => (
@@ -17,7 +18,7 @@ export const About = () => {
     </CardContainer>
   ));
   return (
-    <AboutContainer>
+    <AboutContainer id={navigationLinks.ABOUT.id}>
       <Title>
         <Box component="span" className="heading-2">
           О проекте
