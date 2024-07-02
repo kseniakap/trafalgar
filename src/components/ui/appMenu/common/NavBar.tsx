@@ -1,6 +1,5 @@
 import { Box, Button, styled, Typography } from '@mui/material';
 import { FC } from 'react';
-import { Link } from 'react-scroll';
 
 import MenuButton from './MenuButton';
 import { navigationLinks } from '~/const/navigationLinks';
@@ -9,15 +8,14 @@ const NavBar: FC = () => {
   return (
     <NavBarContainer>
       <MenuButton />
+
       <NavButtonsContainer>
         {navigationLinks.map((nav) => (
-          <Link key={nav} to={nav} smooth={true} offset={-128} duration={200}>
-            <NavButton>
-              <Typography fontWeight={'500'} fontSize={'16px'}>
-                {nav}
-              </Typography>
-            </NavButton>
-          </Link>
+          <NavButton key={nav} href={`#${nav}`}>
+            <Typography fontWeight={'500'} fontSize={'16px'}>
+              {nav}
+            </Typography>
+          </NavButton>
         ))}
       </NavButtonsContainer>
     </NavBarContainer>
